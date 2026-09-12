@@ -1,0 +1,665 @@
+{
+  "Manifest": {
+    "name": "ATI Abzar Pishro",
+    "shortName": "ATI Abzar",
+    "description": "Specialized engineering and trading company providing advanced machining solutions and high-performance cutting tools."
+  },
+  "Error": {
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+    "title": "Something went wrong!"
+  },
+
+  "LocaleLayout": {
+    "title": "Ati Abzar Pishro"
+  },
+
+  "Header": {
+    "logoLine1": "ATI",
+    "logoLine2": "ABZAR PISHRO",
+
+    "Search": {
+      "placeholder": "Search by brand or category",
+      "products": "Products",
+      "searching": "Searching...",
+      "noResults": "No products found",
+      "noResultsDescription": "Try searching with a different keyword."
+    },
+
+    "Navigation": {
+      "home": "Home",
+      "ourPartners": "Our Partners",
+      "representations": "Sales Network",
+      "technicalInformation": "News & Media",
+      "contactUs": "Contact Us",
+      "aboutUs": "About Us",
+      "faq": "FAQ",
+      "technicalDropdown": {
+        "news": {
+          "title": "News",
+          "description": "Company news and updates"
+        },
+
+        "videoClips": {
+          "title": "Video Clips",
+          "description": "Product & machining videos"
+        },
+
+        "brochures": {
+          "title": "Tech News / Brochures",
+          "description": "Technical updates, product news & brochures"
+        },
+
+        "catalogues": {
+          "title": "Catalogues",
+          "description": "Product & technical data"
+        },
+
+        "softwares": {
+          "title": "Softwares",
+          "description": "Engineering applications"
+        }
+      }
+    }
+  },
+
+  "Home": {
+    "companyStory": {
+      "eyebrow": "Machining & Engineering Solutions",
+
+      "experience": "Years of experience and expertise in machining",
+
+      "titleLine1": "Beyond",
+      "titleLine2": "Tools Supply",
+
+      "description1": "ATI Abzar Pishro Company was established in 2012 as an engineering and trading company specializing in cutting tools. Supported by more than 25 years of experience and the technical knowledge of machining experts, the company has developed extensive expertise in the design, manufacture and supply of standard and special cutting tools for a wide range of industries.",
+
+      "description2": "Over the years, ATI Abzar Pishro has obtained representation from reputable Korean and European manufacturers and has continuously worked to enhance technical knowledge and equip different industries with modern tooling solutions aimed at achieving greater productivity and machining performance.",
+
+      "description3": "ATI Abzar Pishro considers its mission to provide advanced machining solutions, specialized consulting for selecting optimal cutting tools, after-sales services, technical customer support, and professional training courses and seminars. Guided by the vision and slogan “ATI — All Together to Improve”, the company remains committed to improving productivity and building close, long-term cooperation with customers across various industrial sectors."
+    },
+    "capabilities": {
+      "eyebrow": "Engineering Capabilities",
+
+      "label": "From Tooling to Process",
+
+      "intro": "ATI Abzar Pishro goes beyond tool supply, delivering engineering support from cutting-tool selection to machining-process optimization.",
+
+      "items": {
+        "process": {
+          "titleLine1": "Process",
+          "titleLine2": "Optimization",
+          "description": "Analyzing production processes and delivering engineering solutions to improve productivity, reduce machining time and optimize cutting conditions."
+        },
+
+        "consulting": {
+          "titleLine1": "Tool Selection",
+          "titleLine2": "& Engineering Consulting",
+          "description": "Technical visits, machining analysis and selection of the right cutting tools based on the workpiece, material, machine and process conditions."
+        },
+
+        "tools": {
+          "titleLine1": "Standard",
+          "titleLine2": "& Special Cutting Tools",
+          "description": "Supplying standard and special-purpose cutting tools for demanding industrial applications and specialized machining processes."
+        },
+
+        "oem": {
+          "titleLine1": "Complete Tooling",
+          "titleLine2": "For OEM Projects",
+          "description": "Engineering and supplying complete tooling packages for OEM projects with a focus on process integration, quality and production efficiency."
+        },
+
+        "training": {
+          "titleLine1": "Advanced Machining",
+          "titleLine2": "Technical Training",
+          "description": "Providing professional courses and seminars in cutting-tool technology and modern machining to strengthen technical knowledge across industries."
+        }
+      }
+    },
+    "industries": {
+      "eyebrow": "Industries & Applications",
+
+      "titleLine1": "Engineering for",
+      "titleLine2": "Critical Industries",
+
+      "description": "ATI Abzar Pishro develops machining solutions around the specialized demands of diverse industries, from automotive manufacturing and energy to aerospace and advanced industrial applications.",
+
+      "core": {
+        "title": "Machining",
+        "subtitle": "ATI Engineering Core"
+      },
+
+      "items": {
+        "automotive": "Automotive Parts",
+        "power": "Power Generation",
+        "machinery": "Gearbox & Machinery",
+        "steel": "Steel, Pipe & Rolling",
+        "mold": "Mold & Die",
+        "oilGas": "Oil & Gas",
+        "railway": "Railway Industry",
+        "aerospace": "Aerospace"
+      }
+    },
+    "partners": {
+      "eyebrow": "Global Partners",
+      "label": "International Brands",
+      "intro": "ATI Abzar Pishro works with established international manufacturers of machining tools and industrial solutions to deliver advanced products and specialized technologies across diverse industries.",
+      "scrollHint": "Continue to explore our global partners",
+      "items": {
+        "korloy": {
+          "description": "A South Korean manufacturer of toolholders, turning, milling and drilling tools, inserts and specialized tooling for automotive, power generation, oil and gas industries."
+        },
+        "widin": {
+          "description": "A South Korean manufacturer of standard and special solid carbide drills and end mills, along with a wide range of HSS-E tapping tools."
+        },
+        "mpa": {
+          "description": "A specialist in technical ceramics and advanced engineering materials for demanding industrial applications."
+        },
+        "union": {
+          "description": "A South Korean manufacturer specializing in ceramic, cermet and CBN inserts for advanced machining applications."
+        },
+        "hanboo": {
+          "description": "A South Korean manufacturer of specialized automotive tooling including guide-pad tools, PCD and CBN tools, honing equipment, inserts and special drills."
+        },
+        "izar": {
+          "description": "A Spanish manufacturer of drills, reamers, end mills, taps and deburring tools made from HSS, HSS-E and carbide materials."
+        },
+        "shinhan": {
+          "description": "A manufacturer of Diamond and CBN grinding wheels, honing stones, stationary and rotary dressers, and specialized CBN and PCD tooling."
+        },
+        "iljin": {
+          "description": "A South Korean manufacturer of tungsten carbide rolls and raw materials for rolling lines, along with CBN and PCD materials for tool manufacturing."
+        },
+        "osg": {
+          "description": "A manufacturer of drills, taps, end mills, forming rolls, thread rolling tools and precision thread gauges."
+        },
+        "fromm": {
+          "description": "A German manufacturer of specialized HSS, HSS-E and carbide drills and reamers for precision machining applications."
+        }
+      }
+    },
+    "blogInsights": {
+      "eyebrow": "Technical News",
+
+      "titleLine1": "Technical News",
+      "titleLine2": "& Brochures",
+
+      "description": "Explore the latest technical publications, product updates and machining resources from ATI Abzar Pishro.",
+
+      "viewAll": "View All Technical News"
+    }
+  },
+
+  "Products": {
+    "overview": {
+      "label": "PRODUCTS",
+      "brand": "BRAND",
+      "allProducts": "All Products",
+      "products": "PRODUCTS",
+      "website": "Visit Website",
+      "catalog": "Download Catalogue"
+    },
+
+    "aside": {
+      "title": "BRANDS",
+      "allProducts": "All Products"
+    },
+
+    "empty": {
+      "title": "No products found.",
+      "description": "There are currently no products available for this brand."
+    }
+  },
+
+  "TechNews": {
+    "hero": {
+      "title": "Tech News / Brochures",
+      "description": "Explore technical news, product updates, brochures and machining-related content from ATI Abzar Pishro and our technology partners."
+    },
+
+    "library": {
+      "title": "Technical News & Brochures",
+      "count": "Items"
+    },
+
+    "actions": {
+      "preview": "Preview",
+      "download": "PDF",
+      "back": "Back",
+      "downloadPdf": "Download PDF"
+    }
+  },
+
+  "VideoClips": {
+    "hero": {
+      "eyebrow": "VIDEO LIBRARY",
+      "title": "Technical Videos & Machining Insights",
+      "description": "Explore technical videos, machining demonstrations, cutting tool applications, and practical insights for modern manufacturing.",
+      "companyName": "ATI ABZAR PISHRO",
+      "tagline": "All Together to Improve",
+      "meta": "TECHNICAL VIDEOS"
+    },
+
+    "section": {
+      "eyebrow": "WATCH & EXPLORE",
+      "title": "Video Library"
+    },
+
+    "playlist": {
+      "title": "More Videos",
+      "description": "Select a video to watch"
+    },
+
+    "playerNotSupported": "Your browser does not support video playback."
+  },
+
+  "Brochures": {
+    "hero": {
+      "eyebrow": "BROCHURES / PRODUCT DOCUMENTS",
+      "title": "Explore Our Product Brochures",
+      "description": "Browse technical brochures for our machining and cutting tool products. Select a product to review its brochure and technical information."
+    },
+
+    "sidebar": {
+      "title": "BROCHURES"
+    },
+
+    "viewer": {
+      "label": "ACTIVE BROCHURE",
+      "brochure": "Brochure",
+      "open": "Open in New Tab",
+      "download": "Download Brochure"
+    },
+
+    "loading": "Loading brochures...",
+
+    "empty": {
+      "title": "No brochures available",
+      "description": "There are currently no product brochures available to display."
+    }
+  },
+
+  "Catalogues": {
+    "hero": {
+      "eyebrow": "CATALOGUES",
+      "title": "Product Catalogue",
+      "description": "Explore our collection of technical catalogues and product documentation."
+    },
+
+    "library": {
+      "title": "Catalogue Library",
+      "count": "Catalogues"
+    },
+
+    "actions": {
+      "preview": "Preview",
+      "download": "Download",
+      "back": "Back",
+      "downloadPdf": "Download PDF"
+    }
+  },
+
+  "Softwares": {
+    "hero": {
+      "eyebrow": "ENGINEERING SOFTWARE",
+      "title": "Softwares & Applications",
+      "description": "Engineering software and digital tools developed to support machining, cutting data calculations, tooling selection, and manufacturing processes.",
+      "companyName": "ATI ABZAR PISHRO",
+      "tagline": "All Together to Improve",
+      "meta": "SOFTWARES"
+    },
+
+    "section": {
+      "eyebrow": "AVAILABLE SOFTWARE",
+      "title": "Engineering Tools"
+    },
+
+    "download": "Download",
+
+    "items": {
+      "kts": {
+        "title": "KTS",
+        "description": "KTS (KORLOY Tooling Solution) is designed by KORLOY for cutting data calculations in turning, milling, drilling, and grooving. It also provides grade and chipbreaker conversion between KORLOY products and other manufacturers."
+      },
+      "ktis": {
+        "title": "KTIS",
+        "description": "KTIS (KORLOY Turning Insert Selection) was developed and published by ATI Abzar Pishro in 2015 to help users select suitable KORLOY turning insert grades and chipbreakers."
+      }
+    }
+  },
+
+  "Representations": {
+    "hero": {
+      "eyebrow": "OUR REPRESENTATIVES",
+      "title": "ATI Abzar Pishro Representatives Across Iran",
+      "description": "Explore our network of representatives across Iran and find the nearest location for access to industrial tooling solutions, technical consultation and specialized support.",
+      "companyName": "ATI ABZAR PISHRO",
+      "tagline": "All Together to Improve",
+      "meta": "REPRESENTATIVES / IRAN"
+    },
+
+    "map": {
+      "eyebrow": "REPRESENTATION NETWORK",
+      "title": "Find a Representative",
+      "description": "Explore the map to discover ATI Abzar Pishro representatives across Iran. Select a location to view information about the representative, available services and regional support."
+    }
+  },
+
+  "News": {
+    "HeroSection": {
+      "eyebrow": "News & Insights",
+      "title": "Industry News, Technical Insights & Updates",
+      "description": "Explore the latest news, technical developments, industry updates, and insights from ATI Abzar Pishro and the machining sector.",
+      "companyName": "ATI ABZAR PISHRO",
+      "tagline": "Industry Knowledge & Updates",
+      "meta": "NEWS / TECHNICAL INSIGHTS"
+    },
+
+    "Stats": {
+      "articlesPublished": "News Published",
+      "topicsCovered": "Topics Covered",
+      "latestEdition": "Latest Update",
+      "avgReadTime": "Avg. Read Time"
+    },
+
+    "LatestNews": {
+      "eyebrow": "Latest News",
+      "heading": "Latest Updates & Industry Insights",
+      "badge": "News",
+      "viewMore": "View More News",
+      "showLess": "Show Less",
+      "readMore": "Read More",
+      "loading": "Loading news...",
+      "emptyTitle": "No news available yet",
+      "emptyDescription": "There are currently no news items available. New industry updates and technical insights will appear here once published."
+    },
+
+    "Article": {
+      "intro": "Introduction",
+      "moreArticles": "Related News",
+      "viewAll": "View All",
+      "writtenBy": "Published by",
+      "author": "ATI Abzar Pishro",
+      "readTime": "min read",
+      "introDescription": "Explore the details, technical context, and key information related to this update.",
+      "noRelatedNews": "There are no related news items available at the moment."
+    },
+
+    "ArticleFooter": {
+      "tagsTitle": "News Tags",
+      "tagsDescription": "Explore topics related to this news item.",
+      "shareTitle": "Share News",
+      "shareDescription": "Share this update with colleagues and industry professionals."
+    },
+
+    "GetNewArticle": {
+      "eyebrow": "Need More Information?",
+      "title": "Have Questions About Our News?",
+      "description": "Contact our team for more information about our latest news, technical updates, products, or industry developments.",
+      "emailLabel": "Contact Our Team"
+    }
+  },
+
+  "Contact": {
+    "eyebrow": "CONTACT / TECHNICAL SUPPORT",
+    "title": "Let’s Talk About Your Machining Needs",
+    "description": "Whether you need assistance selecting the right cutting tools, technical consultation, product information or support for your machining operations, our team is ready to help.",
+
+    "companyName": "ATI ABZAR PISHRO",
+    "tagline": "All Together to Improve",
+    "heroMeta": "TECHNICAL SUPPORT / INDUSTRIAL SOLUTIONS",
+
+    "formSection": {
+      "label": "CONTACT FORM",
+      "title": "Tell us what your operation needs.",
+      "description": "Share your machining requirements, technical questions or project details with our team. We will review your request and help you identify the most suitable solution.",
+      "contactLabel": "Contact Information",
+      "formLabel": "Your Inquiry"
+    },
+
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+
+      "phone": "Phone",
+      "phonePlaceholder": "Your phone number",
+
+      "companyName": "Company Name",
+      "companyPlaceholder": "Your company or workshop",
+
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your machining requirements or technical inquiry",
+
+      "submit": "Send Inquiry",
+      "sending": "Sending..."
+    },
+
+    "validation": {
+      "nameRequired": "Please enter your name.",
+      "phoneRequired": "Please enter your phone number.",
+      "phoneInvalid": "Enter a valid 11-digit Iranian mobile number starting with 09.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "companyRequired": "Please enter your company name.",
+      "messageRequired": "Please enter your message."
+    },
+
+    "details": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "addressValue": "Unit 14, No. 10, Mokhberi Blvd, Ashrafi Esfahani Highway, Tehran, IRAN - Postal Code: 1476693977"
+    },
+
+    "location": {
+      "label": "LOCATION",
+      "title": "Visit Ati Abzar Pishro in Tehran.",
+      "description": "Our team is available for technical consultation, product inquiries and industrial cooperation.",
+      "mapTitle": "Ati Abzar Pishro location"
+    },
+
+    "toast": {
+      "submit": {
+        "success": "Your request was submitted successfully.",
+        "error": "Failed to submit your request. Please try again."
+      }
+    }
+  },
+
+  "About": {
+    "hero": {
+      "eyebrow": "HISTORY",
+      "title": "Brief Introduction",
+      "description": "ATI ABZAR PISHRO has been operating since 2012 as a specialized engineering and trading company, dedicated to delivering cutting-edge machining solutions and high-performance cutting tools from globally recognized manufacturers. With a strong commitment to quality, innovation, and technical excellence, we serve a wide spectrum of industrial sectors including automotive, aerospace, mold and die, oil and gas, and general manufacturing.",
+      "downloadCatalogue": "Download Company Catalogue",
+      "established": "Since",
+      "companyName": "ATI ABZAR PISHRO"
+    },
+    "purpose": {
+      "eyebrow": "WHAT WE DO",
+      "title": "All Together to Improve",
+      "vision": {
+        "title": "Our Vision",
+        "description": "Guided by our core principle — ATI: All Together to Improve — we envision a future where collaborative growth and innovation drive the industry forward. Our strategic objective is to enhance operational productivity across all industrial segments by providing state-of-the-art machining solutions, fostering long-term partnerships, and maintaining close cooperation with our valued customers. Through this vision, we aspire to play a pivotal role in shaping the next generation of precision engineering and manufacturing excellence."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "At ATI ABZAR PISHRO, our mission is to exceed customer expectations by offering comprehensive post-sales support, expert technical consultations for selecting optimal cutting tools, and conducting professional training programs and technical seminars. These initiatives aim to enhance our clients’ knowledge of advanced machining technologies and empower them to achieve superior performance and cost-efficiency in their production processes."
+      }
+    },
+    "engagement": {
+      "eyebrow": "Global Engagement in Industry & Training",
+      "title": "Highlights from Key Exhibitions and Seminars (2014–2026)",
+      "items": {
+        "amtech2023": {
+          "title": "Training Seminar",
+          "date": "AMTECH 2023"
+        },
+        "amtech2017": {
+          "title": "Training Seminar",
+          "date": "AMTECH 2017"
+        },
+        "tiie2016": {
+          "title": "Tehran International Industry Exhibition",
+          "date": "TIIE 2016"
+        },
+        "trainingSeminar2014": {
+          "title": "Training Seminar",
+          "date": "2014"
+        },
+        "gazvinExhibition2015": {
+          "title": "Gazvin Exhibition",
+          "date": "2015"
+        },
+        "simtos2014": {
+          "title": "Korea Exhibition",
+          "date": "SIMTOS 2014"
+        },
+        "simtos2016": {
+          "title": "Korea Exhibition",
+          "date": "SIMTOS 2016 & 50th Anniversary of KORLOY"
+        }
+      }
+    },
+    "ceo": {
+      "eyebrow": "Leadership / CEO",
+      "name": "Mr. Mohammad Reza Adinelou",
+      "position": "Managing Director",
+      "backgroundLabel": "Background",
+      "backgroundTitle": "Professional Background",
+      "background": "With an academic background in Metallurgy Engineering and more than two decades of professional experience in the industrial tooling and manufacturing sector, Mr. Mohammad Reza Adinelou has built a strong career in technical sales and business development. He previously served as Sales Manager for SECO Tools Company in Iran for 11 years and later spent 15 years as Sales Manager of AKERS Roll Manufacturing Co. in Iran. Drawing on this extensive industry experience, he went on to establish Ati Abzar Pishro and has since led the company as its Founder and CEO.",
+      "educationLabel": "Education",
+      "education": "M.Sc. in Metallurgy Engineering Sharif University",
+      "roleLabel": "Current Role",
+      "role": "Founder & CEO",
+      "emailLabel": "Email"
+    },
+    "team": {
+      "eyebrow": "OUR CREATIVE TEAM",
+      "title": "ATI Sales Team Members",
+      "areasLabel": "SERVICE AREAS",
+      "members": {
+        "mansourRoshan": {
+          "name": "Mr. Mansour Roshan",
+          "position": "Area Sales Manager",
+          "areas": "Tabriz / Ahwaz / Tehran"
+        },
+        "javadGhomi": {
+          "name": "Mr. Javad Ghomi",
+          "position": "Area Sales Manager",
+          "areas": "Golpaygan / Tehran / Yazd / Saveh / Mazandaran"
+        },
+        "miladSadeh": {
+          "name": "Mr. Milad Sadeh",
+          "position": "Area Sales Manager",
+          "areas": "Isfahan / Tehran / Mashhad / Rasht"
+        },
+        "ehsanAraghi": {
+          "name": "Mr. Ehsan Araghi",
+          "position": "Area Sales Manager",
+          "areas": "Tehran / Qazvin / Arak / Alborz / Zanjan"
+        },
+        "kianAdinelou": {
+          "name": "Mr. Kian Adinelou",
+          "position": "Area Sales Manager",
+          "areas": "Tehran / Qazvin / Naein / Eshtehard / Kerman"
+        },
+        "ehsanSalem": {
+          "name": "Mr. Ehsan Salem",
+          "position": "Sales Manager",
+          "areas": "Sales Manager"
+        }
+      }
+    }
+  },
+
+  "FAQ": {
+    "eyebrow": "SUPPORT / FAQ",
+    "title": "Frequently Asked Questions",
+    "description": "Find clear answers to common questions about our industrial tooling solutions, services and technical support.",
+
+    "companyName": "ATI ABZAR PISHRO",
+    "tagline": "All Together to Improve",
+    "shortLabel": "FAQ",
+
+    "sectionLabel": "FAQ",
+    "sectionTitle": "Simple Questions, Quick Answers",
+    "sectionDescription": "Explore frequently asked questions about our products, services and technical support. If you need more specific assistance, our technical team is ready to help.",
+
+    "contact": "Email our technical team",
+    "listLabel": "QUESTIONS / ANSWERS",
+
+    "items": {
+      "item1": {
+        "question": "Which brands does Ati Abzar Pishro officially represent?",
+        "answer": "Ati Abzar Pishro is the official representative of KORLOY, a leading South Korean brand, providing advanced cutting tools and machining solutions directly to the Iranian market."
+      },
+      "item2": {
+        "question": "How can I get expert consultation for selecting the right cutting tools?",
+        "answer": "You can contact our technical team by phone or submit a consultation request through our website. Our experts will analyze your machining requirements and recommend the most suitable tools and solutions."
+      },
+      "item3": {
+        "question": "Do your products come with warranty and after-sales support?",
+        "answer": "Yes, all products supplied by Ati Abzar Pishro come with comprehensive after-sales service and technical support. Our support team is always ready to assist you with any issues or technical inquiries."
+      },
+      "item4": {
+        "question": "Is it possible to arrange training courses or seminars at our facility?",
+        "answer": "Absolutely. We offer professional training courses and industrial seminars both onsite at your facility and online. Please get in touch with our training department to schedule a session tailored to your needs."
+      },
+      "item5": {
+        "question": "What are the available channels to place an order?",
+        "answer": "You can place your orders by phone, email, or through the online order form on our website. Our sales representatives are also available to assist you with your purchase."
+      },
+      "item6": {
+        "question": "Do you provide small-quantity orders for smaller workshops?",
+        "answer": "Yes, we cater to the needs of both large industrial clients and small to medium-sized workshops, offering flexible order volumes to suit your requirements."
+      },
+      "item7": {
+        "question": "How can I stay updated on your latest courses and seminars?",
+        "answer": "By subscribing to our newsletter and following our social media channels, you will receive timely updates about upcoming training programs, technical seminars, and new developments."
+      },
+      "item8": {
+        "question": "How can I stay informed about the latest KORLOY products and machining technologies?",
+        "answer": "We regularly share the latest innovations, cutting-edge tools, and machining technologies from KORLOY through our website, social media platforms, newsletters, and specialized seminars. Stay connected with us to keep your operations at the forefront of the industry."
+      }
+    }
+  },
+
+  "Footer": {
+    "columns": {
+      "pages": "Pages",
+      "partners": "Our Partners",
+      "contact": "Contact Us"
+    },
+
+    "pages": {
+      "home": "Home",
+      "ourPartners": "Our Partners",
+      "representations": "Sales Network",
+      "news": "Tech News",
+      "videoClips": "Video Clips",
+      "catalogues": "Catalogues",
+      "softwares": "Softwares",
+      "contactUs": "Contact Us",
+      "aboutUs": "About Us",
+      "faq": "FAQ"
+    },
+
+    "contact": {
+      "addressLabel": "Address",
+      "address": "Unit 14, No. 10, Mokhberi Blvd, Ashrafi Esfahani Highway, Tehran, IRAN - Postal Code: 1476693977",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "faxLabel": "Fax"
+    },
+
+    "bottom": {
+      "copyright": "Copyright 2015–2026 Ati Abzar Pishro LLC. All Rights Reserved. ©",
+      "designedBy": "Designed & Developed by",
+      "developer": "Ati Hoosh Bonyan"
+    }
+  }
+}
