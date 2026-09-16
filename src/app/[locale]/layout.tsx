@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import { Locale, hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { Roboto_Condensed } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import { Metadata } from "next";
 
@@ -18,20 +18,14 @@ import { ThemeProvider } from "@/components/theme/Providers";
 import AppToaster from "@/components/AppToaster";
 
 import { CustomToastProvider } from "@/components/ui/custom-toast";
-import {
-  MobileSidebar,
-  MobileSidebarContent,
-} from "@/components/ui/mobile-sidebar";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
-import ScrollToTop from "@/components/ScrollToTop";
-import MobileMenu from "@/components/Header/MobileMenu";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+import Sidebar from "@/components/layout/Sidebar";
 
-const robotoCondensed = Roboto_Condensed({
+
+const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-roboto-condensed",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -74,35 +68,24 @@ export default async function LocaleLayout({
     >
       <body
         className={cn(
-          robotoCondensed.variable,
+          inter.variable,
           locale === "fa"
             ? "font-IRANYekanX"
-            : "font-[family-name:var(--font-roboto-condensed)]",
+            : "font-[family-name:var(--font-inter)]",
         )}
       >
         <NextIntlClientProvider>
           <ThemeProvider>
-            <MobileSidebar>
-              <AppToaster />
+            <AppToaster />
 
-              <MobileSidebarContent width="min(88vw, 380px)">
-                <MobileMenu />
-              </MobileSidebarContent>
-
-              <div className="bg-background text-foreground relative">
-                <Header />
-
-                <main className="headerPadding">
-                  <CustomToastProvider>
-                    <SmoothScrollProvider>{children}</SmoothScrollProvider>
-                  </CustomToastProvider>
-                </main>
-
-                <Footer />
-
-                <ScrollToTop />
-              </div>
-            </MobileSidebar>
+            <div className="bg-background text-foreground flex h-screen overflow-hidden">
+              <Sidebar />
+              <main className="flex flex-1 flex-col overflow-hidden">
+                <CustomToastProvider>
+                  <SmoothScrollProvider>{children}</SmoothScrollProvider>
+                </CustomToastProvider>
+              </main>
+            </div>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
