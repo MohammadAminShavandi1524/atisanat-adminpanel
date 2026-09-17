@@ -27,10 +27,57 @@
       "passwordRequired": "Password is required."
     }
   },
+  "Sidebar": {
+    "logoTitle": "ATI Sanat",
+    "logoSubtitle": "Management Panel",
+    "overview": "Overview",
+    "dashboard": "Dashboard",
+    "faqSection": "FAQ",
+    "faq": "FAQ",
+    "addFaq": "Add FAQ"
+  },
   "Dashboard": {
     "header": {
       "title": "Dashboard",
       "description": "Overview of the ATI Sanat management panel"
+    }
+  },
+  "addFaq": {
+    "header": {
+      "title": "Add FAQ",
+      "description": "Enter the question and answer in both English and Persian."
+    },
+    "form": {
+      "questionEn": {
+        "label": "English Question",
+        "placeholder": "Enter the question in English"
+      },
+      "questionFa": {
+        "label": "Persian Question",
+        "placeholder": "Enter the question in Persian"
+      },
+      "answerEn": {
+        "label": "English Answer",
+        "placeholder": "Enter the answer in English"
+      },
+      "answerFa": {
+        "label": "Persian Answer",
+        "placeholder": "Enter the answer in Persian"
+      },
+      "submit": "Add FAQ",
+      "submitting": "Submitting..."
+    },
+    "validation": {
+      "questionEnRequired": "English question is required.",
+      "questionEnMax": "English question cannot exceed 500 characters.",
+      "questionFaRequired": "Persian question is required.",
+      "questionFaMax": "Persian question cannot exceed 500 characters.",
+      "answerEnRequired": "English answer is required.",
+      "answerFaRequired": "Persian answer is required."
+    },
+    "toast": {
+      "success": "FAQ added successfully.",
+      "error": "There was an error adding the FAQ."
     }
   }
 }

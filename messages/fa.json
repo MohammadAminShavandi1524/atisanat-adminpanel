@@ -27,10 +27,57 @@
       "passwordRequired": "وارد کردن رمز عبور الزامی است."
     }
   },
+  "Sidebar": {
+    "logoTitle": "آتی صنعت",
+    "logoSubtitle": "پنل مدیریت",
+    "overview": "نمای کلی",
+    "dashboard": "داشبورد",
+    "faqSection": "سوالات متداول",
+    "faq": "سوالات متداول",
+    "addFaq": "افزودن سوال متداول"
+  },
   "Dashboard": {
     "header": {
       "title": "داشبورد",
       "description": "نمای کلی پنل مدیریت آتی صنعت"
+    }
+  },
+  "addFaq": {
+    "header": {
+      "title": "افزودن سوال متداول",
+      "description": "سوال و پاسخ را به زبان فارسی و انگلیسی وارد کنید."
+    },
+    "form": {
+      "questionEn": {
+        "label": "سوال انگلیسی",
+        "placeholder": "سوال را به زبان انگلیسی وارد کنید"
+      },
+      "questionFa": {
+        "label": "سوال فارسی",
+        "placeholder": "سوال را به زبان فارسی وارد کنید"
+      },
+      "answerEn": {
+        "label": "پاسخ انگلیسی",
+        "placeholder": "پاسخ را به زبان انگلیسی وارد کنید"
+      },
+      "answerFa": {
+        "label": "پاسخ فارسی",
+        "placeholder": "پاسخ را به زبان فارسی وارد کنید"
+      },
+      "submit": "ثبت سوال",
+      "submitting": "در حال ثبت..."
+    },
+    "validation": {
+      "questionEnRequired": "سوال انگلیسی الزامی است.",
+      "questionEnMax": "سوال انگلیسی نمی‌تواند بیشتر از ۵۰۰ کاراکتر باشد.",
+      "questionFaRequired": "سوال فارسی الزامی است.",
+      "questionFaMax": "سوال فارسی نمی‌تواند بیشتر از ۵۰۰ کاراکتر باشد.",
+      "answerEnRequired": "پاسخ انگلیسی الزامی است.",
+      "answerFaRequired": "پاسخ فارسی الزامی است."
+    },
+    "toast": {
+      "success": "سوال متداول با موفقیت ثبت شد.",
+      "error": "ثبت سوال متداول با خطا مواجه شد."
     }
   }
 }

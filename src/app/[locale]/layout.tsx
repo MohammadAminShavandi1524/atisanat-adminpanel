@@ -75,7 +75,6 @@ export default async function LocaleLayout({
         )}
       >
         <NextIntlClientProvider>
-          <ThemeProvider>
             <AppToaster />
 
             <div className="bg-background text-foreground flex h-screen overflow-hidden">
@@ -86,7 +85,6 @@ export default async function LocaleLayout({
                 </CustomToastProvider>
               </main>
             </div>
-          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
