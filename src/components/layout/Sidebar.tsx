@@ -2,9 +2,17 @@
 
 import { useRef } from "react";
 
-import { CircleHelp, LayoutDashboard, Plus } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  CircleHelp,
+  Handshake,
+  LayoutDashboard,
+  Mail,
+  Plus,
+} from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
+
 import { usePathname } from "next/navigation";
 
 import gsap from "gsap";
@@ -27,13 +35,17 @@ const Sidebar = () => {
 
   useGSAP(
     () => {
-      if (!sidebarRef.current) return;
+      if (!sidebarRef.current) {
+        return;
+      }
 
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
 
-      if (reduceMotion) return;
+      if (reduceMotion) {
+        return;
+      }
 
       const timeline = gsap.timeline({
         defaults: {
@@ -102,11 +114,11 @@ const Sidebar = () => {
       <div className="sidebar-brand shrink-0 px-4">
         <div className="border-border-secondary flex min-h-[78px] items-center border-b px-2">
           <div className="flex min-w-0 flex-col">
-            <div className="text-foreground truncate text-[20px] font-semibold">
+            <div className="text-foreground truncate text-[18px] font-semibold">
               {t("logoTitle")}
             </div>
 
-            <div className="text-muted-foreground mt-1 truncate text-[15px]">
+            <div className="text-muted-foreground mt-1 truncate text-[13px]">
               {t("logoSubtitle")}
             </div>
           </div>
@@ -129,6 +141,31 @@ const Sidebar = () => {
               title={t("dashboard")}
               icon={LayoutDashboard}
               active={pathname === `/${locale}`}
+            />
+          </div>
+
+          <div className="sidebar-section">
+            <SideBarItemHeader label={t("requestsSection")} />
+
+            <SidebarItem
+              href={`/${locale}/contact-messages`}
+              title={t("contactMessages")}
+              icon={Mail}
+              active={pathname.startsWith(`/${locale}/contact-messages`)}
+            />
+
+            <SidebarItem
+              href={`/${locale}/hire-resumes`}
+              title={t("hireResumes")}
+              icon={BriefcaseBusiness}
+              active={pathname.startsWith(`/${locale}/hire-resumes`)}
+            />
+
+            <SidebarItem
+              href={`/${locale}/cooperation-requests`}
+              title={t("cooperationRequests")}
+              icon={Handshake}
+              active={pathname.startsWith(`/${locale}/cooperation-requests`)}
             />
           </div>
 

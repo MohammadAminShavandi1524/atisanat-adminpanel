@@ -34,12 +34,130 @@
     "dashboard": "داشبورد",
     "faqSection": "سوالات متداول",
     "faq": "سوالات متداول",
-    "addFaq": "افزودن سوال متداول"
+    "addFaq": "افزودن سوال متداول",
+    "requestsSection": "درخواست‌ها",
+    "contactMessages": "پیام‌های دریافتی",
+    "hireResumes": "رزومه‌های استخدامی",
+    "cooperationRequests": "درخواست‌های همکاری"
   },
   "Dashboard": {
     "header": {
       "title": "داشبورد",
       "description": "نمای کلی پنل مدیریت آتی صنعت"
+    }
+  },
+  "ContactMessages": {
+    "header": {
+      "title": "پیام‌های دریافتی",
+      "description": "مشاهده و مدیریت پیام‌های ارسال‌شده از طریق فرم تماس با ما"
+    },
+    "filters": {
+      "searchPlaceholder": "جستجو در پیام‌های تماس...",
+      "newestFirst": "جدیدترین",
+      "oldestFirst": "قدیمی‌ترین"
+    },
+    "table": {
+      "id": "شناسه",
+      "fullName": "نام و نام خانوادگی",
+      "phoneNumber": "شماره تماس",
+      "email": "ایمیل",
+      "company": "نام شرکت",
+      "message": "پیام",
+      "date": "تاریخ",
+      "actions": "عملیات",
+      "emptyValue": "-"
+    },
+    "actions": {
+      "delete": "حذف"
+    },
+    "details": {
+      "title": "جزئیات پیام",
+      "description": "اطلاعات کامل پیام ارسال‌شده",
+      "message": "متن پیام",
+      "close": "بستن"
+    },
+    "loading": "در حال دریافت پیام‌ها...",
+    "empty": {
+      "title": "پیامی یافت نشد",
+      "description": "در حال حاضر پیام تماسی برای نمایش وجود ندارد."
+    },
+    "toast": {
+      "delete": {
+        "success": "پیام با موفقیت حذف شد.",
+        "error": "حذف پیام با خطا مواجه شد."
+      }
+    }
+  },
+  "HireResumes": {
+    "header": {
+      "title": "رزومه‌های استخدامی",
+      "description": "مشاهده و مدیریت رزومه‌های ارسال‌شده برای همکاری با آتی صنعت"
+    },
+    "filters": {
+      "searchPlaceholder": "جستجو در رزومه‌ها...",
+      "newestFirst": "جدیدترین",
+      "oldestFirst": "قدیمی‌ترین"
+    },
+    "table": {
+      "id": "شناسه",
+      "fullName": "نام و نام خانوادگی",
+      "phoneNumber": "شماره تماس",
+      "email": "ایمیل",
+      "date": "تاریخ",
+      "resume": "رزومه",
+      "actions": "عملیات"
+    },
+    "actions": {
+      "view": "مشاهده",
+      "delete": "حذف"
+    },
+    "loading": "در حال دریافت رزومه‌ها...",
+    "empty": {
+      "title": "رزومه‌ای یافت نشد",
+      "description": "در حال حاضر رزومه‌ای برای نمایش وجود ندارد."
+    },
+    "toast": {
+      "delete": {
+        "success": "رزومه با موفقیت حذف شد.",
+        "error": "حذف رزومه با خطا مواجه شد."
+      }
+    }
+  },
+  "CooperationRequests": {
+    "header": {
+      "title": "درخواست‌های همکاری",
+      "description": "مشاهده و مدیریت درخواست‌های همکاری ارسال‌شده برای آتی صنعت"
+    },
+    "filters": {
+      "searchPlaceholder": "جستجو در درخواست‌های همکاری...",
+      "newestFirst": "جدیدترین",
+      "oldestFirst": "قدیمی‌ترین"
+    },
+    "table": {
+      "id": "شناسه",
+      "fullName": "نام و نام خانوادگی",
+      "phoneNumber": "شماره تماس",
+      "email": "ایمیل",
+      "company": "نام شرکت",
+      "date": "تاریخ",
+      "resume": "فایل",
+      "actions": "عملیات",
+      "emptyValue": "-"
+    },
+    "actions": {
+      "view": "مشاهده",
+      "delete": "حذف"
+    },
+    "loading": "در حال دریافت درخواست‌ها...",
+    "empty": {
+      "title": "درخواستی یافت نشد",
+      "description": "در حال حاضر درخواست همکاری برای نمایش وجود ندارد."
+    },
+    "toast": {
+      "delete": {
+        "success": "درخواست همکاری با موفقیت حذف شد.",
+        "error": "حذف درخواست همکاری با خطا مواجه شد."
+      }
     }
   },
   "addFaq": {

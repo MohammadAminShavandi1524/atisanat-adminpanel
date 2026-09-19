@@ -34,12 +34,130 @@
     "dashboard": "Dashboard",
     "faqSection": "FAQ",
     "faq": "FAQ",
-    "addFaq": "Add FAQ"
+    "addFaq": "Add FAQ",
+    "requestsSection": "Requests",
+    "contactMessages": "Contact Messages",
+    "hireResumes": "Job Applications",
+    "cooperationRequests": "Cooperation Requests"
   },
   "Dashboard": {
     "header": {
       "title": "Dashboard",
       "description": "Overview of the ATI Sanat management panel"
+    }
+  },
+  "ContactMessages": {
+    "header": {
+      "title": "Contact Messages",
+      "description": "View and manage messages submitted through the contact form"
+    },
+    "filters": {
+      "searchPlaceholder": "Search contact messages...",
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First"
+    },
+    "table": {
+      "id": "ID",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone",
+      "email": "Email",
+      "company": "Company",
+      "message": "Message",
+      "date": "Date",
+      "actions": "Actions",
+      "emptyValue": "-"
+    },
+    "actions": {
+      "delete": "Delete"
+    },
+    "details": {
+      "title": "Message Details",
+      "description": "Complete information for the submitted message",
+      "message": "Message",
+      "close": "Close"
+    },
+    "loading": "Loading messages...",
+    "empty": {
+      "title": "No messages found",
+      "description": "There are currently no contact messages to display."
+    },
+    "toast": {
+      "delete": {
+        "success": "Message deleted successfully.",
+        "error": "There was an error deleting the message."
+      }
+    }
+  },
+  "HireResumes": {
+    "header": {
+      "title": "Job Applications",
+      "description": "View and manage resumes submitted for employment at ATI Sanat"
+    },
+    "filters": {
+      "searchPlaceholder": "Search applications...",
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First"
+    },
+    "table": {
+      "id": "ID",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone",
+      "email": "Email",
+      "date": "Date",
+      "resume": "Resume",
+      "actions": "Actions"
+    },
+    "actions": {
+      "view": "View",
+      "delete": "Delete"
+    },
+    "loading": "Loading applications...",
+    "empty": {
+      "title": "No applications found",
+      "description": "There are currently no job applications to display."
+    },
+    "toast": {
+      "delete": {
+        "success": "Application deleted successfully.",
+        "error": "There was an error deleting the application."
+      }
+    }
+  },
+  "CooperationRequests": {
+    "header": {
+      "title": "Cooperation Requests",
+      "description": "View and manage cooperation requests submitted to ATI Sanat"
+    },
+    "filters": {
+      "searchPlaceholder": "Search cooperation requests...",
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First"
+    },
+    "table": {
+      "id": "ID",
+      "fullName": "Full Name",
+      "phoneNumber": "Phone",
+      "email": "Email",
+      "company": "Company",
+      "date": "Date",
+      "resume": "File",
+      "actions": "Actions",
+      "emptyValue": "-"
+    },
+    "actions": {
+      "view": "View",
+      "delete": "Delete"
+    },
+    "loading": "Loading cooperation requests...",
+    "empty": {
+      "title": "No requests found",
+      "description": "There are currently no cooperation requests to display."
+    },
+    "toast": {
+      "delete": {
+        "success": "Cooperation request deleted successfully.",
+        "error": "There was an error deleting the cooperation request."
+      }
     }
   },
   "addFaq": {

@@ -63,12 +63,12 @@ const CustomHoldButton = React.forwardRef<
 
     const holdColor = cn(
       {
-        destructive: "bg-red-500/30",
-        success: "bg-green-500/30",
-        warning: "bg-yellow-500/30",
-        info: "bg-sky-500/30",
+        destructive: "bg-destructive/30",
+        success: "bg-success/30",
+        warning: "bg-warning/30",
+        info: "bg-info/30",
         primary: "bg-primary/30",
-        secondary: "bg-secondary/40",
+        secondary: "bg-secondary/60",
       }[intent ?? "primary"],
     );
 
@@ -83,23 +83,14 @@ const CustomHoldButton = React.forwardRef<
     return (
       <CustomButton
         ref={ref}
-
         holdProgress={progress}
-
         holdColor={cn(holdColor, overlayClassName)}
-
         className={cn(className)}
-
         intent={intent}
-
         {...props}
-
         onPointerDown={handlePointerDown}
-
         onPointerUp={stop}
-
         onPointerCancel={stop}
-
         onPointerLeave={resetOnLeave ? stop : undefined}
       >
         {children}

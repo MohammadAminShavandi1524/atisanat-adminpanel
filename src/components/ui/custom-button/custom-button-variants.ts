@@ -109,7 +109,7 @@ export const customButtonVariants = cva(
       {
         variant: "soft",
         intent: "secondary",
-        class: "bg-secondary text-secondary-foreground hover:brightness-95",
+        class: "bg-secondary text-secondary-foreground hover:bg-card-tertiary",
       },
 
       {
@@ -143,39 +143,43 @@ export const customButtonVariants = cva(
       {
         variant: "outline",
         intent: "primary",
-        class: "border border-primary text-primary hover:bg-primary/10",
+        class:
+          "border border-custom-primary/50 bg-background text-custom-primary hover:border-custom-primary hover:bg-custom-primary/8",
       },
 
       {
         variant: "outline",
         intent: "secondary",
         class:
-          "border border-border bg-background text-foreground hover:bg-accent",
+          "border border-border bg-background text-foreground hover:border-custom-primary/45 hover:bg-custom-primary/6 hover:text-custom-primary",
       },
 
       {
         variant: "outline",
         intent: "success",
-        class: "border border-success text-success hover:bg-success/10",
+        class:
+          "border border-success/60 bg-background text-success hover:border-success hover:bg-success/8",
       },
 
       {
         variant: "outline",
         intent: "warning",
-        class: "border border-warning text-warning hover:bg-warning/10",
+        class:
+          "border border-warning/60 bg-background text-warning hover:border-warning hover:bg-warning/8",
       },
 
       {
         variant: "outline",
         intent: "info",
-        class: "border border-info text-info hover:bg-info/10",
+        class:
+          "border border-info/60 bg-background text-info hover:border-info hover:bg-info/8",
       },
 
       {
         variant: "outline",
         intent: "destructive",
         class:
-          "border border-destructive text-destructive hover:bg-destructive/10",
+          "border border-destructive/60 bg-background text-destructive hover:border-destructive hover:bg-destructive/8",
       },
 
       // =========================
@@ -191,7 +195,7 @@ export const customButtonVariants = cva(
       {
         variant: "ghost",
         intent: "secondary",
-        class: "text-foreground hover:bg-accent",
+        class: "text-foreground hover:bg-secondary",
       },
 
       {

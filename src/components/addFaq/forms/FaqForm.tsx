@@ -17,6 +17,7 @@ import { createFaq } from "../faq.api";
 
 import { createFaqSchema, type FaqFormValues } from "../faq.schema";
 import { FormField } from "@/components/FormField";
+import { CustomButton } from "@/components/ui/custom-button";
 
 const FaqForm = () => {
   const t = useTranslations("addFaq");
@@ -126,6 +127,7 @@ const FaqForm = () => {
                 error={errors.question_fa}
                 as="input"
                 dir="rtl"
+                lang="fa"
               />
             </div>
 
@@ -147,6 +149,7 @@ const FaqForm = () => {
                 error={errors.answer_fa}
                 as="textarea"
                 dir="rtl"
+                lang="fa"
               />
             </div>
           </div>
@@ -154,20 +157,26 @@ const FaqForm = () => {
 
         {/* Submit */}
         <div className="border-border bg-background 3xl:mt-5 3xl:pt-6 mt-5 flex shrink-0 justify-end border-t pt-6 xl:mt-4 xl:pt-4 2xl:mt-5 2xl:pt-5">
-          <button
+          <CustomButton
             type="submit"
+            variant="solid"
+            intent="primary"
+            loading={isSubmitting}
             disabled={isSubmitting}
-            className="bg-custom-primary text-primary-foreground 3xl:min-w-[190px] 3xl:px-6 3xl:py-3 3xl:text-sm flex min-w-[190px] cursor-pointer items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium transition-opacity disabled:cursor-not-allowed disabled:opacity-60 xl:min-w-[165px] xl:px-5 xl:py-2.5 xl:text-[13px] 2xl:min-w-[175px]"
-          >
-            {isSubmitting && (
-              <LoaderCircle
-                className="3xl:size-4 size-4 animate-spin xl:size-[15px]"
-                strokeWidth={1.8}
-              />
-            )}
+            loadingContent={
+              <>
+                <LoaderCircle
+                  className="3xl:size-4 size-4 animate-spin xl:size-[15px]"
+                  strokeWidth={1.8}
+                />
 
-            {isSubmitting ? t("form.submitting") : t("form.submit")}
-          </button>
+                <span>{t("form.submitting")}</span>
+              </>
+            }
+            className="bg-custom-primary hover:bg-custom-primary/90 3xl:h-12 3xl:min-w-[190px] 3xl:px-6 3xl:text-sm h-11.5 min-w-[180px] px-5 text-sm xl:h-10.5 xl:min-w-[165px] xl:px-4 xl:text-[13px] 2xl:h-11 2xl:min-w-[175px]"
+          >
+            {t("form.submit")}
+          </CustomButton>
         </div>
       </div>
     </form>
