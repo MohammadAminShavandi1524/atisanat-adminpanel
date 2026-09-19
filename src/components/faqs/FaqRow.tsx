@@ -149,7 +149,10 @@ const FaqRow = ({
 
         {/* Question FA */}
         <div className="min-w-0">
-          <p className="text-foreground 3xl:text-sm 3xl:leading-6 line-clamp-3 text-sm leading-6 [overflow-wrap:anywhere] break-words whitespace-normal xl:text-[12px] xl:leading-5 2xl:text-[13px]">
+          <p
+            lang="fa"
+            className="text-foreground 3xl:text-sm 3xl:leading-6 line-clamp-3 text-sm leading-6 [overflow-wrap:anywhere] break-words whitespace-normal xl:text-[12px] xl:leading-5 2xl:text-[13px]"
+          >
             {faq.question_fa}
           </p>
         </div>
@@ -163,7 +166,10 @@ const FaqRow = ({
 
         {/* Answer FA */}
         <div className="min-w-0">
-          <p className="text-muted-foreground 3xl:text-sm 3xl:leading-6 line-clamp-3 text-sm leading-6 [overflow-wrap:anywhere] break-words whitespace-normal xl:text-[12px] xl:leading-5 2xl:text-[13px]">
+          <p
+            lang="fa"
+            className="text-muted-foreground 3xl:text-sm 3xl:leading-6 line-clamp-3 text-sm leading-6 [overflow-wrap:anywhere] break-words whitespace-normal xl:text-[12px] xl:leading-5 2xl:text-[13px]"
+          >
             {faq.answer_fa}
           </p>
         </div>
@@ -200,7 +206,7 @@ const FaqRow = ({
           {/* Edit */}
           <CustomButton
             type="button"
-            variant="soft"
+            variant="outline"
             intent="secondary"
             onClick={() => {
               router.push(`/${locale}/faq/${faq.id}/edit`);

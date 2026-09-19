@@ -176,7 +176,7 @@ const FaqsPage = () => {
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
             {/* Header */}
             <div className="faqs-table-header border-border bg-card-secondary 3xl:ps-9 3xl:pe-11 shrink-0 border-b ps-9 pe-11 xl:ps-6 xl:pe-8 2xl:ps-7 2xl:pe-9">
-              <div className="text-muted-foreground 3xl:h-13 3xl:grid-cols-[70px_1.15fr_1.15fr_1.45fr_1.45fr_250px] 3xl:gap-5 3xl:text-sm grid h-13 grid-cols-[70px_1.15fr_1.15fr_1.45fr_1.45fr_250px] items-center gap-5 text-sm font-semibold xl:h-11 xl:grid-cols-[52px_1fr_1fr_1.25fr_1.25fr_205px] xl:gap-3 xl:text-[12px] 2xl:h-12 2xl:grid-cols-[60px_1.1fr_1.1fr_1.35fr_1.35fr_225px] 2xl:gap-4 2xl:text-[13px]">
+              <div className="text-muted-foreground 3xl:h-13 3xl:grid-cols-[70px_1.15fr_1.15fr_1.45fr_1.45fr_300px] 3xl:gap-5 3xl:text-sm grid h-13 grid-cols-[70px_1.15fr_1.15fr_1.45fr_1.45fr_300px] items-center gap-5 text-sm font-semibold xl:h-11 xl:grid-cols-[52px_1fr_1fr_1.25fr_1.25fr_250px] xl:gap-3 xl:text-[12px] 2xl:h-12 2xl:grid-cols-[60px_1.1fr_1.1fr_1.35fr_1.35fr_275px] 2xl:gap-4 2xl:text-[13px]">
                 <div>{t("table.index")}</div>
 
                 <div>{t("table.questionEn")}</div>

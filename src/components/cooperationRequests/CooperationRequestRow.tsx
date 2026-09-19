@@ -164,18 +164,15 @@ const CooperationRequestRow = ({
             intent="secondary"
             onClick={handleViewResume}
             leftSection={
-              <FileText
-                strokeWidth={1.8}
-                className="3xl:size-4 size-4 xl:size-3.5"
-              />
+              <FileText className="3xl:size-[17px] size-4" strokeWidth={1.8} />
             }
             rightSection={
               <ExternalLink
+                className="3xl:size-[15px] size-3.5"
                 strokeWidth={1.8}
-                className="3xl:size-3.5 size-3.5 xl:size-3"
               />
             }
-            className="3xl:h-9 3xl:px-3 3xl:text-sm h-9 px-3 text-sm xl:h-8 xl:px-2.5 xl:text-[12px] 2xl:text-[13px]"
+            className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
           >
             {t("actions.view")}
           </CustomButton>
@@ -190,12 +187,9 @@ const CooperationRequestRow = ({
             duration={800}
             onComplete={handleDelete}
             leftSection={
-              <Trash2
-                strokeWidth={1.8}
-                className="3xl:size-4 size-4 xl:size-3.5"
-              />
+              <Trash2 className="3xl:size-[17px] size-4" strokeWidth={1.8} />
             }
-            className="3xl:h-9 3xl:px-3 3xl:text-sm h-9 px-3 text-sm xl:h-8 xl:px-2.5 xl:text-[12px] 2xl:text-[13px]"
+            className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
           >
             {t("actions.delete")}
           </CustomHoldButton>

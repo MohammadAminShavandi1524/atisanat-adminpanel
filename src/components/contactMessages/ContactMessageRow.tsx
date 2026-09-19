@@ -125,7 +125,7 @@ const ContactMessageRow = ({
 
           {/* Phone */}
           <div
-              dir={locale === "fa" ? "rtl" : "ltr"}
+            dir={locale === "fa" ? "rtl" : "ltr"}
             className="text-muted-foreground 3xl:text-sm min-w-0 truncate text-sm xl:text-[12px] 2xl:text-[13px]"
           >
             {message.phone_number}
@@ -135,7 +135,7 @@ const ContactMessageRow = ({
           <div className="min-w-0" onClick={(event) => event.stopPropagation()}>
             <a
               href={`mailto:${message.email}`}
-                dir={locale === "fa" ? "rtl" : "ltr"}
+              dir={locale === "fa" ? "rtl" : "ltr"}
               className="text-muted-foreground hover:text-custom-primary 3xl:text-sm block truncate text-sm transition-colors duration-300 xl:text-[12px] 2xl:text-[13px]"
             >
               {message.email}
@@ -175,12 +175,9 @@ const ContactMessageRow = ({
               duration={800}
               onComplete={handleDelete}
               leftSection={
-                <Trash2
-                  strokeWidth={1.8}
-                  className="3xl:size-4 size-4 xl:size-3.5"
-                />
+                <Trash2 className="3xl:size-[17px] size-4" strokeWidth={1.8} />
               }
-              className="3xl:h-9 3xl:px-3 3xl:text-sm h-9 px-3 text-sm xl:h-8 xl:px-2.5 xl:text-[12px] 2xl:text-[13px]"
+              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
             >
               {t("actions.delete")}
             </CustomHoldButton>
