@@ -1,7 +1,7 @@
 import type { FaqFormValues } from "./faq.schema";
 
 export const createFaq = async (data: FaqFormValues) => {
-  const response = await fetch("/api/faq/create", {
+  const response = await fetch("/api/faqs/create", {
     method: "POST",
 
     headers: {

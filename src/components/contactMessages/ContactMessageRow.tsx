@@ -125,7 +125,7 @@ const ContactMessageRow = ({
 
           {/* Phone */}
           <div
-            dir="ltr"
+              dir={locale === "fa" ? "rtl" : "ltr"}
             className="text-muted-foreground 3xl:text-sm min-w-0 truncate text-sm xl:text-[12px] 2xl:text-[13px]"
           >
             {message.phone_number}
@@ -135,7 +135,7 @@ const ContactMessageRow = ({
           <div className="min-w-0" onClick={(event) => event.stopPropagation()}>
             <a
               href={`mailto:${message.email}`}
-              dir="ltr"
+                dir={locale === "fa" ? "rtl" : "ltr"}
               className="text-muted-foreground hover:text-custom-primary 3xl:text-sm block truncate text-sm transition-colors duration-300 xl:text-[12px] 2xl:text-[13px]"
             >
               {message.email}

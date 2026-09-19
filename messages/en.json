@@ -160,6 +160,43 @@
       }
     }
   },
+  "Faqs": {
+    "header": {
+      "title": "Frequently Asked Questions",
+      "description": "View, manage, edit and reorder frequently asked questions"
+    },
+    "filters": {
+      "searchPlaceholder": "Search FAQs..."
+    },
+    "table": {
+      "index": "Order",
+      "questionEn": "English Question",
+      "questionFa": "Persian Question",
+      "answerEn": "English Answer",
+      "answerFa": "Persian Answer",
+      "actions": "Actions"
+    },
+    "actions": {
+      "moveUp": "Move Up",
+      "moveDown": "Move Down",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "loading": "Loading FAQs...",
+    "empty": {
+      "title": "No FAQs found",
+      "description": "There are currently no frequently asked questions to display."
+    },
+    "toast": {
+      "delete": {
+        "success": "FAQ deleted successfully.",
+        "error": "There was an error deleting the FAQ."
+      },
+      "order": {
+        "error": "There was an error changing the FAQ order."
+      }
+    }
+  },
   "addFaq": {
     "header": {
       "title": "Add FAQ",
