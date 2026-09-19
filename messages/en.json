@@ -197,6 +197,46 @@
       }
     }
   },
+  "editFaq": {
+    "header": {
+      "title": "Edit FAQ",
+      "description": "Review the question and answer information and update it if needed."
+    },
+    "form": {
+      "questionEn": {
+        "label": "English Question",
+        "placeholder": "Enter the question in English"
+      },
+      "questionFa": {
+        "label": "Persian Question",
+        "placeholder": "Enter the question in Persian"
+      },
+      "answerEn": {
+        "label": "English Answer",
+        "placeholder": "Enter the answer in English"
+      },
+      "answerFa": {
+        "label": "Persian Answer",
+        "placeholder": "Enter the answer in Persian"
+      },
+      "submit": "Save Changes",
+      "submitting": "Saving..."
+    },
+    "validation": {
+      "questionEnRequired": "English question is required.",
+      "questionEnMax": "English question cannot exceed 500 characters.",
+      "questionFaRequired": "Persian question is required.",
+      "questionFaMax": "Persian question cannot exceed 500 characters.",
+      "answerEnRequired": "English answer is required.",
+      "answerFaRequired": "Persian answer is required."
+    },
+    "loading": "Loading FAQ information...",
+    "toast": {
+      "success": "FAQ updated successfully.",
+      "error": "There was an error updating the FAQ.",
+      "loadError": "There was an error loading the FAQ information."
+    }
+  },
   "addFaq": {
     "header": {
       "title": "Add FAQ",

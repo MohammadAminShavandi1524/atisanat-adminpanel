@@ -34,6 +34,8 @@ export const FormField = (props: FormFieldProps) => {
     ...rest
   } = props;
 
+  const lang = rest.lang;
+
   return (
     <div className={cn("flex flex-col gap-2", containerClassName)}>
       <div className="flex min-h-5 items-center justify-between gap-2 px-1">
@@ -52,7 +54,10 @@ export const FormField = (props: FormFieldProps) => {
             "bg-secondary-bg text-foreground placeholder:text-muted-foreground",
             "h-40 w-full resize-none rounded-lg border px-4 py-3.5 text-[14px]",
             "transition-[border-color,background-color] duration-300 outline-none",
-            "rtl:text-right",
+
+            lang === "en" && "text-left",
+            lang === "fa" && "text-right",
+
             error
               ? "border-destructive focus:border-destructive"
               : "border-border focus:border-custom-primary",
@@ -66,7 +71,10 @@ export const FormField = (props: FormFieldProps) => {
             "bg-secondary-bg text-foreground placeholder:text-muted-foreground",
             "h-13 w-full rounded-lg border px-4 text-[14px]",
             "transition-[border-color,background-color] duration-300 outline-none",
-            "rtl:text-right",
+
+            lang === "en" && "text-left",
+            lang === "fa" && "text-right",
+
             error
               ? "border-destructive focus:border-destructive"
               : "border-border focus:border-custom-primary",
