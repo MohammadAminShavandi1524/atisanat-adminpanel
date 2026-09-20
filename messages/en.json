@@ -38,7 +38,11 @@
     "requestsSection": "Requests",
     "contactMessages": "Contact Messages",
     "hireResumes": "Job Applications",
-    "cooperationRequests": "Cooperation Requests"
+    "cooperationRequests": "Cooperation Requests",
+    "standardTablesSection": "Standard Tables",
+    "standardTables": "Standard Tables",
+    "addStandardTableParent": "Add Collection",
+    "addStandardTableChild": "Add Table"
   },
   "Dashboard": {
     "header": {
@@ -273,6 +277,272 @@
     "toast": {
       "success": "FAQ added successfully.",
       "error": "There was an error adding the FAQ."
+    }
+  },
+  "StandardTables": {
+    "header": {
+      "title": "Standard Tables",
+      "description": "View and manage registered standard table collections and their documents."
+    },
+    "filters": {
+      "searchPlaceholder": "Search names or descriptions..."
+    },
+    "table": {
+      "cover": "Cover",
+      "nameEn": "English Name",
+      "nameFa": "Persian Name",
+      "descriptionEn": "English Description",
+      "descriptionFa": "Persian Description",
+      "actions": "Actions"
+    },
+    "actions": {
+      "more": "More",
+      "less": "Close",
+      "download": "Download",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "children": {
+      "loading": "Loading tables...",
+      "error": "There was an error loading the tables in this collection.",
+      "empty": {
+        "title": "No tables available",
+        "description": "No standard tables have been added to this collection yet."
+      },
+      "table": {
+        "nameEn": "English Name",
+        "nameFa": "Persian Name",
+        "size": "Size",
+        "actions": "Actions"
+      }
+    },
+    "toast": {
+      "parentDeleteSuccess": "Standard table collection deleted successfully.",
+      "parentDeleteError": "There was an error deleting the standard table collection.",
+      "childDeleteSuccess": "Standard table deleted successfully.",
+      "childDeleteError": "There was an error deleting the standard table."
+    },
+    "loading": "Loading standard tables...",
+    "error": "There was an error loading the standard tables.",
+    "empty": {
+      "title": "No collections available",
+      "description": "No standard table collections have been created yet."
+    }
+  },
+  "editStandardTableParent": {
+    "header": {
+      "title": "Edit Standard Table Collection",
+      "description": "Review the collection information, descriptions and cover image and update them if needed."
+    },
+    "form": {
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter the collection name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter the collection name in Persian"
+      },
+      "descriptionEn": {
+        "label": "English Description",
+        "placeholder": "Enter the collection description in English"
+      },
+      "descriptionFa": {
+        "label": "Persian Description",
+        "placeholder": "Enter the collection description in Persian"
+      },
+      "image": {
+        "label": "Cover Image",
+        "placeholder": "Click to select a new image or drop it here",
+        "title": "Collection Cover",
+        "description": "The current collection cover is displayed. You can replace it with a new image if needed.",
+        "format": "Allowed formats: JPG, JPEG, PNG and WEBP",
+        "maxSize": "Maximum file size: 5 MB",
+        "ratio": "It is recommended to prepare the cover image using the A4 paper aspect ratio.",
+        "remove": "Remove new image",
+        "uploading": "Uploading image...",
+        "finalizing": "Finalizing upload..."
+      },
+      "submit": "Save Changes",
+      "submitting": "Saving...",
+      "uploading": "Uploading..."
+    },
+    "validation": {
+      "nameEnRequired": "English name is required.",
+      "nameEnMax": "English name cannot exceed 300 characters.",
+      "nameFaRequired": "Persian name is required.",
+      "nameFaMax": "Persian name cannot exceed 300 characters.",
+      "descriptionEnRequired": "English description is required.",
+      "descriptionFaRequired": "Persian description is required.",
+      "imageSize": "The image cannot exceed 5 MB.",
+      "imageType": "The image must be JPG, JPEG, PNG or WEBP."
+    },
+    "loading": "Loading collection information...",
+    "toast": {
+      "success": "Standard table collection updated successfully.",
+      "error": "There was an error updating the standard table collection.",
+      "loadError": "There was an error loading the standard table collection."
+    }
+  },
+  "editStandardTableChild": {
+    "header": {
+      "title": "Edit Standard Table",
+      "description": "Review the table information, parent collection, size and file and update them if needed."
+    },
+    "form": {
+      "parent": {
+        "label": "Standard Table Collection",
+        "placeholder": "Select a collection",
+        "loading": "Loading collections...",
+        "empty": "No collections available",
+        "error": "Failed to load collections",
+        "emptyDescription": "At least one standard table collection is required to edit this table.",
+        "fetchError": "There was an error loading the standard table collections."
+      },
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter the table name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter the table name in Persian"
+      },
+      "size": {
+        "label": "Table Size",
+        "placeholder": "Select the table size"
+      },
+      "file": {
+        "label": "Table File",
+        "currentFile": "Current Table File",
+        "view": "View",
+        "replace": "Select a new PDF or drop it here to replace the current file",
+        "remove": "Remove new file",
+        "uploading": "Uploading file...",
+        "finalizing": "Finalizing upload..."
+      },
+      "submit": "Save Changes",
+      "submitting": "Saving...",
+      "uploading": "Uploading..."
+    },
+    "validation": {
+      "parentRequired": "Standard table collection is required.",
+      "nameEnRequired": "English name is required.",
+      "nameFaRequired": "Persian name is required.",
+      "sizeRequired": "Table size is required.",
+      "sizeInvalid": "Table size must be A3, A4 or A5.",
+      "fileType": "The table file must be a PDF."
+    },
+    "loading": "Loading table information...",
+    "toast": {
+      "success": "Standard table updated successfully.",
+      "error": "There was an error updating the standard table.",
+      "loadError": "There was an error loading the standard table."
+    }
+  },
+  "addStandardTableParent": {
+    "header": {
+      "title": "Add Standard Table Collection",
+      "description": "Enter the collection information, descriptions and cover image."
+    },
+    "form": {
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter the collection name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter the collection name in Persian"
+      },
+      "descriptionEn": {
+        "label": "English Description",
+        "placeholder": "Enter the collection description in English"
+      },
+      "descriptionFa": {
+        "label": "Persian Description",
+        "placeholder": "Enter the collection description in Persian"
+      },
+      "image": {
+        "label": "Cover Image",
+        "placeholder": "Click to select an image or drop it here",
+        "title": "Collection Cover",
+        "description": "The selected image will be used as the cover of this standard table collection.",
+        "format": "Allowed formats: JPG, JPEG, PNG and WEBP",
+        "maxSize": "Maximum file size: 5 MB",
+        "ratio": "It is recommended to prepare the cover image using the A4 paper aspect ratio.",
+        "remove": "Remove image",
+        "uploading": "Uploading image...",
+        "finalizing": "Finalizing upload..."
+      },
+      "submit": "Create Collection",
+      "submitting": "Creating...",
+      "uploading": "Uploading..."
+    },
+    "validation": {
+      "nameEnRequired": "English name is required.",
+      "nameEnMax": "English name cannot exceed 300 characters.",
+      "nameFaRequired": "Persian name is required.",
+      "nameFaMax": "Persian name cannot exceed 300 characters.",
+      "descriptionEnRequired": "English description is required.",
+      "descriptionFaRequired": "Persian description is required.",
+      "imageRequired": "Cover image is required.",
+      "imageSize": "The image cannot exceed 5 MB.",
+      "imageType": "The image must be JPG, JPEG, PNG or WEBP."
+    },
+    "toast": {
+      "success": "Standard table collection created successfully.",
+      "error": "There was an error creating the standard table collection."
+    }
+  },
+  "addStandardTableChild": {
+    "header": {
+      "title": "Add Standard Table",
+      "description": "Select the parent collection and enter the table information and its file."
+    },
+    "form": {
+      "parent": {
+        "label": "Standard Table Collection",
+        "placeholder": "Select a collection",
+        "loading": "Loading collections...",
+        "empty": "No collections available",
+        "error": "Failed to load collections",
+        "emptyDescription": "You need to create a standard table collection before adding a table.",
+        "fetchError": "There was an error loading the standard table collections."
+      },
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter the table name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter the table name in Persian"
+      },
+      "size": {
+        "label": "Table Size",
+        "placeholder": "Select the table size"
+      },
+      "file": {
+        "label": "Table File",
+        "placeholder": "Click to select a PDF file or drop it here",
+        "remove": "Remove file",
+        "uploading": "Uploading file...",
+        "finalizing": "Finalizing upload..."
+      },
+      "submit": "Create Table",
+      "submitting": "Creating...",
+      "uploading": "Uploading..."
+    },
+    "validation": {
+      "parentRequired": "Standard table collection is required.",
+      "nameEnRequired": "English name is required.",
+      "nameFaRequired": "Persian name is required.",
+      "sizeRequired": "Table size is required.",
+      "sizeInvalid": "Table size must be A3, A4 or A5.",
+      "fileRequired": "Table file is required.",
+      "fileType": "The table file must be a PDF."
+    },
+    "toast": {
+      "success": "Standard table created successfully.",
+      "error": "There was an error creating the standard table."
     }
   }
 }

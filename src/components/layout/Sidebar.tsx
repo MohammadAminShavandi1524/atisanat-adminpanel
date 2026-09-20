@@ -5,10 +5,13 @@ import { useRef } from "react";
 import {
   BriefcaseBusiness,
   CircleHelp,
+  FilePlus2,
+  FolderPlus,
   Handshake,
   LayoutDashboard,
   Mail,
   Plus,
+  Table2,
 } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -166,6 +169,32 @@ const Sidebar = () => {
               title={t("cooperationRequests")}
               icon={Handshake}
               active={pathname.startsWith(`/${locale}/cooperation-requests`)}
+            />
+          </div>
+
+          {/* Standard Tables */}
+          <div className="sidebar-section">
+            <SideBarItemHeader label={t("standardTablesSection")} />
+
+            <SidebarItem
+              href={`/${locale}/standard-tables`}
+              title={t("standardTables")}
+              icon={Table2}
+              active={pathname === `/${locale}/standard-tables`}
+            />
+
+            <SidebarItem
+              href={`/${locale}/standard-tables/add-parent`}
+              title={t("addStandardTableParent")}
+              icon={FolderPlus}
+              active={pathname === `/${locale}/standard-tables/add-parent`}
+            />
+
+            <SidebarItem
+              href={`/${locale}/standard-tables/add-child`}
+              title={t("addStandardTableChild")}
+              icon={FilePlus2}
+              active={pathname === `/${locale}/standard-tables/add-child`}
             />
           </div>
 
