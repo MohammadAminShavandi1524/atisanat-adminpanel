@@ -10,7 +10,6 @@ import type { ChildChartFormValues } from "./add-child-chart.schema";
 
 interface ChartSizeSelectProps {
   field: ControllerRenderProps<ChildChartFormValues, "size">;
-
   error?: FieldError;
 }
 
@@ -38,9 +37,6 @@ const ChartSizeSelect = ({ field, error }: ChartSizeSelectProps) => {
         },
       ]}
       error={error}
-      labelClassName="text-[14px] font-semibold"
-      triggerClassName="border-border bg-secondary-bg h-13 rounded-lg"
-      dropdownClassName="border-border rounded-lg"
     />
   );
 };

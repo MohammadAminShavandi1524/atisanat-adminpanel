@@ -21,7 +21,7 @@ const SidebarItem = ({
     <Link
       href={href}
       className={cn(
-        "group relative mb-1 flex h-12 items-center gap-3 rounded-lg border px-4",
+        "group relative mb-1 flex h-12 items-center gap-2.5 rounded-lg border px-4",
         "text-[15px] font-medium",
         "transition-[background-color,border-color,color] duration-300",
         active

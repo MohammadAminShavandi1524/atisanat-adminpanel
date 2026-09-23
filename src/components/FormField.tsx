@@ -51,9 +51,10 @@ export const FormField = (props: FormFieldProps) => {
           {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
           {...register}
           className={cn(
-            "bg-secondary-bg text-foreground placeholder:text-muted-foreground",
+            "bg-background text-foreground placeholder:text-muted-foreground",
             "h-40 w-full resize-none rounded-lg border px-4 py-3.5 text-[14px]",
             "transition-[border-color,background-color] duration-300 outline-none",
+            "hover:border-foreground/20",
 
             lang === "en" && "text-left",
             lang === "fa" && "text-right",
@@ -68,9 +69,10 @@ export const FormField = (props: FormFieldProps) => {
           {...(rest as InputHTMLAttributes<HTMLInputElement>)}
           {...register}
           className={cn(
-            "bg-secondary-bg text-foreground placeholder:text-muted-foreground",
+            "bg-background text-foreground placeholder:text-muted-foreground",
             "h-13 w-full rounded-lg border px-4 text-[14px]",
             "transition-[border-color,background-color] duration-300 outline-none",
+            "hover:border-foreground/20",
 
             lang === "en" && "text-left",
             lang === "fa" && "text-right",

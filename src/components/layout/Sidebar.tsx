@@ -12,6 +12,7 @@ import {
   Mail,
   Plus,
   Table2,
+  Wrench,
 } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -111,7 +112,7 @@ const Sidebar = () => {
   return (
     <aside
       ref={sidebarRef}
-      className="border-border-secondary bg-background flex h-screen w-[270px] shrink-0 flex-col border-e pb-4"
+      className="border-border-secondary bg-background flex h-screen w-[285px] shrink-0 flex-col border-e pb-4"
     >
       {/* Header */}
       <div className="sidebar-brand shrink-0 px-4">
@@ -147,6 +148,7 @@ const Sidebar = () => {
             />
           </div>
 
+          {/* Requests */}
           <div className="sidebar-section">
             <SideBarItemHeader label={t("requestsSection")} />
 
@@ -195,6 +197,25 @@ const Sidebar = () => {
               title={t("addStandardTableChild")}
               icon={FilePlus2}
               active={pathname === `/${locale}/standard-tables/add-child`}
+            />
+          </div>
+
+          {/* Machining Challenges */}
+          <div className="sidebar-section">
+            <SideBarItemHeader label={t("machiningChallengesSection")} />
+
+            <SidebarItem
+              href={`/${locale}/news`}
+              title={t("machiningChallenges")}
+              icon={Wrench}
+              active={pathname.startsWith(`/${locale}/news`)}
+            />
+
+            <SidebarItem
+              href={`/${locale}/add-news`}
+              title={t("addMachiningChallenge")}
+              icon={Plus}
+              active={pathname.startsWith(`/${locale}/add-news`)}
             />
           </div>
 

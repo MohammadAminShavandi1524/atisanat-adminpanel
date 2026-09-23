@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useLocale } from "next-intl";
 import { FieldError } from "react-hook-form";
@@ -52,14 +51,14 @@ const CustomSelect = <T extends string>({
   }, []);
 
   return (
-    <div className={cn("relative flex flex-col gap-2.5", className)}>
+    <div className={cn("relative flex flex-col gap-2", className)}>
       {/* Label */}
       {(label?.trim() || error) && (
-        <div className="flex min-h-5 items-center justify-between gap-4 px-1">
+        <div className="flex min-h-5 items-center justify-between gap-2 px-1">
           {label?.trim() && (
             <label
               className={cn(
-                "text-foreground text-sm font-medium",
+                "text-foreground text-[14px] font-semibold",
                 labelClassName,
               )}
             >
@@ -77,115 +76,72 @@ const CustomSelect = <T extends string>({
           type="button"
           disabled={disabled}
           aria-expanded={open}
+          aria-haspopup="listbox"
           onClick={() => setOpen((prev) => !prev)}
           className={cn(
-            "bg-background relative flex h-12 w-full cursor-pointer items-center justify-between border px-4 outline-none",
+            "bg-background text-foreground relative flex h-13 w-full cursor-pointer items-center justify-between rounded-lg border px-4 text-[14px] outline-none",
             "transition-[border-color,background-color] duration-300",
-            open && !error && "border-custom-primary",
+            "hover:border-foreground/20",
+
             error
               ? "border-destructive"
-              : "border-border-secondary hover:border-foreground/20",
+              : open
+                ? "border-custom-primary"
+                : "border-border",
+
             disabled && "cursor-not-allowed opacity-50",
             triggerClassName,
           )}
         >
-          {/* Active marker */}
-          <span
-            aria-hidden="true"
-            className={cn(
-              "bg-custom-primary absolute inset-y-0 start-0 w-[2px] transition-transform duration-300",
-              open ? "scale-y-100" : "scale-y-0",
-            )}
-          />
-
           <span
             className={cn(
-              "truncate text-sm",
+              "min-w-0 truncate",
               selectedOption ? "text-foreground" : "text-muted-foreground",
             )}
           >
             {selectedOption?.label ?? placeholder}
           </span>
 
-          <motion.span
-            animate={{
-              rotate: open ? 180 : 0,
-            }}
-            transition={{
-              duration: 0.2,
-              ease: "easeOut",
-            }}
-            className="ms-4 flex shrink-0 items-center justify-center"
-          >
-            <ChevronDown
-              className={cn(
-                "size-4 transition-colors duration-300",
-                open ? "text-custom-primary" : "text-muted-foreground",
-              )}
-              strokeWidth={1.7}
-            />
-          </motion.span>
+          <ChevronDown
+            className={cn(
+              "ms-4 size-4 shrink-0 transition-[transform,color] duration-200",
+              open ? "text-custom-primary rotate-180" : "text-muted-foreground",
+            )}
+            strokeWidth={1.7}
+          />
         </button>
 
         {/* Dropdown */}
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: -6,
-                scaleY: 0.98,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scaleY: 1,
-              }}
-              exit={{
-                opacity: 0,
-                y: -6,
-                scaleY: 0.98,
-              }}
-              transition={{
-                duration: 0.18,
-                ease: "easeOut",
-              }}
-              style={{
-                transformOrigin: "top",
-              }}
-              className={cn(
-                "bg-secondary-bg border-border-secondary absolute z-50 mt-2 w-full overflow-hidden border shadow-xl",
-                dropdownClassName,
-              )}
+        {open && (
+          <div
+            role="listbox"
+            className={cn(
+              "border-border bg-background absolute z-50 mt-2 w-full overflow-hidden rounded-lg border shadow-xl",
+              dropdownClassName,
+            )}
+          >
+            <ScrollArea
+              data-lenis-prevent
+              dir={locale === "en" ? "ltr" : "rtl"}
+              className={cn("h-auto", options.length > 5 && "h-64")}
             >
-              <span
-                aria-hidden="true"
-                className="bg-custom-primary absolute inset-x-0 top-0 h-px"
-              />
+              <div className="flex flex-col p-2">
+                {options.map((option) => (
+                  <CustomSelectItem
+                    key={option.value}
+                    option={option}
+                    selected={option.value === value}
+                    onSelect={(selectedValue) => {
+                      onChange(selectedValue as T);
 
-              <ScrollArea
-                data-lenis-prevent
-                dir={locale === "en" ? "ltr" : "rtl"}
-                className={cn("h-auto", options.length > 5 && "h-64")}
-              >
-                <div className="flex flex-col py-2">
-                  {options.map((option) => (
-                    <CustomSelectItem
-                      key={option.value}
-                      option={option}
-                      selected={option.value === value}
-                      onSelect={(selectedValue) => {
-                        onChange(selectedValue as T);
-
-                        setOpen(false);
-                      }}
-                    />
-                  ))}
-                </div>
-              </ScrollArea>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                      setOpen(false);
+                    }}
+                  />
+                ))}
+              </div>
+            </ScrollArea>
+          </div>
+        )}
       </div>
     </div>
   );

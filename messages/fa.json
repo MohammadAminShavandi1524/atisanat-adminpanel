@@ -30,19 +30,27 @@
   "Sidebar": {
     "logoTitle": "آتی صنعت",
     "logoSubtitle": "پنل مدیریت",
+
     "overview": "نمای کلی",
     "dashboard": "داشبورد",
-    "faqSection": "سوالات متداول",
-    "faq": "سوالات متداول",
-    "addFaq": "افزودن سوال متداول",
+
     "requestsSection": "درخواست‌ها",
     "contactMessages": "پیام‌های دریافتی",
     "hireResumes": "رزومه‌های استخدامی",
     "cooperationRequests": "درخواست‌های همکاری",
+
     "standardTablesSection": "جداول استاندارد",
     "standardTables": "جداول استاندارد",
     "addStandardTableParent": "افزودن مجموعه",
-    "addStandardTableChild": "افزودن جدول"
+    "addStandardTableChild": "افزودن جدول",
+
+    "machiningChallengesSection": "چالش‌های ماشین‌کاری",
+    "machiningChallenges": "چالش‌های ماشین‌کاری",
+    "addMachiningChallenge": "افزودن چالش ماشین‌کاری",
+
+    "faqSection": "سوالات متداول",
+    "faq": "سوالات متداول",
+    "addFaq": "افزودن سوال متداول"
   },
   "Dashboard": {
     "header": {
@@ -296,7 +304,7 @@
       "actions": "عملیات"
     },
     "actions": {
-      "more": "مشاهده بیشتر",
+      "more": "بیشتر",
       "less": "بستن",
       "download": "دانلود",
       "edit": "ویرایش",
@@ -543,6 +551,376 @@
     "toast": {
       "success": "جدول استاندارد با موفقیت ایجاد شد.",
       "error": "ایجاد جدول استاندارد با خطا مواجه شد."
+    }
+  },
+  "news": {
+    "header": {
+      "title": "چالش‌های ماشین‌کاری",
+      "description": "چالش‌های ماشین‌کاری و دسته‌بندی‌های آن‌ها را از یک بخش مدیریت کنید."
+    },
+
+    "tabs": {
+      "categories": "دسته‌بندی‌ها",
+      "news": "چالش‌ها"
+    },
+
+    "categories": {
+      "table": {
+        "id": "شناسه",
+        "name": "نام",
+        "language": "زبان",
+        "actions": "عملیات"
+      }
+    },
+
+    "newsTable": {
+      "searchPlaceholder": "جستجو در عنوان چالش...",
+      "newestFirst": "جدیدترین",
+      "oldestFirst": "قدیمی‌ترین",
+
+      "table": {
+        "id": "شناسه",
+        "title": "عنوان",
+        "category": "دسته‌بندی",
+        "tags": "برچسب‌ها",
+        "date": "تاریخ",
+        "actions": "عملیات"
+      },
+
+      "empty": {
+        "title": "چالشی یافت نشد",
+        "description": "عبارت دیگری را برای جستجو امتحان کنید."
+      }
+    },
+
+    "deleteModal": {
+      "deleteNews": "حذف چالش",
+      "deleteCategory": "حذف دسته‌بندی",
+      "description": "آیا از حذف «{name}» اطمینان دارید؟"
+    },
+
+    "toast": {
+      "deleteSuccess": "با موفقیت حذف شد.",
+      "deleteError": "حذف با خطا مواجه شد.",
+
+      "rootNewsDeleteSuccess": "مجموعه چالش با موفقیت حذف شد.",
+      "rootNewsDeleteError": "حذف مجموعه چالش با خطا مواجه شد.",
+
+      "parentNewsDeleteSuccess": "چالش با موفقیت حذف شد.",
+      "parentNewsDeleteError": "حذف چالش با خطا مواجه شد.",
+
+      "childNewsDeleteSuccess": "بخش محتوا با موفقیت حذف شد.",
+      "childNewsDeleteError": "حذف بخش محتوا با خطا مواجه شد.",
+
+      "newsPublishedSuccess": "چالش با موفقیت منتشر شد.",
+      "newsUnpublishedSuccess": "چالش با موفقیت از حالت انتشار خارج شد.",
+      "newsPublishError": "تغییر وضعیت انتشار چالش با خطا مواجه شد."
+    },
+
+    "actions": {
+      "edit": "ویرایش",
+      "delete": "حذف",
+      "more": "بیشتر",
+      "publish": "انتشار",
+      "unpublish": "لغو انتشار",
+      "downloadImage": "دانلود تصویر"
+    },
+
+    "hierarchy": {
+      "published": "منتشر شده",
+      "draft": "پیش‌نویس",
+      "category": "دسته‌بندی",
+      "id": "شناسه",
+      "imageAttached": "دارای تصویر",
+      "noChildNews": "بخش محتوایی وجود ندارد.",
+      "rootNews": "مجموعه چالش",
+      "parentNews": "چالش",
+      "childNews": "بخش محتوا"
+    }
+  },
+
+  "addNews": {
+    "header": {
+      "category": {
+        "title": "افزودن دسته‌بندی",
+        "description": "یک دسته‌بندی برای سازمان‌دهی چالش‌های ماشین‌کاری ایجاد کنید."
+      },
+
+      "rootNews": {
+        "title": "افزودن مجموعه چالش",
+        "description": "یک مجموعه برای سازمان‌دهی چالش‌های مرتبط ایجاد کنید."
+      },
+
+      "parentNews": {
+        "title": "افزودن چالش",
+        "description": "اطلاعات اصلی چالش ماشین‌کاری شامل دسته‌بندی، زبان، تصویر، برچسب‌ها و توضیحات را ثبت کنید."
+      },
+
+      "news": {
+        "title": "افزودن بخش محتوا",
+        "description": "یک بخش محتوایی جدید به یکی از چالش‌های ماشین‌کاری اضافه کنید."
+      }
+    },
+
+    "tabs": {
+      "category": "دسته‌بندی",
+      "rootNews": "مجموعه چالش",
+      "parentNews": "چالش",
+      "news": "بخش محتوا"
+    },
+
+    "submitButton": {
+      "category": "ذخیره دسته‌بندی",
+      "rootNews": "ذخیره مجموعه",
+      "parentNews": "ذخیره چالش",
+      "news": "ذخیره بخش"
+    },
+
+    "forms": {
+      "category": {
+        "validation": {
+          "required": "عنوان دسته‌بندی الزامی است.",
+          "max": "عنوان دسته‌بندی نمی‌تواند بیشتر از ۳۰ کاراکتر باشد.",
+          "language": "لطفاً یک زبان انتخاب کنید."
+        },
+
+        "label": "دسته‌بندی",
+        "placeholder": "مثلاً فرزکاری",
+        "selectCategory": "انتخاب دسته‌بندی"
+      },
+
+      "rootNews": {
+        "title": "عنوان مجموعه",
+        "titlePlaceholder": "عنوان مجموعه چالش را وارد کنید",
+
+        "validation": {
+          "required": "وارد کردن عنوان مجموعه الزامی است.",
+          "max": "عنوان مجموعه باید حداکثر ۲۵۵ کاراکتر باشد."
+        }
+      },
+
+      "parentNews": {
+        "category": "دسته‌بندی",
+
+        "tags": "برچسب‌ها",
+        "tagsPlaceholder": "انتخاب برچسب‌ها",
+        "createTag": "ایجاد برچسب جدید",
+        "tagNamePlaceholder": "نام برچسب...",
+
+        "cancel": "انصراف",
+        "save": "ذخیره",
+
+        "title": "عنوان چالش",
+        "titlePlaceholder": "عنوان چالش را وارد کنید",
+
+        "featuredImage": "تصویر شاخص",
+        "featuredImagePlaceholder": "یک تصویر انتخاب کنید",
+        "imageUploading": "در حال آپلود تصویر...",
+        "imageFinalizing": "در حال نهایی‌سازی آپلود...",
+
+        "description": "توضیحات",
+        "descriptionPlaceholder": "توضیح کوتاهی برای این چالش بنویسید",
+
+        "language": "زبان",
+        "languagePlaceholder": "انتخاب زبان",
+
+        "rootNews": "مجموعه چالش",
+        "rootNewsPlaceholder": "مجموعه چالش را انتخاب کنید",
+        "loadingRootNews": "در حال بارگذاری...",
+
+        "validation": {
+          "rootNewsRequired": "لطفاً یک مجموعه چالش انتخاب کنید.",
+          "categoryRequired": "لطفاً یک دسته‌بندی انتخاب کنید.",
+          "titleRequired": "وارد کردن عنوان چالش الزامی است.",
+          "descriptionRequired": "وارد کردن توضیحات چالش الزامی است.",
+          "imageInvalid": "لطفاً یک فایل تصویری معتبر انتخاب کنید.",
+          "languageRequired": "لطفاً یک زبان انتخاب کنید.",
+          "tagsRequired": "لطفاً حداقل یک برچسب انتخاب کنید."
+        }
+      },
+
+      "news": {
+        "title": "عنوان بخش",
+        "titlePlaceholder": "عنوان بخش را وارد کنید (اختیاری)",
+
+        "featuredImage": "تصویر بخش",
+        "featuredImagePlaceholder": "یک تصویر انتخاب کنید (اختیاری)",
+        "imageUploading": "در حال آپلود تصویر...",
+        "imageFinalizing": "در حال نهایی‌سازی آپلود...",
+
+        "description": "محتوای بخش",
+        "descriptionPlaceholder": "محتوای این بخش را وارد کنید (اختیاری)",
+
+        "parentNews": "چالش",
+        "parentNewsPlaceholder": "چالش را انتخاب کنید",
+        "loadingParentNews": "در حال بارگذاری چالش‌ها...",
+
+        "validation": {
+          "parentNewsRequired": "لطفاً یک چالش انتخاب کنید.",
+          "titleRequired": "وارد کردن عنوان بخش الزامی است.",
+          "descriptionRequired": "وارد کردن محتوای بخش الزامی است.",
+          "imageInvalid": "لطفاً یک فایل تصویری معتبر انتخاب کنید."
+        }
+      }
+    },
+
+    "toast": {
+      "category": {
+        "success": "دسته‌بندی با موفقیت ایجاد شد.",
+        "error": "ایجاد دسته‌بندی با خطا مواجه شد."
+      },
+
+      "rootNews": {
+        "success": "مجموعه چالش با موفقیت ایجاد شد.",
+        "error": "ایجاد مجموعه چالش با خطا مواجه شد."
+      },
+
+      "parentNews": {
+        "success": "چالش با موفقیت ایجاد شد.",
+        "error": "ایجاد چالش با خطا مواجه شد."
+      },
+
+      "news": {
+        "success": "بخش محتوا با موفقیت ایجاد شد.",
+        "error": "ایجاد بخش محتوا با خطا مواجه شد."
+      }
+    },
+
+    "languages": {
+      "fa": "فارسی",
+      "en": "انگلیسی"
+    }
+  },
+
+  "editRootNews": {
+    "header": {
+      "title": "ویرایش مجموعه چالش",
+      "description": "عنوان مجموعه چالش را ویرایش کنید."
+    },
+
+    "form": {
+      "title": {
+        "label": "عنوان مجموعه",
+        "placeholder": "عنوان مجموعه را وارد کنید"
+      },
+
+      "validation": {
+        "required": "وارد کردن عنوان مجموعه الزامی است.",
+        "max": "عنوان مجموعه نمی‌تواند بیشتر از ۱۰۰ کاراکتر باشد."
+      },
+
+      "actions": {
+        "saveChanges": "ذخیره تغییرات",
+        "saving": "در حال ذخیره..."
+      }
+    },
+
+    "toast": {
+      "success": "مجموعه چالش با موفقیت ویرایش شد.",
+      "error": "ویرایش مجموعه چالش با خطا مواجه شد.",
+      "loadError": "دریافت اطلاعات مجموعه چالش با خطا مواجه شد."
+    }
+  },
+
+  "editParentNews": {
+    "header": {
+      "title": "ویرایش چالش",
+      "description": "اطلاعات چالش ماشین‌کاری را ویرایش کنید."
+    },
+
+    "form": {
+      "title": {
+        "label": "عنوان چالش",
+        "placeholder": "عنوان چالش را وارد کنید"
+      },
+
+      "description": {
+        "label": "توضیحات",
+        "placeholder": "توضیحات چالش را وارد کنید"
+      },
+
+      "image": {
+        "label": "تصویر شاخص",
+        "placeholder": "یک تصویر انتخاب کنید",
+        "current": "تصویر فعلی",
+        "hint": "فقط در صورتی که می‌خواهید تصویر فعلی را تغییر دهید، تصویر جدیدی انتخاب کنید."
+      },
+
+      "category": {
+        "label": "دسته‌بندی"
+      },
+
+      "tags": {
+        "label": "برچسب‌ها",
+        "placeholder": "برچسب‌های چالش را انتخاب کنید"
+      },
+
+      "validation": {
+        "titleRequired": "وارد کردن عنوان چالش الزامی است.",
+        "titleMax": "عنوان چالش نمی‌تواند بیشتر از ۱۰۰ کاراکتر باشد.",
+        "descriptionRequired": "وارد کردن توضیحات چالش الزامی است.",
+        "imageRequired": "تصویر چالش الزامی است.",
+        "imageInvalid": "لطفاً یک فایل تصویری معتبر انتخاب کنید.",
+        "categoryRequired": "انتخاب دسته‌بندی الزامی است.",
+        "tagsRequired": "حداقل یک برچسب انتخاب کنید."
+      },
+
+      "actions": {
+        "saveChanges": "ذخیره تغییرات",
+        "saving": "در حال ذخیره...",
+        "finalizing": "در حال نهایی‌سازی آپلود..."
+      }
+    },
+
+    "toast": {
+      "success": "چالش با موفقیت ویرایش شد.",
+      "error": "ویرایش چالش با خطا مواجه شد.",
+      "loadError": "دریافت اطلاعات چالش با خطا مواجه شد."
+    }
+  },
+
+  "editChildNews": {
+    "header": {
+      "title": "ویرایش بخش محتوا",
+      "description": "اطلاعات بخش محتوایی چالش را ویرایش کنید."
+    },
+
+    "form": {
+      "title": {
+        "label": "عنوان بخش",
+        "placeholder": "عنوان بخش را وارد کنید (اختیاری)"
+      },
+
+      "description": {
+        "label": "محتوای بخش",
+        "placeholder": "محتوای بخش را وارد کنید (اختیاری)"
+      },
+
+      "image": {
+        "label": "تصویر بخش",
+        "placeholder": "یک تصویر انتخاب کنید (اختیاری)",
+        "current": "تصویر فعلی",
+        "hint": "فقط در صورتی که می‌خواهید تصویر فعلی را تغییر دهید، تصویر جدیدی انتخاب کنید."
+      },
+
+      "validation": {
+        "titleRequired": "وارد کردن عنوان بخش الزامی است.",
+        "titleMax": "عنوان بخش نمی‌تواند بیشتر از ۱۰۰ کاراکتر باشد.",
+        "descriptionRequired": "وارد کردن محتوای بخش الزامی است.",
+        "imageInvalid": "لطفاً یک فایل تصویری معتبر انتخاب کنید."
+      },
+
+      "actions": {
+        "saveChanges": "ذخیره تغییرات",
+        "saving": "در حال ذخیره...",
+        "finalizing": "در حال نهایی‌سازی آپلود..."
+      }
+    },
+
+    "toast": {
+      "success": "بخش محتوا با موفقیت ویرایش شد.",
+      "error": "ویرایش بخش محتوا با خطا مواجه شد.",
+      "loadError": "دریافت اطلاعات بخش محتوا با خطا مواجه شد."
     }
   }
 }

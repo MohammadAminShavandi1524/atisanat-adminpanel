@@ -30,19 +30,27 @@
   "Sidebar": {
     "logoTitle": "ATI Sanat",
     "logoSubtitle": "Management Panel",
+
     "overview": "Overview",
     "dashboard": "Dashboard",
-    "faqSection": "FAQ",
-    "faq": "FAQ",
-    "addFaq": "Add FAQ",
+
     "requestsSection": "Requests",
     "contactMessages": "Contact Messages",
     "hireResumes": "Job Applications",
     "cooperationRequests": "Cooperation Requests",
+
     "standardTablesSection": "Standard Tables",
     "standardTables": "Standard Tables",
     "addStandardTableParent": "Add Collection",
-    "addStandardTableChild": "Add Table"
+    "addStandardTableChild": "Add Table",
+
+    "machiningChallengesSection": "Machining Challenges",
+    "machiningChallenges": "Machining Challenges",
+    "addMachiningChallenge": "Add Machining Challenge",
+
+    "faqSection": "FAQ",
+    "faq": "FAQ",
+    "addFaq": "Add FAQ"
   },
   "Dashboard": {
     "header": {
@@ -543,6 +551,376 @@
     "toast": {
       "success": "Standard table created successfully.",
       "error": "There was an error creating the standard table."
+    }
+  },
+  "news": {
+    "header": {
+      "title": "Machining Challenges",
+      "description": "Manage machining challenges and their categories from one place."
+    },
+
+    "tabs": {
+      "categories": "Categories",
+      "news": "Challenges"
+    },
+
+    "categories": {
+      "table": {
+        "id": "ID",
+        "name": "Name",
+        "language": "Language",
+        "actions": "Actions"
+      }
+    },
+
+    "newsTable": {
+      "searchPlaceholder": "Search challenge title...",
+      "newestFirst": "Newest First",
+      "oldestFirst": "Oldest First",
+
+      "table": {
+        "id": "ID",
+        "title": "Title",
+        "category": "Category",
+        "tags": "Tags",
+        "date": "Date",
+        "actions": "Actions"
+      },
+
+      "empty": {
+        "title": "No challenges found",
+        "description": "Try another search keyword."
+      }
+    },
+
+    "deleteModal": {
+      "deleteNews": "Delete Challenge",
+      "deleteCategory": "Delete Category",
+      "description": "Are you sure you want to delete \"{name}\"?"
+    },
+
+    "toast": {
+      "deleteSuccess": "Deleted successfully.",
+      "deleteError": "Failed to delete.",
+
+      "rootNewsDeleteSuccess": "Challenge collection deleted successfully.",
+      "rootNewsDeleteError": "Failed to delete challenge collection.",
+
+      "parentNewsDeleteSuccess": "Challenge deleted successfully.",
+      "parentNewsDeleteError": "Failed to delete challenge.",
+
+      "childNewsDeleteSuccess": "Content section deleted successfully.",
+      "childNewsDeleteError": "Failed to delete content section.",
+
+      "newsPublishedSuccess": "Challenge published successfully.",
+      "newsUnpublishedSuccess": "Challenge unpublished successfully.",
+      "newsPublishError": "Failed to change challenge publish status."
+    },
+
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "more": "More",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "downloadImage": "Download Image"
+    },
+
+    "hierarchy": {
+      "published": "Published",
+      "draft": "Draft",
+      "category": "Category",
+      "id": "ID",
+      "imageAttached": "Image attached",
+      "noChildNews": "No content sections available.",
+      "rootNews": "Challenge Collection",
+      "parentNews": "Challenge",
+      "childNews": "Content Section"
+    }
+  },
+
+  "addNews": {
+    "header": {
+      "category": {
+        "title": "Add Category",
+        "description": "Create a category to organize machining challenges."
+      },
+
+      "rootNews": {
+        "title": "Add Challenge Collection",
+        "description": "Create a collection to organize related machining challenges."
+      },
+
+      "parentNews": {
+        "title": "Add Challenge",
+        "description": "Create a machining challenge with its category, language, image, tags, and description."
+      },
+
+      "news": {
+        "title": "Add Content Section",
+        "description": "Add a new content section to an existing machining challenge."
+      }
+    },
+
+    "tabs": {
+      "category": "Category",
+      "rootNews": "Challenge Collection",
+      "parentNews": "Challenge",
+      "news": "Content Section"
+    },
+
+    "submitButton": {
+      "category": "Save Category",
+      "rootNews": "Save Collection",
+      "parentNews": "Save Challenge",
+      "news": "Save Section"
+    },
+
+    "forms": {
+      "category": {
+        "validation": {
+          "required": "Category title is required.",
+          "max": "Category title cannot exceed 30 characters.",
+          "language": "Please select a language."
+        },
+
+        "label": "Category",
+        "placeholder": "e.g. Milling",
+        "selectCategory": "Select category"
+      },
+
+      "rootNews": {
+        "title": "Collection Title",
+        "titlePlaceholder": "Enter the challenge collection title",
+
+        "validation": {
+          "required": "Collection title is required.",
+          "max": "Collection title must be at most 255 characters."
+        }
+      },
+
+      "parentNews": {
+        "category": "Category",
+
+        "tags": "Tags",
+        "tagsPlaceholder": "Select tags",
+        "createTag": "Create new tag",
+        "tagNamePlaceholder": "Tag name...",
+
+        "cancel": "Cancel",
+        "save": "Save",
+
+        "title": "Challenge Title",
+        "titlePlaceholder": "Enter the challenge title",
+
+        "featuredImage": "Featured Image",
+        "featuredImagePlaceholder": "Select an image",
+        "imageUploading": "Uploading image...",
+        "imageFinalizing": "Finalizing upload...",
+
+        "description": "Description",
+        "descriptionPlaceholder": "Write a short description for this challenge",
+
+        "language": "Language",
+        "languagePlaceholder": "Select language",
+
+        "rootNews": "Challenge Collection",
+        "rootNewsPlaceholder": "Select challenge collection",
+        "loadingRootNews": "Loading...",
+
+        "validation": {
+          "rootNewsRequired": "Please select a challenge collection.",
+          "categoryRequired": "Please select a category.",
+          "titleRequired": "Challenge title is required.",
+          "descriptionRequired": "Challenge description is required.",
+          "imageInvalid": "Please select a valid image file.",
+          "languageRequired": "Please select a language.",
+          "tagsRequired": "Please select at least one tag."
+        }
+      },
+
+      "news": {
+        "title": "Section Title",
+        "titlePlaceholder": "Enter the section title (optional)",
+
+        "featuredImage": "Section Image",
+        "featuredImagePlaceholder": "Select an image (optional)",
+        "imageUploading": "Uploading image...",
+        "imageFinalizing": "Finalizing upload...",
+
+        "description": "Section Description",
+        "descriptionPlaceholder": "Write the section content (optional)",
+
+        "parentNews": "Challenge",
+        "parentNewsPlaceholder": "Select challenge",
+        "loadingParentNews": "Loading challenges...",
+
+        "validation": {
+          "parentNewsRequired": "Please select a challenge.",
+          "titleRequired": "Section title is required.",
+          "descriptionRequired": "Section description is required.",
+          "imageInvalid": "Please select a valid image file."
+        }
+      }
+    },
+
+    "toast": {
+      "category": {
+        "success": "Category created successfully.",
+        "error": "Failed to create category."
+      },
+
+      "rootNews": {
+        "success": "Challenge collection created successfully.",
+        "error": "Failed to create challenge collection."
+      },
+
+      "parentNews": {
+        "success": "Challenge created successfully.",
+        "error": "Failed to create challenge."
+      },
+
+      "news": {
+        "success": "Content section created successfully.",
+        "error": "Failed to create content section."
+      }
+    },
+
+    "languages": {
+      "fa": "Persian",
+      "en": "English"
+    }
+  },
+
+  "editRootNews": {
+    "header": {
+      "title": "Edit Challenge Collection",
+      "description": "Update the challenge collection title."
+    },
+
+    "form": {
+      "title": {
+        "label": "Collection Title",
+        "placeholder": "Enter collection title"
+      },
+
+      "validation": {
+        "required": "Collection title is required.",
+        "max": "Collection title cannot exceed 100 characters."
+      },
+
+      "actions": {
+        "saveChanges": "Save Changes",
+        "saving": "Saving..."
+      }
+    },
+
+    "toast": {
+      "success": "Challenge collection updated successfully.",
+      "error": "Failed to update challenge collection.",
+      "loadError": "Failed to load challenge collection."
+    }
+  },
+
+  "editParentNews": {
+    "header": {
+      "title": "Edit Challenge",
+      "description": "Update the machining challenge information."
+    },
+
+    "form": {
+      "title": {
+        "label": "Challenge Title",
+        "placeholder": "Enter challenge title"
+      },
+
+      "description": {
+        "label": "Description",
+        "placeholder": "Enter challenge description"
+      },
+
+      "image": {
+        "label": "Featured Image",
+        "placeholder": "Select an image",
+        "current": "Current Image",
+        "hint": "Select a new image below only if you want to replace the current image."
+      },
+
+      "category": {
+        "label": "Category"
+      },
+
+      "tags": {
+        "label": "Tags",
+        "placeholder": "Select challenge tags"
+      },
+
+      "validation": {
+        "titleRequired": "Challenge title is required.",
+        "titleMax": "Challenge title cannot exceed 100 characters.",
+        "descriptionRequired": "Challenge description is required.",
+        "imageRequired": "Challenge image is required.",
+        "imageInvalid": "Please select a valid image file.",
+        "categoryRequired": "Category is required.",
+        "tagsRequired": "At least one tag is required."
+      },
+
+      "actions": {
+        "saveChanges": "Save Changes",
+        "saving": "Saving...",
+        "finalizing": "Finalizing upload..."
+      }
+    },
+
+    "toast": {
+      "success": "Challenge updated successfully.",
+      "error": "Failed to update challenge.",
+      "loadError": "Failed to load challenge."
+    }
+  },
+
+  "editChildNews": {
+    "header": {
+      "title": "Edit Content Section",
+      "description": "Update the challenge content section."
+    },
+
+    "form": {
+      "title": {
+        "label": "Section Title",
+        "placeholder": "Enter section title (optional)"
+      },
+
+      "description": {
+        "label": "Section Description",
+        "placeholder": "Enter section description (optional)"
+      },
+
+      "image": {
+        "label": "Section Image",
+        "placeholder": "Select an image (optional)",
+        "current": "Current Image",
+        "hint": "Select a new image below only if you want to replace the current image."
+      },
+
+      "validation": {
+        "titleRequired": "Section title is required.",
+        "titleMax": "Section title cannot exceed 100 characters.",
+        "descriptionRequired": "Section description is required.",
+        "imageInvalid": "Please select a valid image file."
+      },
+
+      "actions": {
+        "saveChanges": "Save Changes",
+        "saving": "Saving...",
+        "finalizing": "Finalizing upload..."
+      }
+    },
+
+    "toast": {
+      "success": "Content section updated successfully.",
+      "error": "Failed to update content section.",
+      "loadError": "Failed to load content section."
     }
   }
 }

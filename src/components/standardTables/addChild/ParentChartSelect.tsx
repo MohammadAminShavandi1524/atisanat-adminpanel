@@ -14,9 +14,7 @@ import type { ChildChartFormValues } from "./add-child-chart.schema";
 
 interface ParentChartSelectProps {
   field: ControllerRenderProps<ChildChartFormValues, "chart">;
-
   error?: FieldError;
-
   onAvailabilityChange?: (hasParents: boolean) => void;
 }
 
@@ -96,9 +94,6 @@ const ParentChartSelect = ({
         options={options}
         disabled={loading || fetchError || parents.length === 0}
         error={error}
-        labelClassName="text-[14px] font-semibold"
-        triggerClassName="border-border bg-secondary-bg h-13 rounded-lg"
-        dropdownClassName="border-border rounded-lg"
       />
 
       {!loading && !fetchError && parents.length === 0 && (
