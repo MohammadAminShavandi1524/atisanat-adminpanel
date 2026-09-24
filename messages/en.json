@@ -957,6 +957,37 @@
     }
   },
 
+  "editProductCategory": {
+    "header": {
+      "title": "Edit Product Category",
+      "description": "Update the selected product category information."
+    },
+    "form": {
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter category name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter category name in Persian"
+      },
+      "loading": "Loading category...",
+      "submit": "Update Category",
+      "submitting": "Updating..."
+    },
+    "validation": {
+      "nameEnRequired": "English name is required.",
+      "nameEnMax": "English name cannot exceed 500 characters.",
+      "nameFaRequired": "Persian name is required.",
+      "nameFaMax": "Persian name cannot exceed 500 characters."
+    },
+    "toast": {
+      "loadError": "Failed to load product category.",
+      "success": "Product category updated successfully.",
+      "error": "Failed to update product category."
+    }
+  },
+
   "addProductCategory": {
     "header": {
       "title": "Add Product Category",
