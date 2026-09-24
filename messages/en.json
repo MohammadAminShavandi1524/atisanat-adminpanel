@@ -39,6 +39,12 @@
     "hireResumes": "Job Applications",
     "cooperationRequests": "Cooperation Requests",
 
+    "productsSection": "Products",
+    "productCategories": "Product Categories",
+    "addProductCategory": "Add Category",
+    "products": "Products",
+    "addProduct": "Add Product",
+
     "standardTablesSection": "Standard Tables",
     "standardTables": "Standard Tables",
     "addStandardTableParent": "Add Collection",
@@ -921,6 +927,35 @@
       "success": "Content section updated successfully.",
       "error": "Failed to update content section.",
       "loadError": "Failed to load content section."
+    }
+  },
+
+  "addProductCategory": {
+    "header": {
+      "title": "Add Product Category",
+      "description": "Create a new category for organizing products."
+    },
+    "form": {
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter category name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter category name in Persian"
+      },
+      "submit": "Add Category",
+      "submitting": "Creating..."
+    },
+    "validation": {
+      "nameEnRequired": "English name is required.",
+      "nameEnMax": "English name cannot exceed 500 characters.",
+      "nameFaRequired": "Persian name is required.",
+      "nameFaMax": "Persian name cannot exceed 500 characters."
+    },
+    "toast": {
+      "success": "Product category created successfully.",
+      "error": "Failed to create product category."
     }
   }
 }

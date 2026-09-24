@@ -10,8 +10,11 @@ import {
   Handshake,
   LayoutDashboard,
   Mail,
+  Package,
+  PackagePlus,
   Plus,
   Table2,
+  Tags,
   Wrench,
 } from "lucide-react";
 
@@ -131,11 +134,12 @@ const Sidebar = () => {
 
       {/* Navigation */}
       <ScrollArea
+        data-lenis-prevent
         dir={locale === "fa" ? "rtl" : "ltr"}
         className="min-h-0 flex-1"
         scrollBarClassName="me-1"
       >
-        <nav className="flex flex-col gap-y-4 px-4 pt-5">
+        <nav className="flex flex-col gap-y-3 px-4 pt-3">
           {/* Overview */}
           <div className="sidebar-section">
             <SideBarItemHeader label={t("overview")} />
@@ -171,6 +175,39 @@ const Sidebar = () => {
               title={t("cooperationRequests")}
               icon={Handshake}
               active={pathname.startsWith(`/${locale}/cooperation-requests`)}
+            />
+          </div>
+
+          {/* Products */}
+          <div className="sidebar-section">
+            <SideBarItemHeader label={t("productsSection")} />
+
+            <SidebarItem
+              href={`/${locale}/products/categories`}
+              title={t("productCategories")}
+              icon={Tags}
+              active={pathname.startsWith(`/${locale}/products/categories`)}
+            />
+
+            <SidebarItem
+              href={`/${locale}/products/add-category`}
+              title={t("addProductCategory")}
+              icon={FolderPlus}
+              active={pathname === `/${locale}/products/add-category`}
+            />
+
+            <SidebarItem
+              href={`/${locale}/products`}
+              title={t("products")}
+              icon={Package}
+              active={pathname === `/${locale}/products`}
+            />
+
+            <SidebarItem
+              href={`/${locale}/products/add-product`}
+              title={t("addProduct")}
+              icon={PackagePlus}
+              active={pathname.startsWith(`/${locale}/products/add-product`)}
             />
           </div>
 
