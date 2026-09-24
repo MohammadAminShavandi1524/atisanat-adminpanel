@@ -930,6 +930,33 @@
     }
   },
 
+  "productCategories": {
+    "header": {
+      "title": "Product Categories",
+      "description": "View and manage product categories."
+    },
+    "table": {
+      "id": "ID",
+      "nameEn": "English Name",
+      "nameFa": "Persian Name",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "loading": "Loading categories...",
+    "empty": {
+      "title": "No categories found",
+      "description": "There are currently no product categories to display."
+    },
+    "toast": {
+      "loadError": "Failed to load product categories.",
+      "deleteSuccess": "Product category deleted successfully.",
+      "deleteError": "Failed to delete product category."
+    }
+  },
+
   "addProductCategory": {
     "header": {
       "title": "Add Product Category",
