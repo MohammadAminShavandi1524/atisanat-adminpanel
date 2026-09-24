@@ -1015,5 +1015,162 @@
       "success": "Product category created successfully.",
       "error": "Failed to create product category."
     }
+  },
+
+  "products": {
+    "header": {
+      "title": "Products",
+      "description": "View and manage all products."
+    },
+    "table": {
+      "image": "Image",
+      "nameEn": "English Name",
+      "nameFa": "Persian Name",
+      "category": "Category",
+      "created": "Created",
+      "actions": "Actions"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "viewImage": "View product image"
+    },
+    "loading": "Loading products...",
+    "empty": {
+      "title": "No products found",
+      "description": "There are currently no products to display."
+    },
+    "toast": {
+      "loadError": "Failed to load products.",
+      "deleteSuccess": "Product deleted successfully.",
+      "deleteError": "Failed to delete product."
+    }
+  },
+
+  "editProduct": {
+    "header": {
+      "title": "Edit Product",
+      "description": "Update the selected product information."
+    },
+    "form": {
+      "category": {
+        "label": "Product Category",
+        "placeholder": "Select a product category",
+        "loading": "Loading categories...",
+        "error": "Failed to load categories",
+        "empty": "No categories available",
+        "emptyDescription": "Create a product category before updating this product.",
+        "fetchError": "Product categories could not be loaded."
+      },
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter product name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter product name in Persian"
+      },
+      "descriptionEn": {
+        "label": "English Description",
+        "placeholder": "Enter product description in English"
+      },
+      "descriptionFa": {
+        "label": "Persian Description",
+        "placeholder": "Enter product description in Persian"
+      },
+      "image": {
+        "label": "Product Image",
+        "placeholder": "Upload a new product image",
+        "remove": "Remove new image",
+        "title": "Product Image",
+        "description": "Upload a new image only if you want to replace the current product image.",
+        "format": "Supported formats: JPG, JPEG, PNG, WEBP",
+        "maxSize": "Maximum file size: 5 MB",
+        "ratio": "Recommended ratio: 1:1",
+        "uploading": "Uploading image...",
+        "finalizing": "Finalizing upload..."
+      },
+      "loading": "Loading product...",
+      "submit": "Save Changes",
+      "submitting": "Updating...",
+      "uploading": "Uploading..."
+    },
+    "validation": {
+      "categoryRequired": "Product category is required.",
+      "nameEnRequired": "English name is required.",
+      "nameFaRequired": "Persian name is required.",
+      "descriptionEnRequired": "English description is required.",
+      "descriptionFaRequired": "Persian description is required.",
+      "imageSize": "Image size must be 5 MB or less.",
+      "imageType": "Only JPG, JPEG, PNG and WEBP images are allowed."
+    },
+    "toast": {
+      "loadError": "Failed to load product information.",
+      "success": "Product updated successfully.",
+      "error": "Failed to update product."
+    }
+  },
+
+  "addProduct": {
+    "header": {
+      "title": "Add Product",
+      "description": "Create a new product and assign it to a product category."
+    },
+    "form": {
+      "category": {
+        "label": "Product Category",
+        "placeholder": "Select a product category",
+        "loading": "Loading categories...",
+        "error": "Failed to load categories",
+        "empty": "No categories available",
+        "emptyDescription": "Create a product category before adding a product.",
+        "fetchError": "Product categories could not be loaded."
+      },
+      "nameEn": {
+        "label": "English Name",
+        "placeholder": "Enter product name in English"
+      },
+      "nameFa": {
+        "label": "Persian Name",
+        "placeholder": "Enter product name in Persian"
+      },
+      "descriptionEn": {
+        "label": "English Description",
+        "placeholder": "Enter product description in English"
+      },
+      "descriptionFa": {
+        "label": "Persian Description",
+        "placeholder": "Enter product description in Persian"
+      },
+      "image": {
+        "label": "Product Image",
+        "placeholder": "Upload product image",
+        "remove": "Remove image",
+        "title": "Product Image",
+        "description": "Upload a clear image for this product.",
+        "format": "Supported formats: JPG, JPEG, PNG, WEBP",
+        "maxSize": "Maximum file size: 5 MB",
+        "ratio": "Recommended ratio: 1:1",
+        "uploading": "Uploading image...",
+        "finalizing": "Finalizing upload..."
+      },
+      "submit": "Add Product",
+      "submitting": "Creating...",
+      "uploading": "Uploading..."
+    },
+    "validation": {
+      "categoryRequired": "Product category is required.",
+      "nameEnRequired": "English name is required.",
+      "nameFaRequired": "Persian name is required.",
+      "descriptionEnRequired": "English description is required.",
+      "descriptionFaRequired": "Persian description is required.",
+      "imageRequired": "Product image is required.",
+      "imageSize": "Image size must be 5 MB or less.",
+      "imageType": "Only JPG, JPEG, PNG and WEBP images are allowed."
+    },
+    "toast": {
+      "success": "Product created successfully.",
+      "error": "Failed to create product."
+    }
   }
 }
