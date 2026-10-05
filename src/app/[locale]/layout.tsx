@@ -21,7 +21,6 @@ import { CustomToastProvider } from "@/components/ui/custom-toast";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import Sidebar from "@/components/layout/Sidebar";
 
-
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -75,6 +74,7 @@ export default async function LocaleLayout({
         )}
       >
         <NextIntlClientProvider>
+          <ThemeProvider>
             <AppToaster />
 
             <div className="bg-background text-foreground flex h-screen overflow-hidden">
@@ -85,6 +85,7 @@ export default async function LocaleLayout({
                 </CustomToastProvider>
               </main>
             </div>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

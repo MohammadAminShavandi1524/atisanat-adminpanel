@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 
 import { CustomButton } from "../ui/custom-button";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { ThemeButton } from "../theme/ThemeButton";
 
 gsap.registerPlugin(useGSAP);
 
@@ -147,6 +148,10 @@ const HeaderLayout = ({ title, descrption, className }: HeaderLayoutProps) => {
 
       {/* Controls */}
       <div className="3xl:pe-4 flex shrink-0 items-center gap-x-2 pe-4 xl:gap-x-1.5 xl:pe-0 2xl:gap-x-2">
+        <div className="header-control">
+          <ThemeButton />
+        </div>
+
         <div className="header-control">
           <LanguageSwitcher defaultLocale={locale} />
         </div>
