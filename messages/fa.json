@@ -38,6 +38,8 @@
     "contactMessages": "پیام‌های دریافتی",
     "hireResumes": "رزومه‌های استخدامی",
     "cooperationRequests": "درخواست‌های همکاری",
+    "resumeQuestions": "سوالات رزومه",
+    "addResumeQuestions": "ساخت سوال رزومه",
 
     "productsSection": "محصولات",
     "productCategories": "دسته‌بندی محصولات",
@@ -176,6 +178,32 @@
         "success": "درخواست همکاری با موفقیت حذف شد.",
         "error": "حذف درخواست همکاری با خطا مواجه شد."
       }
+    }
+  },
+  "addResumeQuestion": {
+    "header": {
+      "title": "ساخت سؤال رزومه",
+      "description": "سؤال موردنظر را به دو زبان فارسی و انگلیسی وارد کنید."
+    },
+    "form": {
+      "questionEn": {
+        "label": "سؤال به انگلیسی",
+        "placeholder": "سؤال را به زبان انگلیسی وارد کنید"
+      },
+      "questionFa": {
+        "label": "سؤال به فارسی",
+        "placeholder": "سؤال را به زبان فارسی وارد کنید"
+      },
+      "submit": "ثبت سؤال",
+      "submitting": "در حال ثبت..."
+    },
+    "validation": {
+      "questionEnRequired": "وارد کردن سؤال به انگلیسی الزامی است.",
+      "questionFaRequired": "وارد کردن سؤال به فارسی الزامی است."
+    },
+    "toast": {
+      "success": "سؤال رزومه با موفقیت ثبت شد.",
+      "error": "در ثبت سؤال رزومه خطایی رخ داد."
     }
   },
   "Faqs": {

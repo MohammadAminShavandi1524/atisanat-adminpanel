@@ -38,6 +38,8 @@
     "contactMessages": "Contact Messages",
     "hireResumes": "Job Applications",
     "cooperationRequests": "Cooperation Requests",
+    "resumeQuestions": "Resume Questions",
+    "addResumeQuestions": "Add Resume Questions",
 
     "productsSection": "Products",
     "productCategories": "Product Categories",
@@ -176,6 +178,33 @@
         "success": "Cooperation request deleted successfully.",
         "error": "There was an error deleting the cooperation request."
       }
+    }
+  },
+
+  "addResumeQuestion": {
+    "header": {
+      "title": "Add Resume Question",
+      "description": "Enter the question in both English and Persian."
+    },
+    "form": {
+      "questionEn": {
+        "label": "English Question",
+        "placeholder": "Enter the question in English"
+      },
+      "questionFa": {
+        "label": "Persian Question",
+        "placeholder": "Enter the question in Persian"
+      },
+      "submit": "Add Question",
+      "submitting": "Submitting..."
+    },
+    "validation": {
+      "questionEnRequired": "English question is required.",
+      "questionFaRequired": "Persian question is required."
+    },
+    "toast": {
+      "success": "Resume question added successfully.",
+      "error": "There was an error adding the resume question."
     }
   },
   "Faqs": {
