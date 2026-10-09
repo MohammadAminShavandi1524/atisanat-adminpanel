@@ -180,6 +180,70 @@
       }
     }
   },
+  "resumeQuestions": {
+    "header": {
+      "title": "سؤالات رزومه",
+      "description": "مدیریت سؤالات بخش رزومه"
+    },
+    "loading": "در حال بارگذاری سؤالات...",
+    "table": {
+      "index": "ترتیب",
+      "questionFa": "سؤال فارسی",
+      "questionEn": "سؤال انگلیسی",
+      "actions": "عملیات"
+    },
+    "empty": {
+      "title": "سؤالی یافت نشد",
+      "description": "هنوز سؤالی برای نمایش ثبت نشده است."
+    },
+    "actions": {
+      "moveUp": "انتقال به بالا",
+      "moveDown": "انتقال به پایین",
+      "edit": "ویرایش",
+      "delete": "حذف"
+    },
+    "toast": {
+      "delete": {
+        "success": "سؤال با موفقیت حذف شد.",
+        "error": "حذف سؤال ناموفق بود."
+      },
+      "order": {
+        "error": "تغییر ترتیب سؤال ناموفق بود."
+      }
+    }
+  },
+  "editResumeQuestion": {
+    "page": {
+      "title": "ویرایش سؤال رزومه",
+      "description": "ویرایش سؤال ثبت‌شده در بخش رزومه"
+    },
+    "panel": {
+      "title": "ویرایش سؤال",
+      "description": "متن فارسی و انگلیسی سؤال را ویرایش کنید."
+    },
+    "loading": "در حال دریافت سؤال...",
+    "loadError": "دریافت سؤال ناموفق بود. دوباره تلاش کنید.",
+    "validation": {
+      "questionEnRequired": "وارد کردن سؤال انگلیسی الزامی است.",
+      "questionFaRequired": "وارد کردن سؤال فارسی الزامی است."
+    },
+    "form": {
+      "questionEn": {
+        "label": "سؤال انگلیسی",
+        "placeholder": "سؤال انگلیسی را وارد کنید"
+      },
+      "questionFa": {
+        "label": "سؤال فارسی",
+        "placeholder": "سؤال فارسی را وارد کنید"
+      },
+      "submit": "ذخیره تغییرات",
+      "submitting": "در حال ذخیره..."
+    },
+    "toast": {
+      "success": "سؤال با موفقیت ویرایش شد.",
+      "error": "ویرایش سؤال ناموفق بود."
+    }
+  },
   "addResumeQuestion": {
     "header": {
       "title": "ساخت سؤال رزومه",

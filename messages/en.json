@@ -180,7 +180,70 @@
       }
     }
   },
-
+  "resumeQuestions": {
+    "header": {
+      "title": "Resume Questions",
+      "description": "Manage the questions displayed in the resume form."
+    },
+    "loading": "Loading questions...",
+    "table": {
+      "index": "Order",
+      "questionFa": "Persian Question",
+      "questionEn": "English Question",
+      "actions": "Actions"
+    },
+    "empty": {
+      "title": "No questions found",
+      "description": "There are no resume questions to display yet."
+    },
+    "actions": {
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "toast": {
+      "delete": {
+        "success": "Question deleted successfully.",
+        "error": "Failed to delete the question."
+      },
+      "order": {
+        "error": "Failed to change the question order."
+      }
+    }
+  },
+  "editResumeQuestion": {
+    "page": {
+      "title": "Edit Resume Question",
+      "description": "Update an existing resume question."
+    },
+    "panel": {
+      "title": "Edit Question",
+      "description": "Update the English and Persian versions of this question."
+    },
+    "loading": "Loading question...",
+    "loadError": "Unable to load the question. Please try again.",
+    "validation": {
+      "questionEnRequired": "The English question is required.",
+      "questionFaRequired": "The Persian question is required."
+    },
+    "form": {
+      "questionEn": {
+        "label": "English Question",
+        "placeholder": "Enter the English question"
+      },
+      "questionFa": {
+        "label": "Persian Question",
+        "placeholder": "Enter the Persian question"
+      },
+      "submit": "Save Changes",
+      "submitting": "Saving..."
+    },
+    "toast": {
+      "success": "Question updated successfully.",
+      "error": "Failed to update the question."
+    }
+  },
   "addResumeQuestion": {
     "header": {
       "title": "Add Resume Question",

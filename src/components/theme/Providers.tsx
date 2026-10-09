@@ -1,6 +1,7 @@
 "use client";
 
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeProvider as NextThemesProvider } from "@teispace/next-themes";
+
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       defaultTheme="light"
       enableSystem={false}
       themes={["light", "dark"]}
+      disableTransitionOnChange
     >
       {children}
     </NextThemesProvider>
