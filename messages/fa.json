@@ -37,6 +37,7 @@
     "requestsSection": "درخواست‌ها",
     "contactMessages": "پیام‌های دریافتی",
     "hireResumes": "رزومه‌های استخدامی",
+    "dynamicResumes": "رزومه‌های پرسش‌وپاسخ",
     "cooperationRequests": "درخواست‌های همکاری",
     "resumeQuestions": "سوالات رزومه",
     "addResumeQuestions": "ساخت سوال رزومه",
@@ -140,6 +141,37 @@
       "delete": {
         "success": "رزومه با موفقیت حذف شد.",
         "error": "حذف رزومه با خطا مواجه شد."
+      }
+    }
+  },
+  "dynamicResumes": {
+    "header": {
+      "title": "رزومه‌های پرسش‌وپاسخ",
+      "description": "مشاهده و مدیریت رزومه‌های ثبت‌شده از طریق پاسخ به سؤالات."
+    },
+    "list": {
+      "title": "رزومه‌های ثبت‌شده",
+      "count": "{count} درخواست"
+    },
+    "metadata": {
+      "id": "شناسه رزومه",
+      "created": "تاریخ ثبت"
+    },
+    "answers": {
+      "answer": "پاسخ"
+    },
+    "actions": {
+      "delete": "حذف"
+    },
+    "loading": "در حال دریافت رزومه‌ها...",
+    "empty": {
+      "title": "رزومه‌ای ثبت نشده است",
+      "description": "رزومه‌های ثبت‌شده در این بخش نمایش داده می‌شوند."
+    },
+    "toast": {
+      "delete": {
+        "success": "رزومه با موفقیت حذف شد.",
+        "error": "حذف رزومه ناموفق بود."
       }
     }
   },

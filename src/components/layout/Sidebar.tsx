@@ -123,11 +123,11 @@ const Sidebar = () => {
       <div className="sidebar-brand shrink-0 px-4">
         <div className="border-border-secondary flex min-h-[78px] items-center border-b px-2">
           <div className="flex min-w-0 flex-col">
-            <div className="text-foreground truncate text-[18px] font-semibold">
+            <div className="text-foreground truncate text-[20px] font-semibold">
               {t("logoTitle")}
             </div>
 
-            <div className="text-muted-foreground mt-1 truncate text-[13px]">
+            <div className="text-muted-foreground mt-0 truncate text-[16px]">
               {t("logoSubtitle")}
             </div>
           </div>
@@ -170,6 +170,13 @@ const Sidebar = () => {
               title={t("hireResumes")}
               icon={BriefcaseBusiness}
               active={pathname.startsWith(`/${locale}/hire-resumes`)}
+            />
+
+            <SidebarItem
+              href={`/${locale}/dynamic-resumes`}
+              title={t("dynamicResumes")}
+              icon={ClipboardList}
+              active={pathname.startsWith(`/${locale}/dynamic-resumes`)}
             />
 
             <SidebarItem

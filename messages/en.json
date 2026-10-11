@@ -37,6 +37,7 @@
     "requestsSection": "Requests",
     "contactMessages": "Contact Messages",
     "hireResumes": "Job Applications",
+    "dynamicResumes": "Dynamic Resumes",
     "cooperationRequests": "Cooperation Requests",
     "resumeQuestions": "Resume Questions",
     "addResumeQuestions": "Add Resume Questions",
@@ -140,6 +141,37 @@
       "delete": {
         "success": "Application deleted successfully.",
         "error": "There was an error deleting the application."
+      }
+    }
+  },
+  "dynamicResumes": {
+    "header": {
+      "title": "Dynamic Resumes",
+      "description": "Review submitted dynamic resume responses."
+    },
+    "list": {
+      "title": "Submitted Resumes",
+      "count": "{count} submissions"
+    },
+    "metadata": {
+      "id": "Resume ID",
+      "created": "Submission Date"
+    },
+    "answers": {
+      "answer": "Answer"
+    },
+    "actions": {
+      "delete": "Delete"
+    },
+    "loading": "Loading dynamic resumes...",
+    "empty": {
+      "title": "No Dynamic Resumes",
+      "description": "Submitted responses will appear here."
+    },
+    "toast": {
+      "delete": {
+        "success": "Resume deleted successfully.",
+        "error": "Failed to delete resume."
       }
     }
   },

@@ -101,9 +101,9 @@ export default function ResumeQuestionRow({
   return (
     <article
       ref={rowRef}
-      className="group/question border-border bg-background hover:border-border-secondary hover:bg-card-secondary/40 relative rounded-md border transition-[background-color,border-color] duration-300"
+      className="group/question border-border bg-background hover:border-border-secondary hover:bg-card-secondary/40 relative rounded-md border transition-[background-color,border-color] duration-300 overflow-hidden"
     >
-      <span className="bg-custom-primary absolute inset-y-0 start-0 w-[3px] scale-y-0 transition-transform duration-300 group-hover/question:scale-y-100" />
+      <span className="bg-custom-primary absolute inset-y-0 start-0 w-[3px] scale-y-0 rounded-full transition-transform duration-300 group-hover/question:scale-y-100 " />
 
       <div className="grid min-h-[94px] grid-cols-[70px_minmax(0,1fr)_minmax(0,1fr)_300px] items-center gap-5 px-5 py-3">
         {/* Index */}
@@ -116,6 +116,7 @@ export default function ResumeQuestionRow({
         {/* Persian Question */}
         <div className="min-w-0">
           <p
+            lang="fa"
             dir={isEn ? "ltr" : "rtl"}
             className="text-foreground line-clamp-3 text-sm leading-6"
           >
@@ -126,6 +127,7 @@ export default function ResumeQuestionRow({
         {/* English Question */}
         <div className="min-w-0">
           <p
+            lang="en"
             dir={isEn ? "ltr" : "rtl"}
             className="text-foreground line-clamp-3 text-sm leading-6"
           >
