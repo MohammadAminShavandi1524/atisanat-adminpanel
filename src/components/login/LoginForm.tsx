@@ -220,7 +220,7 @@ export default function LoginForm() {
       <div className="login-card border-border bg-background overflow-hidden rounded-lg border p-8 shadow-[0_8px_30px_rgba(0,0,0,0.035)]">
         {/* Heading */}
         <div className="login-heading relative mb-8 pb-6">
-          <h1 className="text-foreground text-[24px] leading-[1.3] font-semibold ">
+          <h1 className="text-foreground text-[24px] leading-[1.3] font-semibold">
             {t("title")}
           </h1>
 
@@ -264,7 +264,7 @@ export default function LoginForm() {
             {errors.root?.message && (
               <div
                 role="alert"
-                className="border-destructive/30 bg-destructive/5 border px-4 py-3"
+                className="border-destructive/30 bg-destructive/5 border px-4 py-3 rounded-lg"
               >
                 <p className="text-destructive text-[13px] leading-5">
                   {errors.root.message}
@@ -282,7 +282,7 @@ export default function LoginForm() {
               size="lg"
               loading={isSubmitting}
               leftSection={<LogIn size={18} strokeWidth={1.8} />}
-              className="h-[50px] w-full rounded-md text-[15px]"
+              className="h-[50px] w-full cursor-pointer rounded-md text-[15px] disabled:cursor-not-allowed"
             >
               {t("submit")}
             </CustomButton>
