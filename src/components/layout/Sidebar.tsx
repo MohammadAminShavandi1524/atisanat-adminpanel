@@ -173,31 +173,10 @@ const Sidebar = () => {
             />
 
             <SidebarItem
-              href={`/${locale}/dynamic-resumes`}
-              title={t("dynamicResumes")}
-              icon={ClipboardList}
-              active={pathname.startsWith(`/${locale}/dynamic-resumes`)}
-            />
-
-            <SidebarItem
               href={`/${locale}/cooperation-requests`}
               title={t("cooperationRequests")}
               icon={Handshake}
               active={pathname.startsWith(`/${locale}/cooperation-requests`)}
-            />
-
-            <SidebarItem
-              href={`/${locale}/resume-questions`}
-              title={t("resumeQuestions")}
-              icon={ClipboardList}
-              active={pathname === `/${locale}/resume-questions`}
-            />
-
-            <SidebarItem
-              href={`/${locale}/resume-questions/add`}
-              title={t("addResumeQuestions")}
-              icon={ClipboardPlus}
-              active={pathname.startsWith(`/${locale}/resume-questions/add`)}
             />
           </div>
 

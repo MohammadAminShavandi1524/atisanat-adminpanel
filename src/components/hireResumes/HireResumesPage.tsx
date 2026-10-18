@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { ArrowDownUp, FileText, Search } from "lucide-react";
+import { BriefcaseBusiness, RefreshCw, SearchX } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
 
@@ -12,150 +12,92 @@ import { useGSAP } from "@gsap/react";
 import HeaderLayout from "@/components/layout/HeaderLayout";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-
 import { CustomButton } from "@/components/ui/custom-button";
 
-import { getHireResumes, type HireResume } from "./hire-resumes.api";
+import { getHireResumes } from "./hire-resumes.api";
 
+import {
+  initialHireResumeFilters,
+  type HireResume,
+  type HireResumeFiltersState,
+} from "./hire-resumes.types";
+
+import { filterHireResumes, toPersianDigits } from "./hire-resumes.utils";
+
+import HireResumeFilters from "./HireResumeFilters";
 import HireResumeRow from "./HireResumeRow";
 
 gsap.registerPlugin(useGSAP);
 
-type SortType = "newest" | "oldest";
-
 const HireResumesPage = () => {
-  const t = useTranslations("HireResumes");
-
   const locale = useLocale();
+  const t = useTranslations("HireResumes");
 
   const pageRef = useRef<HTMLDivElement>(null);
 
   const [resumes, setResumes] = useState<HireResume[]>([]);
 
-  const [search, setSearch] = useState("");
-
-  const [sort, setSort] = useState<SortType>("newest");
+  const [filters, setFilters] = useState<HireResumeFiltersState>(
+    initialHireResumeFilters,
+  );
 
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  const filteredResumes = useMemo(
+    () => filterHireResumes(resumes, filters),
+    [resumes, filters],
+  );
+
+  const hasActiveFilters =
+    filters.search.trim() !== "" ||
+    filters.province !== "" ||
+    filters.city !== "" ||
+    filters.jobInterest.trim() !== "" ||
+    filters.dutyStatus !== "" ||
+    filters.workExperience !== "all";
+
+  const fetchResumes = async () => {
+    setLoading(true);
+    setError(false);
+
+    try {
+      const data = await getHireResumes();
+
+      setResumes(data);
+    } catch (fetchError) {
+      console.error("GET HIRE RESUMES ERROR:", fetchError);
+
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchResumes = async () => {
-      try {
-        const data = await getHireResumes();
-
-        setResumes(data);
-      } catch (error) {
-        console.error("GET HIRE RESUMES ERROR:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchResumes();
+    void fetchResumes();
   }, []);
-
-  const filteredResumes = useMemo(() => {
-    const normalizedSearch = search.trim().toLowerCase();
-
-    return [...resumes]
-      .filter((resume) => {
-        if (!normalizedSearch) {
-          return true;
-        }
-
-        return (
-          resume.full_name.toLowerCase().includes(normalizedSearch) ||
-          resume.phone_number.toLowerCase().includes(normalizedSearch) ||
-          resume.email.toLowerCase().includes(normalizedSearch)
-        );
-      })
-      .sort((a, b) => {
-        const firstDate = new Date(a.created).getTime();
-        const secondDate = new Date(b.created).getTime();
-
-        return sort === "newest"
-          ? secondDate - firstDate
-          : firstDate - secondDate;
-      });
-  }, [resumes, search, sort]);
-
-  const handleSort = () => {
-    setSort((prev) => (prev === "newest" ? "oldest" : "newest"));
-  };
 
   useGSAP(
     () => {
-      if (!pageRef.current) {
+      if (!pageRef.current) return;
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
       }
 
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (reduceMotion) {
-        return;
-      }
-
-      const timeline = gsap.timeline({
-        defaults: {
-          ease: "power3.out",
-        },
-      });
-
-      timeline.fromTo(
+      gsap.fromTo(
         ".hire-resumes-panel",
         {
           opacity: 0,
-          y: 20,
+          y: 18,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.65,
+          duration: 0.6,
+          ease: "power3.out",
         },
-      );
-
-      timeline.fromTo(
-        ".hire-resumes-search",
-        {
-          opacity: 0,
-          x: locale === "fa" ? 18 : -18,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.55,
-        },
-        "-=0.35",
-      );
-
-      timeline.fromTo(
-        ".hire-resumes-sort",
-        {
-          opacity: 0,
-          x: locale === "fa" ? -18 : 18,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.55,
-        },
-        "<",
-      );
-
-      timeline.fromTo(
-        ".hire-resumes-table-header",
-        {
-          opacity: 0,
-          y: 10,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-        },
-        "-=0.25",
       );
     },
     {
@@ -164,73 +106,84 @@ const HireResumesPage = () => {
     },
   );
 
+  const totalCount =
+    locale === "fa" ? toPersianDigits(resumes.length) : resumes.length;
+
+  const filteredCount =
+    locale === "fa"
+      ? toPersianDigits(filteredResumes.length)
+      : filteredResumes.length;
+
   return (
-    <div ref={pageRef} className="flex min-h-0 flex-1 flex-col">
-      <HeaderLayout
-        title={t("header.title")}
-        descrption={t("header.description")}
-      />
+    <div ref={pageRef} className="flex min-h-0 min-w-0 flex-1 flex-col">
+      <HeaderLayout title={t("header.title")} descrption="" />
 
-      <div className="3xl:px-8 3xl:py-6 flex min-h-0 flex-1 flex-col px-8 py-6 xl:px-5 xl:py-5 2xl:px-6">
-        <section className="hire-resumes-panel border-border bg-card flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border">
-          {/* Toolbar */}
-          <div className="border-border 3xl:gap-5 3xl:p-5 flex shrink-0 items-center justify-between gap-5 border-b p-5 xl:gap-3 xl:p-4 2xl:gap-4 2xl:p-4.5">
-            {/* Search */}
-            <div className="hire-resumes-search 3xl:max-w-[520px] relative w-full max-w-[520px] xl:max-w-[400px] 2xl:max-w-[460px]">
-              <Search
-                strokeWidth={1.8}
-                className="text-muted-foreground 3xl:start-4 3xl:size-[19px] pointer-events-none absolute start-4 top-1/2 size-[19px] -translate-y-1/2 xl:start-3.5 xl:size-[17px]"
-              />
+      <div className="3xl:p-8 flex min-h-0 min-w-0 flex-1 flex-col p-5 2xl:p-6">
+        <section className="hire-resumes-panel border-border bg-card flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-xl border">
+          {/* Filters */}
+          <HireResumeFilters
+            resumes={resumes}
+            filters={filters}
+            onChange={setFilters}
+          />
 
-              <input
-                type="search"
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                dir={locale === "fa" ? "rtl" : "ltr"}
-                placeholder={t("filters.searchPlaceholder")}
-                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 3xl:h-12 3xl:text-[15px] h-12 w-full rounded-lg border ps-11 pe-4 text-[15px] transition-[border-color,box-shadow] duration-300 outline-none focus:ring-2 xl:h-11 xl:ps-10 xl:pe-3.5 xl:text-[14px] 2xl:h-11.5"
-              />
+          {/* Preserved hidden result toolbar */}
+          <div className="border-border bg-card-secondary hidden h-12 shrink-0 items-center justify-between gap-4 border-b px-5">
+            <div className="text-muted-foreground flex items-center gap-2 text-[13px]">
+              <BriefcaseBusiness size={17} strokeWidth={1.8} />
+
+              <span>
+                {t("list.total")}:{" "}
+                <strong className="text-foreground font-semibold">
+                  {totalCount}
+                </strong>
+              </span>
+
+              {hasActiveFilters && (
+                <>
+                  <span className="text-border-secondary mx-1">/</span>
+
+                  <span>
+                    {t("list.filtered")}:{" "}
+                    <strong className="text-foreground font-semibold">
+                      {filteredCount}
+                    </strong>
+                  </span>
+                </>
+              )}
             </div>
 
-            {/* Sort */}
-            <div className="hire-resumes-sort shrink-0">
+            {!loading && (
               <CustomButton
                 type="button"
-                variant="outline"
+                variant="ghost"
                 intent="secondary"
-                size="lg"
-                onClick={handleSort}
-                leftSection={
-                  <ArrowDownUp
-                    strokeWidth={1.8}
-                    className="3xl:size-[18px] size-[18px] xl:size-4"
-                  />
-                }
-                className="3xl:h-12 3xl:px-5 3xl:text-[15px] h-12 px-5 text-[15px] xl:h-11 xl:px-4 xl:text-[14px] 2xl:h-11.5"
+                size="sm"
+                onClick={() => void fetchResumes()}
+                leftSection={<RefreshCw size={15} strokeWidth={1.8} />}
+                className="h-9 px-3 text-xs"
               >
-                {sort === "newest"
-                  ? t("filters.newestFirst")
-                  : t("filters.oldestFirst")}
+                {t("actions.refresh")}
               </CustomButton>
-            </div>
+            )}
           </div>
 
           {/* Table */}
-          <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
             {/* Table Header */}
-            <div className="hire-resumes-table-header border-border bg-card-secondary 3xl:ps-9 3xl:pe-11 shrink-0 border-b ps-9 pe-11 xl:ps-6 xl:pe-8 2xl:ps-7 2xl:pe-9">
-              <div className="text-muted-foreground 3xl:h-13 3xl:grid-cols-[60px_1.35fr_1.25fr_1.65fr_145px_145px_110px] 3xl:gap-4 3xl:text-sm grid h-13 grid-cols-[60px_1.35fr_1.25fr_1.65fr_145px_145px_110px] items-center gap-4 text-sm font-semibold xl:h-11 xl:grid-cols-[46px_1.25fr_1.05fr_1.4fr_115px_112px_86px] xl:gap-2.5 xl:text-[12px] 2xl:h-12 2xl:grid-cols-[52px_1.3fr_1.15fr_1.5fr_125px_125px_96px] 2xl:gap-3 2xl:text-[13px]">
+            <div className="hire-resumes-table-header border-border bg-card-secondary shrink-0 border-b ps-[29px] pe-[37px]">
+              <div className="text-muted-foreground grid h-12 grid-cols-[52px_minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1.35fr)_120px_100px] items-center gap-3 text-[13px] font-semibold">
                 <div>{t("table.id")}</div>
 
-                <div>{t("table.fullName")}</div>
+                <div>{t("table.applicant")}</div>
 
-                <div>{t("table.phoneNumber")}</div>
+                <div>{t("table.phone")}</div>
 
-                <div>{t("table.email")}</div>
+                <div>{t("table.location")}</div>
 
-                <div>{t("table.date")}</div>
+                <div>{t("table.jobInterest")}</div>
 
-                <div className="text-center">{t("table.resume")}</div>
+                <div className="text-center">{t("table.details")}</div>
 
                 <div className="text-center">{t("table.actions")}</div>
               </div>
@@ -238,22 +191,51 @@ const HireResumesPage = () => {
 
             {/* Content */}
             {loading ? (
-              <div className="flex flex-1 items-center justify-center">
-                <div className="flex items-center gap-3">
-                  <span className="border-custom-primary size-5 animate-spin rounded-full border-2 border-t-transparent" />
+              <div className="flex min-h-0 flex-1 items-center justify-center gap-3">
+                <span className="border-custom-primary size-5 animate-spin rounded-full border-2 border-t-transparent" />
 
-                  <span className="text-muted-foreground text-sm">
-                    {t("loading")}
-                  </span>
+                <span className="text-muted-foreground text-sm">
+                  {t("loading")}
+                </span>
+              </div>
+            ) : error ? (
+              <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
+                <div className="border-border bg-card-secondary flex size-12 items-center justify-center rounded-lg border">
+                  <RefreshCw
+                    size={22}
+                    strokeWidth={1.7}
+                    className="text-muted-foreground"
+                  />
                 </div>
+
+                <div>
+                  <h3 className="text-foreground text-base font-semibold">
+                    {t("error.title")}
+                  </h3>
+
+                  <p className="text-muted-foreground mt-2 max-w-sm text-sm leading-6">
+                    {t("error.description")}
+                  </p>
+                </div>
+
+                <CustomButton
+                  type="button"
+                  variant="outline"
+                  intent="secondary"
+                  size="lg"
+                  onClick={() => void fetchResumes()}
+                >
+                  {t("actions.retry")}
+                </CustomButton>
               </div>
             ) : filteredResumes.length > 0 ? (
               <ScrollArea
                 dir={locale === "fa" ? "rtl" : "ltr"}
-                className="min-h-0 flex-1"
+                data-lenis-prevent
+                className="min-h-0 min-w-0 flex-1"
                 scrollBarClassName="me-1.75"
               >
-                <div className="3xl:space-y-2.5 3xl:p-4 3xl:pe-6 space-y-2.5 p-4 pe-6 xl:space-y-2 xl:p-3 xl:pe-4.5 2xl:p-3.5 2xl:pe-5">
+                <div className="space-y-2.5 py-3.5 ps-3 pe-5">
                   {filteredResumes.map((resume, index) => (
                     <HireResumeRow
                       key={resume.id}
@@ -265,21 +247,47 @@ const HireResumesPage = () => {
                 </div>
               </ScrollArea>
             ) : (
-              <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">
-                <div className="border-border bg-card-secondary 3xl:size-12 flex size-12 items-center justify-center rounded-lg border xl:size-11">
-                  <FileText
-                    strokeWidth={1.7}
-                    className="text-muted-foreground 3xl:size-[21px] size-[21px] xl:size-[19px]"
-                  />
+              <div className="flex min-h-0 flex-1 flex-col items-center justify-center px-6 text-center">
+                <div className="border-border bg-card-secondary flex size-12 items-center justify-center rounded-lg border">
+                  {hasActiveFilters ? (
+                    <SearchX
+                      size={22}
+                      strokeWidth={1.7}
+                      className="text-muted-foreground"
+                    />
+                  ) : (
+                    <BriefcaseBusiness
+                      size={22}
+                      strokeWidth={1.7}
+                      className="text-muted-foreground"
+                    />
+                  )}
                 </div>
 
-                <h3 className="text-foreground 3xl:mt-4 3xl:text-base mt-4 text-base font-semibold xl:mt-3 xl:text-[15px]">
-                  {t("empty.title")}
+                <h3 className="text-foreground mt-4 text-base font-semibold">
+                  {hasActiveFilters
+                    ? t("empty.filteredTitle")
+                    : t("empty.title")}
                 </h3>
 
-                <p className="text-muted-foreground 3xl:text-sm 3xl:leading-6 mt-1.5 max-w-sm text-sm leading-6 xl:text-[13px] xl:leading-5">
-                  {t("empty.description")}
+                <p className="text-muted-foreground mt-1.5 max-w-sm text-sm leading-6">
+                  {hasActiveFilters
+                    ? t("empty.filteredDescription")
+                    : t("empty.description")}
                 </p>
+
+                {hasActiveFilters && (
+                  <CustomButton
+                    type="button"
+                    variant="outline"
+                    intent="secondary"
+                    size="lg"
+                    onClick={() => setFilters(initialHireResumeFilters)}
+                    className="mt-5"
+                  >
+                    {t("filters.reset")}
+                  </CustomButton>
+                )}
               </div>
             )}
           </div>

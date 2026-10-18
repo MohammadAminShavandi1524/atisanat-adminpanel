@@ -1,52 +1,52 @@
-export interface HireResume {
-  id: number;
-  full_name: string;
-  email: string;
-  phone_number: string;
-  resume: string;
-  created: string;
-}
+import type { HireResume } from "./hire-resumes.types";
 
-export async function getHireResumes(): Promise<HireResume[]> {
-  const response = await fetch("/api/hire-resumes", {
+const API_BASE = "/api/resume/cv";
+
+export const getHireResumes = async (): Promise<HireResume[]> => {
+  const response = await fetch(`${API_BASE}/get`, {
     method: "GET",
     cache: "no-store",
   });
 
-  const data = await response.json();
-
   if (!response.ok) {
-    throw data;
+    throw new Error(`Failed to fetch hire resumes: ${response.status}`);
   }
 
-  return data;
-}
+  const data: unknown = await response.json();
 
-export async function getHireResume(id: string): Promise<HireResume> {
-  const response = await fetch(`/api/hire-resumes/${id}`, {
-    method: "GET",
-    cache: "no-store",
-  });
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw data;
+  if (!Array.isArray(data)) {
+    throw new Error("Invalid hire resumes response");
   }
 
-  return data;
-}
+  return data as HireResume[];
+};
 
-export async function deleteHireResume(id: string) {
-  const response = await fetch(`/api/hire-resumes/delete/${id}`, {
-    method: "DELETE",
-  });
-
-  const data = await response.json();
+export const deleteHireResume = async (id: number): Promise<void> => {
+  const response = await fetch(
+    `${API_BASE}/delete/${encodeURIComponent(String(id))}`,
+    {
+      method: "DELETE",
+    },
+  );
 
   if (!response.ok) {
-    throw data;
-  }
+    let message = "Failed to delete hire resume";
 
-  return data;
-}
+    try {
+      const data: unknown = await response.json();
+
+      if (
+        typeof data === "object" &&
+        data !== null &&
+        "message" in data &&
+        typeof data.message === "string"
+      ) {
+        message = data.message;
+      }
+    } catch {
+      // Keep the default error message.
+    }
+
+    throw new Error(message);
+  }
+};

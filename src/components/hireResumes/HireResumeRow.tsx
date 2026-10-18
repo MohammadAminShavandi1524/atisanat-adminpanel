@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, type Dispatch, type SetStateAction } from "react";
+import { useRef, useState, type Dispatch, type SetStateAction } from "react";
 
-import { ExternalLink, FileText, Trash2 } from "lucide-react";
+import { ChevronDown, ChevronUp, Trash2 } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
 
@@ -13,17 +13,26 @@ import { CustomButton, CustomHoldButton } from "@/components/ui/custom-button";
 
 import { useCustomToast } from "@/components/ui/custom-toast";
 
-import { deleteHireResume, type HireResume } from "./hire-resumes.api";
+import { deleteHireResume } from "./hire-resumes.api";
 
-import { formatHireResumeDate, toPersianDigits } from "./hire-resumes.utils";
+import type { HireResume } from "./hire-resumes.types";
+
+import { getCityLabel, getProvinceLabel } from "./data/iran-locations";
+
+import {
+  formatHireResumeValue,
+  getHireResumeFullName,
+  toPersianDigits,
+  type HireResumeLocale,
+} from "./hire-resumes.utils";
+
+import HireResumeDetails from "./HireResumeDetails";
 
 gsap.registerPlugin(useGSAP);
 
 interface HireResumeRowProps {
   resume: HireResume;
-
   setResumes: Dispatch<SetStateAction<HireResume[]>>;
-
   animationIndex?: number;
 }
 
@@ -32,45 +41,64 @@ const HireResumeRow = ({
   setResumes,
   animationIndex = 0,
 }: HireResumeRowProps) => {
-  const locale = useLocale();
-
+  const currentLocale = useLocale();
   const t = useTranslations("HireResumes");
+
+  const locale: HireResumeLocale = currentLocale === "fa" ? "fa" : "en";
 
   const toast = useCustomToast();
 
   const rowRef = useRef<HTMLElement>(null);
 
-  const formattedDate = formatHireResumeDate(resume.created, locale);
+  const [expanded, setExpanded] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
-  const handleViewResume = () => {
-    window.open(resume.resume, "_blank", "noopener,noreferrer");
-  };
+  const fullName = getHireResumeFullName(resume, locale);
+
+  const formatValue = (value: string | number | null | undefined) =>
+    formatHireResumeValue(value, locale);
+
+  const location = [
+    getProvinceLabel(resume.province, locale),
+    getCityLabel(resume.province, resume.city, locale),
+  ]
+    .filter((value) => value.trim() !== "")
+    .join(" / ");
+
+  const initials = [resume.first_name, resume.last_name]
+    .filter(Boolean)
+    .map((value) => value.charAt(0))
+    .join("");
+
+  const imageUrl = resume.image?.trim();
 
   const handleDelete = async () => {
-    try {
-      await deleteHireResume(String(resume.id));
+    if (deleting) return;
 
-      setResumes((prev) => prev.filter((item) => item.id !== resume.id));
+    setDeleting(true);
+
+    try {
+      await deleteHireResume(resume.id);
+
+      setResumes((previous) =>
+        previous.filter((item) => item.id !== resume.id),
+      );
 
       toast.success(t("toast.delete.success"));
     } catch (error) {
       console.error("DELETE HIRE RESUME ERROR:", error);
 
       toast.error(t("toast.delete.error"));
+    } finally {
+      setDeleting(false);
     }
   };
 
   useGSAP(
     () => {
-      if (!rowRef.current) {
-        return;
-      }
+      if (!rowRef.current) return;
 
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (reduceMotion) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         return;
       }
 
@@ -78,13 +106,13 @@ const HireResumeRow = ({
         rowRef.current,
         {
           opacity: 0,
-          y: 14,
+          y: 12,
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.5,
-          delay: Math.min(animationIndex, 8) * 0.055,
+          duration: 0.45,
+          delay: Math.min(animationIndex, 8) * 0.045,
           ease: "power3.out",
         },
       );
@@ -96,70 +124,94 @@ const HireResumeRow = ({
 
   return (
     <article
+      dir={locale === "en" ? "ltr" : "rtl"}
       ref={rowRef}
-      className="group/resume border-border bg-background hover:border-border-secondary hover:bg-card-secondary/40 relative rounded-lg border transition-[background-color,border-color] duration-300"
+      className="group/resume border-border bg-background hover:border-border-secondary relative min-w-0 rounded-lg border transition-[border-color,background-color] duration-300"
     >
-      <span className="bg-custom-primary absolute inset-y-2 start-0 w-[3px] origin-center scale-y-0 rounded-e-full transition-transform duration-300 group-hover/resume:scale-y-100" />
+      <span
+        aria-hidden="true"
+        className={`bg-custom-primary pointer-events-none absolute inset-y-2 start-0 w-[3px] origin-center rounded-e-full transition-transform duration-300 ${
+          expanded ? "scale-y-0" : "scale-y-0 group-hover/resume:scale-y-100"
+        }`}
+      />
 
-      <div className="3xl:min-h-[76px] 3xl:grid-cols-[60px_1.35fr_1.25fr_1.65fr_145px_145px_110px] 3xl:gap-4 3xl:px-5 3xl:py-3 grid min-h-[76px] grid-cols-[60px_1.35fr_1.25fr_1.65fr_145px_145px_110px] items-center gap-4 px-5 py-3 xl:min-h-[66px] xl:grid-cols-[46px_1.25fr_1.05fr_1.4fr_115px_112px_86px] xl:gap-2.5 xl:px-3 xl:py-2.5 2xl:min-h-[71px] 2xl:grid-cols-[52px_1.3fr_1.15fr_1.5fr_125px_125px_96px] 2xl:gap-3 2xl:px-4">
+      {/* Summary Row */}
+      <div className="grid min-h-[92px] grid-cols-[52px_minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1.35fr)_120px_100px] items-center gap-3 px-4 py-3">
         {/* ID */}
-        <div
-          dir={locale === "fa" ? "rtl" : "ltr"}
-          className="text-muted-foreground 3xl:text-sm font-mono text-sm xl:text-[12px] 2xl:text-[13px]"
-        >
-          {locale === "fa" ? `${toPersianDigits(resume.id)}#` : `#${resume.id}`}
+        <div className="text-muted-foreground text-[15px] font-medium">
+          {locale === "fa" ? toPersianDigits(resume.id) : resume.id}
         </div>
 
-        {/* Full Name */}
-        <div className="min-w-0">
-          <p className="text-foreground 3xl:text-[15px] truncate text-[15px] font-medium xl:text-[13px] 2xl:text-[14px]">
-            {resume.full_name}
-          </p>
+        {/* Applicant */}
+        <div className="flex min-w-0 items-center gap-3">
+          {imageUrl ? (
+            <a
+              href={imageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={fullName}
+              aria-label={fullName}
+              className="border-border bg-card-secondary hover:border-custom-primary/60 flex h-[60px] w-[45px] shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg border transition-colors"
+            >
+              <img
+                src={imageUrl}
+                alt={fullName}
+                loading="lazy"
+                className="h-full w-full object-contain"
+              />
+            </a>
+          ) : (
+            <div className="border-border bg-card-secondary text-muted-foreground flex h-[60px] w-[45px] shrink-0 items-center justify-center rounded-lg border text-[15px] font-semibold">
+              {initials || "—"}
+            </div>
+          )}
+
+          <div className="min-w-0">
+            <p className="text-foreground text-[14px] leading-6 font-semibold wrap-break-word">
+              {fullName}
+            </p>
+
+            <p className="text-muted-foreground mt-1 text-[12px] leading-5 wrap-anywhere">
+              {formatValue(resume.national_code)}
+            </p>
+          </div>
         </div>
 
         {/* Phone */}
-        <div
-          dir={locale === "fa" ? "rtl" : "ltr"}
-          className="text-muted-foreground 3xl:text-sm min-w-0 truncate text-sm xl:text-[12px] 2xl:text-[13px]"
-        >
-          {resume.phone_number}
+        <div className="text-muted-foreground min-w-0 text-[13px] leading-6 wrap-anywhere">
+          {formatValue(resume.phone_number)}
         </div>
 
-        {/* Email */}
-        <div className="min-w-0">
-          <a
-            href={`mailto:${resume.email}`}
-            dir={locale === "fa" ? "rtl" : "ltr"}
-            className="text-muted-foreground hover:text-custom-primary 3xl:text-sm block truncate text-sm transition-colors duration-300 xl:text-[12px] 2xl:text-[13px]"
-          >
-            {resume.email}
-          </a>
+        {/* Location */}
+        <div className="text-muted-foreground min-w-0 text-[13px] leading-6 wrap-anywhere">
+          {formatValue(location)}
         </div>
 
-        {/* Date */}
-        <div className="text-muted-foreground 3xl:text-sm text-sm xl:text-[12px] 2xl:text-[13px]">
-          {formattedDate}
+        {/* Job Interest */}
+        <div className="text-foreground min-w-0 text-[13px] leading-6 wrap-break-word">
+          {formatValue(resume.job_interest)}
         </div>
 
-        {/* Resume */}
+        {/* Expand */}
         <div className="flex justify-center">
           <CustomButton
             type="button"
             variant="outline"
             intent="secondary"
-            onClick={handleViewResume}
-            leftSection={
-              <FileText className="3xl:size-[17px] size-4" strokeWidth={1.8} />
-            }
+            size="sm"
+            onClick={() => setExpanded((previous) => !previous)}
             rightSection={
-              <ExternalLink
-                className="3xl:size-[15px] size-3.5"
-                strokeWidth={1.8}
-              />
+              expanded ? (
+                <ChevronUp size={15} strokeWidth={1.8} />
+              ) : (
+                <ChevronDown size={15} strokeWidth={1.8} />
+              )
             }
-            className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+            aria-expanded={expanded}
+            aria-controls={`hire-resume-details-${resume.id}`}
+            className="h-10 w-full px-2.5 text-[12px]"
           >
-            {t("actions.view")}
+            {expanded ? t("actions.less") : t("actions.more")}
           </CustomButton>
         </div>
 
@@ -170,16 +222,22 @@ const HireResumeRow = ({
             intent="destructive"
             variant="soft"
             duration={800}
+            disabled={deleting}
             onComplete={handleDelete}
-            leftSection={
-              <Trash2 className="3xl:size-[17px] size-4" strokeWidth={1.8} />
-            }
-            className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+            leftSection={<Trash2 size={15} strokeWidth={1.8} />}
+            className="h-10 w-full px-2 text-[12px]"
           >
             {t("actions.delete")}
           </CustomHoldButton>
         </div>
       </div>
+
+      {/* Expanded Details */}
+      {expanded && (
+        <div id={`hire-resume-details-${resume.id}`}>
+          <HireResumeDetails resume={resume} />
+        </div>
+      )}
     </article>
   );
 };

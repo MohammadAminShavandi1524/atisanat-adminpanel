@@ -109,69 +109,157 @@
       }
     }
   },
+
   "HireResumes": {
     "header": {
-      "title": "رزومه‌های استخدامی",
-      "description": "مشاهده و مدیریت رزومه‌های ارسال‌شده برای همکاری با آتی صنعت"
+      "title": "مدیریت رزومه‌های استخدامی"
     },
+    "loading": "در حال دریافت رزومه‌ها...",
     "filters": {
-      "searchPlaceholder": "جستجو در رزومه‌ها...",
+      "searchPlaceholder": "جست‌وجوی نام، نام خانوادگی، کد ملی یا شماره تماس...",
       "newestFirst": "جدیدترین",
-      "oldestFirst": "قدیمی‌ترین"
+      "oldestFirst": "قدیمی‌ترین",
+      "province": "استان",
+      "city": "شهر",
+      "allProvinces": "همه استان‌ها",
+      "allCities": "همه شهرها",
+      "selectProvinceFirst": "ابتدا استان را انتخاب کنید",
+      "dutyStatus": "وضعیت نظام وظیفه",
+      "allDutyStatuses": "همه وضعیت‌ها",
+      "workExperience": "سابقه کاری",
+      "allWorkExperiences": "همه",
+      "hasWork": "دارای سابقه",
+      "noWork": "بدون سابقه",
+      "jobInterest": "زمینه شغلی",
+      "jobInterestPlaceholder": "مثلاً CNC",
+      "reset": "پاک کردن فیلترها"
+    },
+    "list": {
+      "total": "کل رزومه‌ها",
+      "filtered": "نتایج"
     },
     "table": {
       "id": "شناسه",
-      "fullName": "نام و نام خانوادگی",
-      "phoneNumber": "شماره تماس",
-      "email": "ایمیل",
-      "date": "تاریخ",
-      "resume": "رزومه",
+      "applicant": "متقاضی",
+      "phone": "شماره تماس",
+      "location": "موقعیت مکانی",
+      "jobInterest": "زمینه شغلی",
+      "details": "جزئیات",
       "actions": "عملیات"
     },
     "actions": {
-      "view": "مشاهده",
-      "delete": "حذف"
+      "more": "مشاهده بیشتر",
+      "less": "بستن جزئیات",
+      "delete": "حذف",
+      "deleting": "در حال حذف...",
+      "refresh": "تازه‌سازی",
+      "retry": "تلاش مجدد"
     },
-    "loading": "در حال دریافت رزومه‌ها...",
-    "empty": {
-      "title": "رزومه‌ای یافت نشد",
-      "description": "در حال حاضر رزومه‌ای برای نمایش وجود ندارد."
+    "summary": {
+      "province": "استان",
+      "city": "شهر",
+      "dutyStatus": "وضعیت نظام وظیفه"
     },
-    "toast": {
-      "delete": {
-        "success": "رزومه با موفقیت حذف شد.",
-        "error": "حذف رزومه با خطا مواجه شد."
-      }
-    }
-  },
-  "dynamicResumes": {
-    "header": {
-      "title": "رزومه‌های پرسش‌وپاسخ",
-      "description": "مشاهده و مدیریت رزومه‌های ثبت‌شده از طریق پاسخ به سؤالات."
-    },
-    "list": {
-      "title": "رزومه‌های ثبت‌شده",
-      "count": "{count} درخواست"
-    },
-    "metadata": {
-      "id": "شناسه رزومه",
-      "created": "تاریخ ثبت"
-    },
-    "answers": {
-      "answer": "پاسخ"
-    },
-    "actions": {
-      "delete": "حذف"
-    },
-    "loading": "در حال دریافت رزومه‌ها...",
     "empty": {
       "title": "رزومه‌ای ثبت نشده است",
-      "description": "رزومه‌های ثبت‌شده در این بخش نمایش داده می‌شوند."
+      "description": "هنوز هیچ رزومه استخدامی در سیستم ثبت نشده است.",
+      "filteredTitle": "رزومه‌ای پیدا نشد",
+      "filteredDescription": "هیچ رزومه‌ای با فیلترهای انتخاب‌شده مطابقت ندارد."
+    },
+    "error": {
+      "title": "خطا در دریافت رزومه‌ها",
+      "description": "دریافت اطلاعات رزومه‌ها با مشکل مواجه شد. دوباره تلاش کنید."
     },
     "toast": {
       "delete": {
         "success": "رزومه با موفقیت حذف شد.",
-        "error": "حذف رزومه ناموفق بود."
+        "error": "حذف رزومه انجام نشد. دوباره تلاش کنید."
+      }
+    },
+    "details": {
+      "emptyList": "موردی ثبت نشده است",
+      "personal": {
+        "title": "اطلاعات فردی",
+        "firstName": "نام",
+        "lastName": "نام خانوادگی",
+        "fatherName": "نام پدر",
+        "nationalCode": "کد ملی",
+        "placeOfIssue": "محل صدور شناسنامه",
+        "dateOfBirth": "تاریخ تولد",
+        "religion": "دین",
+        "mazhab": "مذهب",
+        "married": "وضعیت تأهل",
+        "children": "تعداد فرزندان"
+      },
+      "contact": {
+        "title": "اطلاعات تماس",
+        "province": "استان",
+        "city": "شهر",
+        "email": "ایمیل",
+        "phone": "شماره تماس",
+        "address": "آدرس محل سکونت"
+      },
+      "dependents": {
+        "title": "افراد تحت تکفل",
+        "item": "فرد",
+        "name": "نام و نام خانوادگی",
+        "relation": "نسبت"
+      },
+      "education": {
+        "title": "سوابق تحصیلی",
+        "item": "سابقه تحصیلی",
+        "place": "نام مرکز آموزشی",
+        "major": "رشته تحصیلی",
+        "licence": "مدرک تحصیلی",
+        "start": "تاریخ شروع",
+        "end": "تاریخ پایان"
+      },
+      "languages": {
+        "title": "مهارت‌های زبانی",
+        "item": "زبان",
+        "language": "نام زبان",
+        "read": "مهارت خواندن",
+        "write": "مهارت نوشتن",
+        "speak": "مهارت صحبت کردن"
+      },
+      "work": {
+        "title": "سوابق کاری",
+        "item": "سابقه کاری",
+        "place": "محل کار",
+        "job": "عنوان شغلی",
+        "start": "تاریخ شروع",
+        "end": "تاریخ پایان",
+        "salary": "حقوق دریافتی",
+        "leaveReason": "دلیل ترک کار"
+      },
+      "employment": {
+        "title": "اطلاعات استخدام",
+        "dutyStatus": "وضعیت نظام وظیفه",
+        "offDutyReason": "دلیل معافیت",
+        "criminalConviction": "سابقه محکومیت کیفری",
+        "grantee": "امکان معرفی ضامن",
+        "jobInterest": "زمینه شغلی مورد علاقه",
+        "introducer": "معرف",
+        "startWork": "تاریخ آمادگی شروع کار",
+        "salaryRequest": "حقوق درخواستی",
+        "anotherJob": "اشتغال در محل دیگر",
+        "askLastBoss": "اجازه استعلام از کارفرمای قبلی",
+        "lastBossName": "نام کارفرمای قبلی",
+        "lastBossPhone": "شماره تماس کارفرمای قبلی",
+        "lastBossAddress": "آدرس کارفرمای قبلی",
+        "physicalHealth": "وضعیت سلامت جسمانی"
+      },
+      "contacts": {
+        "title": "افراد نزدیک جهت تماس",
+        "item": "فرد",
+        "name": "نام و نام خانوادگی",
+        "number": "شماره تماس",
+        "address": "آدرس"
+      },
+      "additional": {
+        "title": "اطلاعات تکمیلی",
+        "research": "تحقیقات و فعالیت‌های علمی",
+        "extra": "توضیحات اضافی"
       }
     }
   },
@@ -210,96 +298,6 @@
         "success": "درخواست همکاری با موفقیت حذف شد.",
         "error": "حذف درخواست همکاری با خطا مواجه شد."
       }
-    }
-  },
-  "resumeQuestions": {
-    "header": {
-      "title": "سؤالات رزومه",
-      "description": "مدیریت سؤالات بخش رزومه"
-    },
-    "loading": "در حال بارگذاری سؤالات...",
-    "table": {
-      "index": "ترتیب",
-      "questionFa": "سؤال فارسی",
-      "questionEn": "سؤال انگلیسی",
-      "actions": "عملیات"
-    },
-    "empty": {
-      "title": "سؤالی یافت نشد",
-      "description": "هنوز سؤالی برای نمایش ثبت نشده است."
-    },
-    "actions": {
-      "moveUp": "انتقال به بالا",
-      "moveDown": "انتقال به پایین",
-      "edit": "ویرایش",
-      "delete": "حذف"
-    },
-    "toast": {
-      "delete": {
-        "success": "سؤال با موفقیت حذف شد.",
-        "error": "حذف سؤال ناموفق بود."
-      },
-      "order": {
-        "error": "تغییر ترتیب سؤال ناموفق بود."
-      }
-    }
-  },
-  "editResumeQuestion": {
-    "page": {
-      "title": "ویرایش سؤال رزومه",
-      "description": "ویرایش سؤال ثبت‌شده در بخش رزومه"
-    },
-    "panel": {
-      "title": "ویرایش سؤال",
-      "description": "متن فارسی و انگلیسی سؤال را ویرایش کنید."
-    },
-    "loading": "در حال دریافت سؤال...",
-    "loadError": "دریافت سؤال ناموفق بود. دوباره تلاش کنید.",
-    "validation": {
-      "questionEnRequired": "وارد کردن سؤال انگلیسی الزامی است.",
-      "questionFaRequired": "وارد کردن سؤال فارسی الزامی است."
-    },
-    "form": {
-      "questionEn": {
-        "label": "سؤال انگلیسی",
-        "placeholder": "سؤال انگلیسی را وارد کنید"
-      },
-      "questionFa": {
-        "label": "سؤال فارسی",
-        "placeholder": "سؤال فارسی را وارد کنید"
-      },
-      "submit": "ذخیره تغییرات",
-      "submitting": "در حال ذخیره..."
-    },
-    "toast": {
-      "success": "سؤال با موفقیت ویرایش شد.",
-      "error": "ویرایش سؤال ناموفق بود."
-    }
-  },
-  "addResumeQuestion": {
-    "header": {
-      "title": "ساخت سؤال رزومه",
-      "description": "سؤال موردنظر را به دو زبان فارسی و انگلیسی وارد کنید."
-    },
-    "form": {
-      "questionEn": {
-        "label": "سؤال به انگلیسی",
-        "placeholder": "سؤال را به زبان انگلیسی وارد کنید"
-      },
-      "questionFa": {
-        "label": "سؤال به فارسی",
-        "placeholder": "سؤال را به زبان فارسی وارد کنید"
-      },
-      "submit": "ثبت سؤال",
-      "submitting": "در حال ثبت..."
-    },
-    "validation": {
-      "questionEnRequired": "وارد کردن سؤال به انگلیسی الزامی است.",
-      "questionFaRequired": "وارد کردن سؤال به فارسی الزامی است."
-    },
-    "toast": {
-      "success": "سؤال رزومه با موفقیت ثبت شد.",
-      "error": "در ثبت سؤال رزومه خطایی رخ داد."
     }
   },
   "Faqs": {
@@ -768,7 +766,6 @@
       "childNews": "بخش محتوا"
     }
   },
-
   "addNews": {
     "header": {
       "category": {
@@ -921,7 +918,6 @@
       "en": "انگلیسی"
     }
   },
-
   "editRootNews": {
     "header": {
       "title": "ویرایش مجموعه چالش",
@@ -951,7 +947,6 @@
       "loadError": "دریافت اطلاعات مجموعه چالش با خطا مواجه شد."
     }
   },
-
   "editParentNews": {
     "header": {
       "title": "ویرایش چالش",
@@ -1008,7 +1003,6 @@
       "loadError": "دریافت اطلاعات چالش با خطا مواجه شد."
     }
   },
-
   "editChildNews": {
     "header": {
       "title": "ویرایش بخش محتوا",
@@ -1053,7 +1047,6 @@
       "loadError": "دریافت اطلاعات بخش محتوا با خطا مواجه شد."
     }
   },
-
   "productCategories": {
     "header": {
       "title": "دسته‌بندی محصولات",
@@ -1080,7 +1073,6 @@
       "deleteError": "حذف دسته‌بندی محصول با خطا مواجه شد."
     }
   },
-
   "editProductCategory": {
     "header": {
       "title": "ویرایش دسته‌بندی محصول",
@@ -1111,7 +1103,6 @@
       "error": "ویرایش دسته‌بندی محصول با خطا مواجه شد."
     }
   },
-
   "addProductCategory": {
     "header": {
       "title": "افزودن دسته‌بندی محصول",
@@ -1140,7 +1131,6 @@
       "error": "ایجاد دسته‌بندی محصول با خطا مواجه شد."
     }
   },
-
   "products": {
     "header": {
       "title": "محصولات",
@@ -1170,7 +1160,6 @@
       "deleteError": "حذف محصول با خطا مواجه شد."
     }
   },
-
   "editProduct": {
     "header": {
       "title": "ویرایش محصول",
@@ -1234,7 +1223,6 @@
       "error": "ویرایش محصول با خطا مواجه شد."
     }
   },
-
   "addProduct": {
     "header": {
       "title": "افزودن محصول",

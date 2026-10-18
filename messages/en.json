@@ -109,72 +109,161 @@
       }
     }
   },
+
   "HireResumes": {
     "header": {
-      "title": "Job Applications",
-      "description": "View and manage resumes submitted for employment at ATI Sanat"
+      "title": "Employment Resumes Management"
     },
+    "loading": "Loading resumes...",
     "filters": {
-      "searchPlaceholder": "Search applications...",
-      "newestFirst": "Newest First",
-      "oldestFirst": "Oldest First"
+      "searchPlaceholder": "Search by name, national ID or phone number...",
+      "newestFirst": "Newest",
+      "oldestFirst": "Oldest",
+      "province": "Province",
+      "city": "City",
+      "allProvinces": "All provinces",
+      "allCities": "All cities",
+      "selectProvinceFirst": "Select a province first",
+      "dutyStatus": "Military status",
+      "allDutyStatuses": "All statuses",
+      "workExperience": "Work experience",
+      "allWorkExperiences": "All",
+      "hasWork": "Has experience",
+      "noWork": "No experience",
+      "jobInterest": "Job interest",
+      "jobInterestPlaceholder": "e.g. CNC",
+      "reset": "Clear filters"
+    },
+    "list": {
+      "total": "Total resumes",
+      "filtered": "Results"
     },
     "table": {
       "id": "ID",
-      "fullName": "Full Name",
-      "phoneNumber": "Phone",
-      "email": "Email",
-      "date": "Date",
-      "resume": "Resume",
+      "applicant": "Applicant",
+      "phone": "Phone number",
+      "location": "Location",
+      "jobInterest": "Job interest",
+      "details": "Details",
       "actions": "Actions"
     },
     "actions": {
-      "view": "View",
-      "delete": "Delete"
+      "more": "View more",
+      "less": "Hide details",
+      "delete": "Delete",
+      "deleting": "Deleting...",
+      "refresh": "Refresh",
+      "retry": "Try again"
     },
-    "loading": "Loading applications...",
+    "summary": {
+      "province": "Province",
+      "city": "City",
+      "dutyStatus": "Military status"
+    },
     "empty": {
-      "title": "No applications found",
-      "description": "There are currently no job applications to display."
+      "title": "No resumes yet",
+      "description": "No employment resumes have been submitted yet.",
+      "filteredTitle": "No matching resumes",
+      "filteredDescription": "No resumes match your selected filters."
     },
-    "toast": {
-      "delete": {
-        "success": "Application deleted successfully.",
-        "error": "There was an error deleting the application."
-      }
-    }
-  },
-  "dynamicResumes": {
-    "header": {
-      "title": "Dynamic Resumes",
-      "description": "Review submitted dynamic resume responses."
-    },
-    "list": {
-      "title": "Submitted Resumes",
-      "count": "{count} submissions"
-    },
-    "metadata": {
-      "id": "Resume ID",
-      "created": "Submission Date"
-    },
-    "answers": {
-      "answer": "Answer"
-    },
-    "actions": {
-      "delete": "Delete"
-    },
-    "loading": "Loading dynamic resumes...",
-    "empty": {
-      "title": "No Dynamic Resumes",
-      "description": "Submitted responses will appear here."
+    "error": {
+      "title": "Failed to load resumes",
+      "description": "There was a problem loading the resumes. Please try again."
     },
     "toast": {
       "delete": {
         "success": "Resume deleted successfully.",
-        "error": "Failed to delete resume."
+        "error": "Failed to delete resume. Please try again."
+      }
+    },
+    "details": {
+      "emptyList": "No records provided",
+      "personal": {
+        "title": "Personal information",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "fatherName": "Father's name",
+        "nationalCode": "National ID",
+        "placeOfIssue": "Place of issue",
+        "dateOfBirth": "Date of birth",
+        "religion": "Religion",
+        "mazhab": "Denomination",
+        "married": "Marital status",
+        "children": "Number of children"
+      },
+      "contact": {
+        "title": "Contact information",
+        "province": "Province",
+        "city": "City",
+        "email": "Email",
+        "phone": "Phone number",
+        "address": "Residential address"
+      },
+      "dependents": {
+        "title": "Dependents",
+        "item": "Person",
+        "name": "Full name",
+        "relation": "Relationship"
+      },
+      "education": {
+        "title": "Education history",
+        "item": "Education record",
+        "place": "Institution",
+        "major": "Field of study",
+        "licence": "Qualification",
+        "start": "Start date",
+        "end": "End date"
+      },
+      "languages": {
+        "title": "Language skills",
+        "item": "Language",
+        "language": "Language",
+        "read": "Reading",
+        "write": "Writing",
+        "speak": "Speaking"
+      },
+      "work": {
+        "title": "Work experience",
+        "item": "Work record",
+        "place": "Workplace",
+        "job": "Job title",
+        "start": "Start date",
+        "end": "End date",
+        "salary": "Previous salary",
+        "leaveReason": "Reason for leaving"
+      },
+      "employment": {
+        "title": "Employment information",
+        "dutyStatus": "Military status",
+        "offDutyReason": "Exemption reason",
+        "criminalConviction": "Criminal conviction history",
+        "grantee": "Can provide a guarantor",
+        "jobInterest": "Job interest",
+        "introducer": "Referrer",
+        "startWork": "Available start date",
+        "salaryRequest": "Expected salary",
+        "anotherJob": "Currently employed elsewhere",
+        "askLastBoss": "Permission to contact previous employer",
+        "lastBossName": "Previous employer's name",
+        "lastBossPhone": "Previous employer's phone",
+        "lastBossAddress": "Previous employer's address",
+        "physicalHealth": "Physical health"
+      },
+      "contacts": {
+        "title": "Close contacts",
+        "item": "Person",
+        "name": "Full name",
+        "number": "Phone number",
+        "address": "Address"
+      },
+      "additional": {
+        "title": "Additional information",
+        "research": "Research and academic activities",
+        "extra": "Additional notes"
       }
     }
   },
+
   "CooperationRequests": {
     "header": {
       "title": "Cooperation Requests",
@@ -210,96 +299,6 @@
         "success": "Cooperation request deleted successfully.",
         "error": "There was an error deleting the cooperation request."
       }
-    }
-  },
-  "resumeQuestions": {
-    "header": {
-      "title": "Resume Questions",
-      "description": "Manage the questions displayed in the resume form."
-    },
-    "loading": "Loading questions...",
-    "table": {
-      "index": "Order",
-      "questionFa": "Persian Question",
-      "questionEn": "English Question",
-      "actions": "Actions"
-    },
-    "empty": {
-      "title": "No questions found",
-      "description": "There are no resume questions to display yet."
-    },
-    "actions": {
-      "moveUp": "Move up",
-      "moveDown": "Move down",
-      "edit": "Edit",
-      "delete": "Delete"
-    },
-    "toast": {
-      "delete": {
-        "success": "Question deleted successfully.",
-        "error": "Failed to delete the question."
-      },
-      "order": {
-        "error": "Failed to change the question order."
-      }
-    }
-  },
-  "editResumeQuestion": {
-    "page": {
-      "title": "Edit Resume Question",
-      "description": "Update an existing resume question."
-    },
-    "panel": {
-      "title": "Edit Question",
-      "description": "Update the English and Persian versions of this question."
-    },
-    "loading": "Loading question...",
-    "loadError": "Unable to load the question. Please try again.",
-    "validation": {
-      "questionEnRequired": "The English question is required.",
-      "questionFaRequired": "The Persian question is required."
-    },
-    "form": {
-      "questionEn": {
-        "label": "English Question",
-        "placeholder": "Enter the English question"
-      },
-      "questionFa": {
-        "label": "Persian Question",
-        "placeholder": "Enter the Persian question"
-      },
-      "submit": "Save Changes",
-      "submitting": "Saving..."
-    },
-    "toast": {
-      "success": "Question updated successfully.",
-      "error": "Failed to update the question."
-    }
-  },
-  "addResumeQuestion": {
-    "header": {
-      "title": "Add Resume Question",
-      "description": "Enter the question in both English and Persian."
-    },
-    "form": {
-      "questionEn": {
-        "label": "English Question",
-        "placeholder": "Enter the question in English"
-      },
-      "questionFa": {
-        "label": "Persian Question",
-        "placeholder": "Enter the question in Persian"
-      },
-      "submit": "Add Question",
-      "submitting": "Submitting..."
-    },
-    "validation": {
-      "questionEnRequired": "English question is required.",
-      "questionFaRequired": "Persian question is required."
-    },
-    "toast": {
-      "success": "Resume question added successfully.",
-      "error": "There was an error adding the resume question."
     }
   },
   "Faqs": {

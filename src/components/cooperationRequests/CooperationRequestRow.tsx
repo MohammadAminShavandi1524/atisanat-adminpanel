@@ -111,7 +111,7 @@ const CooperationRequestRow = ({
         {/* ID */}
         <div
           dir={locale === "fa" ? "rtl" : "ltr"}
-          className="text-muted-foreground 3xl:text-sm font-mono text-sm xl:text-[12px] 2xl:text-[13px]"
+          className="text-muted-foreground 3xl:text-sm text-sm xl:text-[12px] 2xl:text-[13px]"
         >
           {locale === "fa"
             ? `${toPersianDigits(request.id)}#`

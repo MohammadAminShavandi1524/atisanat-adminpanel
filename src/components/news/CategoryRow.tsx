@@ -19,12 +19,7 @@ interface CategoryRowProps {
   onDelete: () => void;
 }
 
-const CategoryRow = ({
-  id,
-  label,
-  lang,
-  onDelete,
-}: CategoryRowProps) => {
+const CategoryRow = ({ id, label, lang, onDelete }: CategoryRowProps) => {
   const locale = useLocale();
 
   const t = useTranslations("news.actions");
@@ -39,9 +34,7 @@ const CategoryRow = ({
       )}
     >
       {/* ID */}
-      <div className="text-muted-foreground font-mono text-sm">
-        #{id}
-      </div>
+      <div className="text-muted-foreground text-sm">#{id}</div>
 
       {/* Category */}
       <div className="min-w-0 pe-4">
@@ -72,7 +65,7 @@ const CategoryRow = ({
               intent: "info",
               variant: "soft",
             }),
-            "h-10 gap-1.5 px-3.5 text-sm xl:h-9 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px] 3xl:h-10 3xl:text-sm",
+            "3xl:h-10 3xl:text-sm h-10 gap-1.5 px-3.5 text-sm xl:h-9 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px]",
           )}
         >
           <Edit className="size-4" strokeWidth={1.7} />
@@ -85,13 +78,8 @@ const CategoryRow = ({
           variant="soft"
           duration={1200}
           onComplete={onDelete}
-          className="h-10 px-3.5 text-sm xl:h-9 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px] 3xl:h-10 3xl:text-sm"
-          leftSection={
-            <Trash
-              className="size-4"
-              strokeWidth={1.7}
-            />
-          }
+          className="3xl:h-10 3xl:text-sm h-10 px-3.5 text-sm xl:h-9 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px]"
+          leftSection={<Trash className="size-4" strokeWidth={1.7} />}
         >
           {t("delete")}
         </CustomHoldButton>
