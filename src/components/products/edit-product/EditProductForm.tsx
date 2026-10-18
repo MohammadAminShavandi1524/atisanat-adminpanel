@@ -1,12 +1,6 @@
 ﻿"use client";
 
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { LoaderCircle, Package } from "lucide-react";
 
@@ -41,13 +35,13 @@ import {
   uploadProductImage,
 } from "./edit-product.api";
 
+import { useEditProductAnimation } from "./useEditProductAnimation";
+
 interface EditProductFormProps {
   productId: string;
 }
 
-const EditProductForm = ({
-  productId,
-}: EditProductFormProps) => {
+const EditProductForm = ({ productId }: EditProductFormProps) => {
   const t = useTranslations("editProduct");
 
   const locale = useLocale();
@@ -69,6 +63,8 @@ const EditProductForm = ({
   const [isFinalizing, setIsFinalizing] = useState(false);
 
   const [hasCategories, setHasCategories] = useState(true);
+
+  useEditProductAnimation(formRef);
 
   const schema = useMemo(
     () =>
@@ -130,7 +126,7 @@ const EditProductForm = ({
         const categoryId =
           typeof product.category === "number"
             ? product.category
-            : product.category?.id ?? 0;
+            : (product.category?.id ?? 0);
 
         setCurrentImage(product.image ?? "");
 
@@ -155,7 +151,7 @@ const EditProductForm = ({
       }
     };
 
-    loadProduct();
+    void loadProduct();
 
     return () => {
       active = false;
@@ -171,16 +167,13 @@ const EditProductForm = ({
         setIsFinalizing(false);
         setUploadProgress(0);
 
-        imageUrl = await uploadProductImage(
-          data.image,
-          (progress) => {
-            setUploadProgress(progress);
+        imageUrl = await uploadProductImage(data.image, (progress) => {
+          setUploadProgress(progress);
 
-            if (progress >= 100) {
-              setIsFinalizing(true);
-            }
-          },
-        );
+          if (progress >= 100) {
+            setIsFinalizing(true);
+          }
+        });
 
         setIsUploading(false);
         setIsFinalizing(false);
@@ -217,24 +210,24 @@ const EditProductForm = ({
     <form
       ref={formRef}
       onSubmit={handleSubmit(onSubmit)}
-      className="border-border bg-background grid min-h-0 flex-1 grid-cols-[0.36fr_1fr] grid-rows-[minmax(0,1fr)] overflow-hidden rounded-xl border xl:grid-cols-[0.32fr_1fr] 2xl:grid-cols-[0.34fr_1fr] 3xl:grid-cols-[0.36fr_1fr]"
+      className="border-border bg-background 3xl:grid-cols-[0.36fr_1fr] grid min-h-0 min-w-0 flex-1 grid-cols-[0.26fr_minmax(0,1fr)] grid-rows-[minmax(0,1fr)] overflow-hidden rounded-xl border xl:grid-cols-[0.32fr_minmax(0,1fr)] 2xl:grid-cols-[0.34fr_minmax(0,1fr)]"
     >
       {/* Information */}
-      <div className="border-border bg-secondary-bg relative flex min-h-0 flex-col justify-between overflow-hidden border-e p-7 xl:p-5 2xl:p-6 3xl:p-7">
+      <div className="edit-product-info border-border bg-secondary-bg 3xl:p-7 relative flex min-h-0 min-w-0 flex-col justify-between overflow-hidden border-e p-4 xl:p-5 2xl:p-6">
         <div>
-          <div className="border-border bg-background flex size-11 items-center justify-center rounded-lg border xl:size-10 3xl:size-11">
+          <div className="border-border bg-background 3xl:size-11 flex size-9 items-center justify-center rounded-lg border xl:size-10">
             <Package
-              className="text-custom-primary size-5 xl:size-[18px] 3xl:size-5"
+              className="text-custom-primary 3xl:size-5 size-4 xl:size-[18px]"
               strokeWidth={1.6}
             />
           </div>
 
-          <div className="mt-5 xl:mt-4 3xl:mt-5">
-            <h2 className="text-foreground mt-3 text-xl font-semibold xl:mt-2 xl:text-[18px] 2xl:text-[19px] 3xl:mt-3 3xl:text-xl">
+          <div className="3xl:mt-5 mt-3 xl:mt-4">
+            <h2 className="text-foreground 3xl:mt-3 3xl:text-xl mt-2 text-[16px] font-semibold xl:text-[18px] 2xl:text-[19px]">
               {t("header.title")}
             </h2>
 
-            <p className="text-muted-foreground mt-3 max-w-[280px] text-sm leading-7 xl:mt-2.5 xl:max-w-[240px] xl:text-[13px] xl:leading-6 2xl:max-w-[260px] 3xl:mt-3 3xl:max-w-[280px] 3xl:text-sm 3xl:leading-7">
+            <p className="text-muted-foreground 3xl:mt-3 3xl:max-w-[280px] 3xl:text-sm 3xl:leading-7 mt-2 max-w-[220px] text-[12px] leading-5 xl:mt-2.5 xl:max-w-[240px] xl:text-[13px] xl:leading-6 2xl:max-w-[260px]">
               {t("header.description")}
             </p>
           </div>
@@ -242,7 +235,7 @@ const EditProductForm = ({
       </div>
 
       {/* Fields */}
-      <div className="bg-background flex min-h-0 flex-col overflow-hidden p-8 pe-3 xl:p-5 xl:pe-2.5 2xl:p-6 2xl:pe-3 3xl:p-8 3xl:pe-3">
+      <div className="edit-product-fields bg-background 3xl:p-8 3xl:pe-3 flex min-h-0 min-w-0 flex-col overflow-hidden p-4 pe-2 xl:p-5 xl:pe-2.5 2xl:p-6 2xl:pe-3">
         {loading ? (
           <div className="flex min-h-0 flex-1 items-center justify-center">
             <div className="flex items-center gap-2">
@@ -261,10 +254,10 @@ const EditProductForm = ({
             <ScrollArea
               data-lenis-prevent
               dir={locale === "en" ? "ltr" : "rtl"}
-              className="min-h-0 flex-1 overflow-hidden pe-5 xl:pe-4 2xl:pe-4.5 3xl:pe-5"
+              className="3xl:pe-5 min-h-0 min-w-0 flex-1 overflow-hidden pe-3 xl:pe-4 2xl:pe-4.5"
               scrollBarClassName="me-0"
             >
-              <div className="flex flex-col gap-y-8 pb-8 xl:gap-y-6 2xl:gap-y-7 3xl:gap-y-8">
+              <div className="3xl:gap-y-8 3xl:pb-8 flex min-w-0 flex-col gap-y-5 pb-5 xl:gap-y-6 xl:pb-6 2xl:gap-y-7 2xl:pb-7">
                 {/* Category */}
                 <Controller
                   control={control}
@@ -279,7 +272,7 @@ const EditProductForm = ({
                 />
 
                 {/* Names */}
-                <div className="grid grid-cols-2 gap-6 xl:gap-4 2xl:gap-5 3xl:gap-6">
+                <div className="3xl:gap-6 grid min-w-0 grid-cols-2 gap-3 xl:gap-4 2xl:gap-5">
                   <FormField
                     label={t("form.nameEn.label")}
                     placeholder={t("form.nameEn.placeholder")}
@@ -302,7 +295,7 @@ const EditProductForm = ({
                 </div>
 
                 {/* Descriptions */}
-                <div className="grid grid-cols-2 gap-6 xl:gap-4 2xl:gap-5 3xl:gap-6">
+                <div className="3xl:gap-6 grid min-w-0 grid-cols-2 gap-3 xl:gap-4 2xl:gap-5">
                   <FormField
                     label={t("form.descriptionEn.label")}
                     placeholder={t("form.descriptionEn.placeholder")}
@@ -345,7 +338,7 @@ const EditProductForm = ({
             </ScrollArea>
 
             {/* Submit */}
-            <div className="border-border bg-background mt-5 flex shrink-0 justify-end border-t pt-6 xl:mt-4 xl:pt-4 2xl:mt-5 2xl:pt-5 3xl:mt-5 3xl:pt-6">
+            <div className="border-border bg-background 3xl:mt-5 3xl:pt-6 mt-4 flex shrink-0 justify-end border-t pt-4 xl:mt-4 xl:pt-4 2xl:mt-5 2xl:pt-5">
               <CustomButton
                 type="submit"
                 variant="solid"
@@ -355,18 +348,16 @@ const EditProductForm = ({
                 loadingContent={
                   <>
                     <LoaderCircle
-                      className="size-4 animate-spin xl:size-[15px] 3xl:size-4"
+                      className="3xl:size-4 size-4 animate-spin xl:size-[15px]"
                       strokeWidth={1.8}
                     />
 
                     <span>
-                      {isUploading
-                        ? t("form.uploading")
-                        : t("form.submitting")}
+                      {isUploading ? t("form.uploading") : t("form.submitting")}
                     </span>
                   </>
                 }
-                className="bg-custom-primary hover:bg-custom-primary/90 h-11.5 min-w-[180px] px-5 text-sm xl:h-10.5 xl:min-w-[165px] xl:px-4 xl:text-[13px] 2xl:h-11 2xl:min-w-[175px] 3xl:h-12 3xl:min-w-[190px] 3xl:px-6 3xl:text-sm"
+                className="bg-custom-primary hover:bg-custom-primary/90 3xl:h-12 3xl:min-w-[190px] 3xl:px-6 3xl:text-sm h-10 min-w-[150px] px-3 text-[12px] xl:h-10.5 xl:min-w-[165px] xl:px-4 xl:text-[13px] 2xl:h-11 2xl:min-w-[175px]"
               >
                 {t("form.submit")}
               </CustomButton>

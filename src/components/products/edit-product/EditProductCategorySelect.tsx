@@ -8,10 +8,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import { CustomSelect } from "@/components/ui/custom-select";
 
-import {
-  getProductCategories,
-  type ProductCategory,
-} from "./edit-product.api";
+import { getProductCategories, type ProductCategory } from "./edit-product.api";
 
 import type { EditProductFormValues } from "./edit-product.schema";
 
@@ -59,7 +56,7 @@ const EditProductCategorySelect = ({
       }
     };
 
-    fetchCategories();
+    void fetchCategories();
   }, [onAvailabilityChange]);
 
   const options = categories.map((category) => ({
@@ -88,7 +85,7 @@ const EditProductCategorySelect = ({
   };
 
   return (
-    <div>
+    <div className="min-w-0">
       <CustomSelect
         label={t("form.category.label")}
         placeholder={getPlaceholder()}

@@ -96,9 +96,9 @@ const EditProductImageUploadField = ({
   const showProgress = isUploading && (progress > 0 || isFinalizing);
 
   return (
-    <div>
+    <div className="min-w-0">
       <div className="mb-2.5 flex items-center justify-between gap-3 px-1">
-        <label className="text-foreground text-[14px] font-semibold">
+        <label className="text-foreground 3xl:text-[14px] text-[12px] font-semibold xl:text-[13px]">
           {t("form.image.label")}
         </label>
 
@@ -114,7 +114,8 @@ const EditProductImageUploadField = ({
         className="hidden"
       />
 
-      <div className="grid items-stretch gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
+      <div className="3xl:grid-cols-[220px_minmax(0,1fr)] 3xl:gap-5 grid min-w-0 grid-cols-1 items-stretch gap-3 xl:grid-cols-[180px_minmax(0,1fr)] xl:gap-4 2xl:grid-cols-[200px_minmax(0,1fr)]">
+        {/* Image Preview */}
         <div
           role="button"
           tabIndex={disabled ? -1 : 0}
@@ -124,12 +125,11 @@ const EditProductImageUploadField = ({
             }
           }}
           onKeyDown={(event) => {
-            if (
-              disabled ||
-              (event.key !== "Enter" && event.key !== " ")
-            ) {
+            if (disabled || (event.key !== "Enter" && event.key !== " ")) {
               return;
             }
+
+            event.preventDefault();
 
             inputRef.current?.click();
           }}
@@ -138,23 +138,22 @@ const EditProductImageUploadField = ({
           }}
           onDrop={handleDrop}
           className={cn(
-            "border-border bg-secondary-bg/25 relative h-full min-h-[250px] overflow-hidden rounded-xl border border-dashed transition-[border-color,background-color] duration-300",
+            "border-border bg-secondary-bg/25 3xl:min-h-[250px] relative h-full min-h-[180px] min-w-0 overflow-hidden rounded-xl border border-dashed transition-[border-color,background-color] duration-300 xl:min-h-[210px] 2xl:min-h-[230px]",
             disabled
               ? "cursor-not-allowed opacity-70"
               : "hover:border-custom-primary/60 hover:bg-custom-primary/[0.025] cursor-pointer",
           )}
         >
           {!previewUrl ? (
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center">
-              <div className="border-border bg-background flex size-12 items-center justify-center rounded-xl border">
+            <div className="3xl:px-5 absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+              <div className="border-border bg-background 3xl:size-12 flex size-10 items-center justify-center rounded-xl border xl:size-11">
                 <UploadCloud
-                  size={22}
                   strokeWidth={1.6}
-                  className="text-custom-primary"
+                  className="text-custom-primary 3xl:size-[22px] size-5"
                 />
               </div>
 
-              <p className="text-foreground mt-4 text-[14px] font-medium">
+              <p className="text-foreground 3xl:mt-4 3xl:text-[14px] mt-3 text-[12px] font-medium xl:text-[13px]">
                 {t("form.image.placeholder")}
               </p>
 
@@ -164,11 +163,7 @@ const EditProductImageUploadField = ({
             </div>
           ) : (
             <>
-              <img
-                src={previewUrl}
-                alt=""
-                className="size-full object-cover"
-              />
+              <img src={previewUrl} alt="" className="size-full object-cover" />
 
               {value && !disabled && (
                 <button
@@ -188,24 +183,25 @@ const EditProductImageUploadField = ({
           )}
         </div>
 
-        <div className="border-border bg-secondary-bg/25 flex min-h-[250px] flex-col justify-between rounded-xl border p-5">
+        {/* Image Information */}
+        <div className="border-border bg-secondary-bg/25 3xl:min-h-[250px] 3xl:p-5 flex min-h-[180px] min-w-0 flex-col justify-between rounded-xl border p-3.5 xl:min-h-[210px] xl:p-4 2xl:min-h-[230px]">
           <div>
-            <div className="border-border bg-background flex size-11 items-center justify-center rounded-lg border">
+            <div className="border-border bg-background 3xl:size-11 flex size-9 items-center justify-center rounded-lg border xl:size-10">
               <ImageIcon
-                className="text-custom-primary size-5"
+                className="text-custom-primary 3xl:size-5 size-4 xl:size-[18px]"
                 strokeWidth={1.6}
               />
             </div>
 
-            <h3 className="text-foreground mt-4 text-sm font-semibold">
+            <h3 className="text-foreground 3xl:mt-4 3xl:text-sm mt-3 text-[12px] font-semibold xl:text-[13px]">
               {t("form.image.title")}
             </h3>
 
-            <p className="text-muted-foreground mt-2 max-w-lg text-[13px] leading-6">
+            <p className="text-muted-foreground 3xl:text-[13px] 3xl:leading-6 mt-2 max-w-lg text-[12px] leading-5">
               {t("form.image.description")}
             </p>
 
-            <div className="border-border mt-5 border-t pt-4">
+            <div className="border-border 3xl:mt-5 3xl:pt-4 mt-3 border-t pt-3">
               <div className="text-muted-foreground space-y-1.5 text-xs">
                 <p>{t("form.image.format")}</p>
 

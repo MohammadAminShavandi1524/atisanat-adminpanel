@@ -50,43 +50,43 @@ const ProductRow = ({ product, onDelete }: ProductRowProps) => {
   };
 
   return (
-    <div className="border-border bg-background hover:border-custom-primary/25 3xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(150px,0.8fr)_90px_140px_200px] mb-2 grid min-h-[82px] grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(150px,0.8fr)_90px_140px_200px] items-center rounded-xl border px-5 transition-colors duration-200 last:mb-0 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_130px_74px_120px_180px] xl:px-4 2xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_140px_82px_130px_190px] 2xl:px-5">
+    <div className="border-border bg-background hover:border-custom-primary/25 3xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(150px,0.8fr)_90px_140px_200px] 3xl:min-h-[82px] 3xl:px-5 mb-2 grid min-h-[64px] min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,0.8fr)_50px_80px_136px] items-center rounded-xl border px-[11px] transition-colors duration-200 last:mb-0 xl:min-h-[72px] xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_130px_74px_120px_180px] xl:px-[15px] 2xl:min-h-[78px] 2xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_140px_82px_130px_190px] 2xl:px-[19px]">
       {/* English Name */}
-      <div className="min-w-0 pe-5">
+      <div className="min-w-0 pe-2 xl:pe-5">
         <span
           lang="en"
-          className="text-foreground block truncate text-sm font-medium"
+          className="text-foreground block truncate text-[11px] font-medium xl:text-sm"
         >
           {product.name_en}
         </span>
       </div>
 
       {/* Persian Name */}
-      <div className="min-w-0 pe-5">
+      <div className="min-w-0 pe-2 xl:pe-5">
         <span
           lang="fa"
-          className="text-foreground font-IRANYekanX block truncate text-sm font-medium"
+          className="text-foreground font-IRANYekanX block truncate text-[11px] font-medium xl:text-sm"
         >
           {product.name_fa}
         </span>
       </div>
 
       {/* Category */}
-      <div className="min-w-0 pe-4">
-        <span className="text-muted-foreground block truncate text-sm">
+      <div className="min-w-0 pe-1 xl:pe-4">
+        <span className="text-muted-foreground block truncate text-[11px] xl:text-sm">
           {categoryLabel}
         </span>
       </div>
 
       {/* Image */}
-      <div className="flex items-center">
+      <div className="flex min-w-0 items-center">
         {product.image ? (
           <a
             href={product.image}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("actions.viewImage")}
-            className="border-border bg-secondary-bg 3xl:size-14 block size-14 overflow-hidden rounded-lg border xl:size-12 2xl:size-[52px]"
+            className="border-border bg-secondary-bg 3xl:size-14 block size-9 shrink-0 overflow-hidden rounded-lg border xl:size-12 2xl:size-[52px]"
           >
             <img
               src={product.image}
@@ -95,9 +95,9 @@ const ProductRow = ({ product, onDelete }: ProductRowProps) => {
             />
           </a>
         ) : (
-          <div className="border-border bg-secondary-bg 3xl:size-14 flex size-14 items-center justify-center rounded-lg border xl:size-12 2xl:size-[52px]">
+          <div className="border-border bg-secondary-bg 3xl:size-14 flex size-9 shrink-0 items-center justify-center rounded-lg border xl:size-12 2xl:size-[52px]">
             <Package
-              className="text-muted-foreground size-5"
+              className="text-muted-foreground size-4 xl:size-5"
               strokeWidth={1.6}
             />
           </div>
@@ -105,14 +105,14 @@ const ProductRow = ({ product, onDelete }: ProductRowProps) => {
       </div>
 
       {/* Created */}
-      <div className="min-w-0 pe-4">
-        <span className="text-muted-foreground block truncate text-[13px]">
+      <div className="min-w-0 pe-1 xl:pe-4">
+        <span className="text-muted-foreground block truncate text-[10px] xl:text-[13px]">
           {getCreatedDate()}
         </span>
       </div>
 
       {/* Actions */}
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex min-w-0 items-center justify-center gap-1 xl:gap-2">
         <Link
           href={`/${locale}/products/edit/${product.id}`}
           className={cn(
@@ -120,10 +120,13 @@ const ProductRow = ({ product, onDelete }: ProductRowProps) => {
               intent: "info",
               variant: "soft",
             }),
-            "3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] gap-1.5 px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]",
+            "3xl:h-10 3xl:min-w-[88px] 3xl:px-3.5 3xl:text-sm h-8 min-w-0 flex-1 gap-1 px-1 text-[10px] xl:h-9 xl:min-w-[78px] xl:flex-none xl:gap-1.5 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]",
           )}
         >
-          <Edit className="3xl:size-[17px] size-4" strokeWidth={1.7} />
+          <Edit
+            className="3xl:size-[17px] size-3 shrink-0 xl:size-4"
+            strokeWidth={1.7}
+          />
 
           <span>{t("actions.edit")}</span>
         </Link>
@@ -133,9 +136,12 @@ const ProductRow = ({ product, onDelete }: ProductRowProps) => {
           variant="soft"
           duration={1200}
           onComplete={() => onDelete(product.id)}
-          className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+          className="3xl:h-10 3xl:min-w-[88px] 3xl:px-3.5 3xl:text-sm h-8 min-w-0 flex-1 gap-1 px-1 text-[10px] xl:h-9 xl:min-w-[78px] xl:flex-none xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
           leftSection={
-            <Trash className="3xl:size-[17px] size-4" strokeWidth={1.7} />
+            <Trash
+              className="3xl:size-[17px] size-3 shrink-0 xl:size-4"
+              strokeWidth={1.7}
+            />
           }
         >
           {t("actions.delete")}
