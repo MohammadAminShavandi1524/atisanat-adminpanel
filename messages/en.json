@@ -61,12 +61,35 @@
     "faq": "FAQ",
     "addFaq": "Add FAQ"
   },
+
   "Dashboard": {
     "header": {
       "title": "Dashboard",
-      "description": "Overview of the ATI Sanat management panel"
+      "description": "Overview of your management panel"
+    },
+    "loading": "Loading information...",
+    "stats": {
+      "title": "Statistics & Management",
+      "description": "View statistics and quickly access management sections"
+    },
+    "actions": {
+      "view": "View List",
+      "add": "Add New",
+      "viewOnly": "View Only"
+    },
+    "cards": {
+      "contactMessages": "Contact Messages",
+      "hireResumes": "Job Applications",
+      "cooperationRequests": "Cooperation Requests",
+      "productCategories": "Product Categories",
+      "products": "Products",
+      "machiningChallenges": "Machining Challenges",
+      "standardTableParents": "Standard Table Collections",
+      "standardTables": "Standard Tables",
+      "faqs": "Frequently Asked Questions"
     }
   },
+
   "ContactMessages": {
     "header": {
       "title": "Contact Messages",

@@ -61,12 +61,35 @@
     "faq": "سوالات متداول",
     "addFaq": "افزودن سوال متداول"
   },
+
   "Dashboard": {
     "header": {
       "title": "داشبورد",
-      "description": "نمای کلی پنل مدیریت آتی صنعت"
+      "description": "نمای کلی اطلاعات و بخش‌های پنل مدیریت"
+    },
+    "loading": "در حال دریافت اطلاعات...",
+    "stats": {
+      "title": "آمار و مدیریت بخش‌ها",
+      "description": "مشاهده آمار و دسترسی سریع به بخش‌های مختلف"
+    },
+    "actions": {
+      "view": "مشاهده لیست",
+      "add": "افزودن",
+      "viewOnly": "فقط مشاهده"
+    },
+    "cards": {
+      "contactMessages": "پیام‌های دریافتی",
+      "hireResumes": "رزومه‌های استخدامی",
+      "cooperationRequests": "درخواست‌های همکاری",
+      "productCategories": "دسته‌بندی محصولات",
+      "products": "محصولات",
+      "machiningChallenges": "چالش‌های ماشین‌کاری",
+      "standardTableParents": "مجموعه‌های جداول استاندارد",
+      "standardTables": "جداول استاندارد",
+      "faqs": "سوالات متداول"
     }
   },
+
   "ContactMessages": {
     "header": {
       "title": "پیام‌های دریافتی",
