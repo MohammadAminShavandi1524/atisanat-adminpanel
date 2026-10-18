@@ -175,7 +175,7 @@ const HireResumeFilters = ({
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-province"
-            className="text-muted-foreground mb-1.5 block text-xs"
+            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
           >
             {t("province")}
           </label>
@@ -199,7 +199,7 @@ const HireResumeFilters = ({
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-city"
-            className="text-muted-foreground mb-1.5 block text-xs"
+            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
           >
             {t("city")}
           </label>
@@ -226,7 +226,7 @@ const HireResumeFilters = ({
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-duty-status"
-            className="text-muted-foreground mb-1.5 block text-xs"
+            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
           >
             {t("dutyStatus")}
           </label>
@@ -250,7 +250,7 @@ const HireResumeFilters = ({
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-work-experience"
-            className="text-muted-foreground mb-1.5 block text-xs"
+            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
           >
             {t("workExperience")}
           </label>
@@ -277,7 +277,7 @@ const HireResumeFilters = ({
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-job-interest"
-            className="text-muted-foreground mb-1.5 block text-xs"
+            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
           >
             {t("jobInterest")}
           </label>
