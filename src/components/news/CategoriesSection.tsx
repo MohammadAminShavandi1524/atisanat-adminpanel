@@ -40,7 +40,7 @@ const CategoriesSection = ({
   return (
     <section className="border-border bg-background relative flex h-full max-h-full min-h-0 w-full flex-1 flex-col overflow-hidden rounded-2xl border">
       {/* Table Header */}
-      <div className="border-border bg-secondary-bg 3xl:px-10 shrink-0 border-b px-10 xl:px-5 2xl:px-7">
+      <div className="border-border bg-secondary-bg 3xl:px-13 shrink-0 border-b xl:px-8 2xl:px-10">
         <div className="text-muted-foreground 3xl:h-14 grid h-14 grid-cols-4 items-center text-xs font-medium tracking-[0.04em] xl:h-11 xl:text-[11px] 2xl:h-12 2xl:text-xs">
           <div>{t("categories.table.id")}</div>
 

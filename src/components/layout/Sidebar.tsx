@@ -1,12 +1,9 @@
-"use client";
 
-import { useRef } from "react";
+"use client";
 
 import {
   BriefcaseBusiness,
   CircleHelp,
-  ClipboardList,
-  ClipboardPlus,
   FilePlus2,
   FolderPlus,
   Handshake,
@@ -21,113 +18,33 @@ import {
 } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
-
 import { usePathname } from "next/navigation";
-
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import SidebarItem from "./SidebarItem";
 import SideBarItemHeader from "./SideBarItemHeader";
 
-gsap.registerPlugin(useGSAP);
-
 const Sidebar = () => {
   const locale = useLocale();
   const pathname = usePathname();
-
   const t = useTranslations("Sidebar");
-
-  const sidebarRef = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      if (!sidebarRef.current) {
-        return;
-      }
-
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (reduceMotion) {
-        return;
-      }
-
-      const timeline = gsap.timeline({
-        defaults: {
-          ease: "power3.out",
-        },
-      });
-
-      timeline.fromTo(
-        sidebarRef.current,
-        {
-          opacity: 0,
-          x: locale === "fa" ? 18 : -18,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-        },
-      );
-
-      timeline.fromTo(
-        ".sidebar-brand",
-        {
-          opacity: 0,
-          y: -8,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-        },
-        "-=0.25",
-      );
-
-      timeline.fromTo(
-        ".sidebar-section",
-        {
-          opacity: 0,
-          y: 10,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          stagger: 0.07,
-        },
-        "-=0.2",
-      );
-    },
-    {
-      scope: sidebarRef,
-      dependencies: [locale],
-    },
-  );
 
   if (pathname === `/${locale}/login`) {
     return null;
   }
 
   return (
-    <aside
-      ref={sidebarRef}
-      className="border-border-secondary bg-background flex h-screen w-[285px] shrink-0 flex-col border-e pb-4"
-    >
+    <aside className="border-border-secondary bg-background flex h-screen w-[235px] shrink-0 flex-col border-e pb-3 xl:w-[255px] xl:pb-3.5 2xl:w-[270px] 3xl:w-[285px] 3xl:pb-4">
       {/* Header */}
-      <div className="sidebar-brand shrink-0 px-4">
-        <div className="border-border-secondary flex min-h-[78px] items-center border-b px-2">
+      <div className="shrink-0 px-3 xl:px-3.5 3xl:px-4">
+        <div className="border-border-secondary flex min-h-[70px] items-center border-b px-2 xl:min-h-[74px] 3xl:min-h-[78px]">
           <div className="flex min-w-0 flex-col">
-            <div className="text-foreground truncate text-[20px] font-semibold">
+            <div className="text-foreground truncate text-[17px] font-semibold xl:text-[18px] 2xl:text-[19px] 3xl:text-[20px]">
               {t("logoTitle")}
             </div>
 
-            <div className="text-muted-foreground mt-0 truncate text-[16px]">
+            <div className="text-muted-foreground mt-0 truncate text-[13px] xl:text-[14px] 2xl:text-[15px] 3xl:text-[16px]">
               {t("logoSubtitle")}
             </div>
           </div>
@@ -141,9 +58,9 @@ const Sidebar = () => {
         className="min-h-0 flex-1"
         scrollBarClassName="me-1"
       >
-        <nav className="flex flex-col gap-y-3 px-4 pt-3">
+        <nav className="flex flex-col gap-y-2.5 px-3 pt-2.5 xl:gap-y-3 xl:px-3.5 3xl:px-4 3xl:pt-3">
           {/* Overview */}
-          <div className="sidebar-section">
+          <div>
             <SideBarItemHeader label={t("overview")} />
 
             <SidebarItem
@@ -155,7 +72,7 @@ const Sidebar = () => {
           </div>
 
           {/* Requests */}
-          <div className="sidebar-section">
+          <div>
             <SideBarItemHeader label={t("requestsSection")} />
 
             <SidebarItem
@@ -181,7 +98,7 @@ const Sidebar = () => {
           </div>
 
           {/* Products */}
-          <div className="sidebar-section">
+          <div>
             <SideBarItemHeader label={t("productsSection")} />
 
             <SidebarItem
@@ -214,7 +131,7 @@ const Sidebar = () => {
           </div>
 
           {/* Standard Tables */}
-          <div className="sidebar-section">
+          <div>
             <SideBarItemHeader label={t("standardTablesSection")} />
 
             <SidebarItem
@@ -240,7 +157,7 @@ const Sidebar = () => {
           </div>
 
           {/* Machining Challenges */}
-          <div className="sidebar-section">
+          <div>
             <SideBarItemHeader label={t("machiningChallengesSection")} />
 
             <SidebarItem
@@ -259,7 +176,7 @@ const Sidebar = () => {
           </div>
 
           {/* FAQ */}
-          <div className="sidebar-section">
+          <div>
             <SideBarItemHeader label={t("faqSection")} />
 
             <SidebarItem

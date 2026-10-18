@@ -21,9 +21,12 @@ const SidebarItem = ({
     <Link
       href={href}
       className={cn(
-        "group relative mb-1 flex h-12 items-center gap-2.5 rounded-lg border px-3.5",
-        "text-[15px] font-medium",
+        "group relative mb-1 flex h-10 items-center gap-2 rounded-lg border px-2.5",
+        "text-[12px] font-medium",
         "transition-[background-color,border-color,color] duration-300",
+        "xl:h-11 xl:gap-2.5 xl:px-3 xl:text-[13px]",
+        "2xl:h-11.5 2xl:text-[14px]",
+        "3xl:h-12 3xl:px-3.5 3xl:text-[15px]",
         active
           ? "border-border bg-secondary-bg text-foreground"
           : "text-muted-foreground hover:border-border hover:bg-secondary-bg/60 hover:text-foreground border-transparent",
@@ -39,13 +42,17 @@ const SidebarItem = ({
 
       <span
         className={cn(
-          "flex size-7 shrink-0 items-center justify-center transition-colors duration-300",
+          "flex size-6 shrink-0 items-center justify-center transition-colors duration-300",
+          "3xl:size-7 xl:size-6.5",
           active
             ? "text-custom-primary"
             : "text-muted-foreground group-hover:text-foreground",
         )}
       >
-        <Icon size={19} strokeWidth={1.8} />
+        <Icon
+          strokeWidth={1.8}
+          className="3xl:size-[19px] size-[16px] xl:size-[17px] 2xl:size-[18px]"
+        />
       </span>
 
       <span className="min-w-0 truncate">{title}</span>

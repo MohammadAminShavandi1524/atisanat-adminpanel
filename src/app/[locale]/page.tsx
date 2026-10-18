@@ -20,7 +20,7 @@ export default function IndexPage({ params }: PageProps<"/[locale]">) {
         descrption={t("header.description")}
       />
 
-      <div className="3xl:px-8 3xl:py-6 flex min-h-0 flex-1 flex-col px-8 py-6 xl:px-5 xl:py-5 2xl:px-6">
+      <div className="3xl:px-8 3xl:py-6 3xl:py-6 flex min-h-0 flex-1 flex-col px-4 py-3 xl:px-5 xl:py-4 2xl:px-6 2xl:py-5">
         <DashboardPage />
       </div>
     </div>

@@ -28,32 +28,34 @@ const ProductCategoryRow = ({
   const t = useTranslations("productCategories");
 
   return (
-    <div className="border-border bg-background hover:border-custom-primary/25 3xl:grid-cols-[80px_minmax(0,1fr)_minmax(0,1fr)_260px] 3xl:px-5 mb-2 grid min-h-16 grid-cols-[80px_minmax(0,1fr)_minmax(0,1fr)_260px] items-center rounded-xl border px-5 transition-colors duration-200 last:mb-0 xl:grid-cols-[60px_minmax(0,1fr)_minmax(0,1fr)_220px] xl:px-4 2xl:grid-cols-[70px_minmax(0,1fr)_minmax(0,1fr)_240px]">
+    <div className="border-border bg-background hover:border-custom-primary/25 3xl:grid-cols-[80px_minmax(0,1fr)_minmax(0,1fr)_260px] 3xl:px-5 mb-2 grid min-h-14 min-w-0 grid-cols-[40px_minmax(0,1fr)_minmax(0,1fr)_148px] items-center rounded-xl border px-[11px] transition-colors duration-200 last:mb-0 xl:min-h-16 xl:grid-cols-[60px_minmax(0,1fr)_minmax(0,1fr)_220px] xl:px-4 2xl:grid-cols-[70px_minmax(0,1fr)_minmax(0,1fr)_240px] 2xl:px-[19px]">
       {/* ID */}
-      <div className="text-muted-foreground text-sm">#{category.id}</div>
+      <div className="text-muted-foreground min-w-0 text-[11px] xl:text-sm">
+        #{category.id}
+      </div>
 
       {/* English Name */}
-      <div className="min-w-0 pe-5">
+      <div className="min-w-0 pe-2 xl:pe-5">
         <span
           lang="en"
-          className="text-foreground block truncate text-sm font-medium"
+          className="text-foreground block truncate text-[12px] font-medium xl:text-sm"
         >
           {category.name_en}
         </span>
       </div>
 
       {/* Persian Name */}
-      <div className="min-w-0 pe-5">
+      <div className="min-w-0 pe-2 xl:pe-5">
         <span
           lang="fa"
-          className="text-foreground font-IRANYekanX block truncate text-sm font-medium"
+          className="text-foreground font-IRANYekanX block truncate text-[12px] font-medium xl:text-sm"
         >
           {category.name_fa}
         </span>
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-2">
+      <div className="flex min-w-0 items-center gap-1.5 xl:gap-2">
         <Link
           href={`/${locale}/products/categories/edit/${category.id}`}
           className={cn(
@@ -61,10 +63,13 @@ const ProductCategoryRow = ({
               intent: "info",
               variant: "soft",
             }),
-            "3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] gap-1.5 px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]",
+            "3xl:h-10 3xl:min-w-[88px] 3xl:text-sm 3xl:px-3.5 h-8 min-w-0 flex-1 gap-1 px-1.5 text-[10px] xl:h-9 xl:min-w-[78px] xl:flex-none xl:gap-1.5 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]",
           )}
         >
-          <Edit className="3xl:size-[17px] size-4" strokeWidth={1.7} />
+          <Edit
+            className="3xl:size-[17px] size-3 shrink-0 xl:size-4"
+            strokeWidth={1.7}
+          />
 
           <span>{t("actions.edit")}</span>
         </Link>
@@ -74,9 +79,12 @@ const ProductCategoryRow = ({
           variant="soft"
           duration={1200}
           onComplete={() => onDelete(category.id)}
-          className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+          className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm 3xl:px-3.5 h-8 min-w-0 flex-1 gap-1 px-1.5 text-[10px] xl:h-9 xl:min-w-[78px] xl:flex-none xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
           leftSection={
-            <Trash className="3xl:size-[17px] size-4" strokeWidth={1.7} />
+            <Trash
+              className="3xl:size-[17px] size-3 shrink-0 xl:size-4"
+              strokeWidth={1.7}
+            />
           }
         >
           {t("actions.delete")}

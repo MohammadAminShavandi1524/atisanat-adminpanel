@@ -1,17 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import {
   BriefcaseBusiness,
   CircleHelp,
+  FolderOpen,
   Handshake,
   Mail,
   Package,
   Table2,
   Tags,
   Wrench,
-  FolderOpen,
   type LucideIcon,
 } from "lucide-react";
 
@@ -20,6 +20,8 @@ import { useLocale, useTranslations } from "next-intl";
 import DashboardStatCard from "./DashboardStatCard";
 
 import { getDashboardStats, type DashboardStats } from "./dashboard.api";
+
+import { useDashboardAnimation } from "./useDashboardAnimation";
 
 interface DashboardItem {
   key: keyof DashboardStats;
@@ -46,9 +48,13 @@ const DashboardPage = () => {
 
   const t = useTranslations("Dashboard");
 
+  const dashboardRef = useRef<HTMLElement>(null);
+
   const [stats, setStats] = useState<DashboardStats>(initialStats);
 
   const [loading, setLoading] = useState(true);
+
+  useDashboardAnimation(dashboardRef, locale);
 
   useEffect(() => {
     let active = true;
@@ -143,14 +149,15 @@ const DashboardPage = () => {
   );
 
   return (
-    <section className="min-w-0">
-      <div className="mb-5 flex items-center justify-between gap-4">
-        <div>
-          <h2 className="text-foreground text-[17px] font-semibold">
+    <section ref={dashboardRef} className="min-w-0">
+      {/* Dashboard Heading */}
+      {/* <div className="dashboard-heading 3xl:mb-5 3xl:gap-4 mb-3 flex items-center justify-between gap-3 2xl:mb-4">
+        <div className="min-w-0">
+          <h2 className="text-foreground 3xl:text-[17px] text-[14px] font-semibold xl:text-[15px] 2xl:text-[16px]">
             {t("stats.title")}
           </h2>
 
-          <p className="text-muted-foreground mt-1 text-[13px]">
+          <p className="text-muted-foreground 3xl:text-[13px] mt-1 text-[11px] xl:text-[12px]">
             {t("stats.description")}
           </p>
         </div>
@@ -161,19 +168,21 @@ const DashboardPage = () => {
             className="border-custom-primary size-5 shrink-0 animate-spin rounded-full border-2 border-t-transparent"
           />
         )}
-      </div>
+      </div> */}
 
-      <div className="grid min-w-0 grid-cols-3 gap-4">
+      {/* Statistics Cards */}
+      <div className="3xl:gap-4 grid min-w-0 grid-cols-3 gap-2.5 2xl:gap-3">
         {items.map((item) => (
-          <DashboardStatCard
-            key={item.key}
-            title={item.title}
-            count={stats[item.key]}
-            href={item.href}
-            addHref={item.addHref}
-            icon={item.icon}
-            loading={loading}
-          />
+          <div key={item.key} className="dashboard-stat-item min-w-0">
+            <DashboardStatCard
+              title={item.title}
+              count={stats[item.key]}
+              href={item.href}
+              addHref={item.addHref}
+              icon={item.icon}
+              loading={loading}
+            />
+          </div>
         ))}
       </div>
     </section>
