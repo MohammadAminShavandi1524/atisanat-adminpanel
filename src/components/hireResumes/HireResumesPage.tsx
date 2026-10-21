@@ -6,11 +6,7 @@ import { BriefcaseBusiness, RefreshCw, SearchX } from "lucide-react";
 
 import { useLocale, useTranslations } from "next-intl";
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
 import HeaderLayout from "@/components/layout/HeaderLayout";
-
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { CustomButton } from "@/components/ui/custom-button";
 
@@ -27,7 +23,7 @@ import { filterHireResumes, toPersianDigits } from "./hire-resumes.utils";
 import HireResumeFilters from "./HireResumeFilters";
 import HireResumeRow from "./HireResumeRow";
 
-gsap.registerPlugin(useGSAP);
+import { useHireResumesPageAnimation } from "./hire-resumes.animations";
 
 const HireResumesPage = () => {
   const locale = useLocale();
@@ -43,6 +39,8 @@ const HireResumesPage = () => {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  useHireResumesPageAnimation(pageRef, locale);
 
   const filteredResumes = useMemo(
     () => filterHireResumes(resumes, filters),
@@ -63,11 +61,9 @@ const HireResumesPage = () => {
 
     try {
       const data = await getHireResumes();
-
       setResumes(data);
     } catch (fetchError) {
       console.error("GET HIRE RESUMES ERROR:", fetchError);
-
       setError(true);
     } finally {
       setLoading(false);
@@ -77,34 +73,6 @@ const HireResumesPage = () => {
   useEffect(() => {
     void fetchResumes();
   }, []);
-
-  useGSAP(
-    () => {
-      if (!pageRef.current) return;
-
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        return;
-      }
-
-      gsap.fromTo(
-        ".hire-resumes-panel",
-        {
-          opacity: 0,
-          y: 18,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power3.out",
-        },
-      );
-    },
-    {
-      scope: pageRef,
-      dependencies: [locale],
-    },
-  );
 
   const totalCount =
     locale === "fa" ? toPersianDigits(resumes.length) : resumes.length;
@@ -118,7 +86,7 @@ const HireResumesPage = () => {
     <div ref={pageRef} className="flex min-h-0 min-w-0 flex-1 flex-col">
       <HeaderLayout title={t("header.title")} descrption="" />
 
-      <div className="3xl:p-8 flex min-h-0 min-w-0 flex-1 flex-col p-5 2xl:p-6">
+      <div className="3xl:p-8 flex min-h-0 min-w-0 flex-1 flex-col p-3 xl:p-5 2xl:p-6">
         <section className="hire-resumes-panel border-border bg-card flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-xl border">
           {/* Filters */}
           <HireResumeFilters
@@ -171,21 +139,21 @@ const HireResumesPage = () => {
           {/* Table */}
           <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
             {/* Table Header */}
-            <div className="hire-resumes-table-header border-border bg-card-secondary shrink-0 border-b ps-[29px] pe-[37px]">
-              <div className="text-muted-foreground grid h-12 grid-cols-[52px_minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1.35fr)_120px_100px] items-center gap-3 text-[13px] font-semibold">
-                <div>{t("table.id")}</div>
+            <div className="hire-resumes-table-header border-border bg-card-secondary 3xl:ps-[29px] 3xl:pe-[37px] shrink-0 border-b ps-[21px] pe-[29px] xl:ps-[25px] xl:pe-[33px] 2xl:ps-[27px] 2xl:pe-[35px]">
+              <div className="text-muted-foreground 3xl:h-12 3xl:grid-cols-[52px_minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1.35fr)_120px_100px] 3xl:gap-3 3xl:text-[13px] grid h-10 min-w-0 grid-cols-[34px_minmax(0,1.45fr)_minmax(0,0.9fr)_minmax(0,1fr)_minmax(0,1.15fr)_88px_68px] items-center gap-1.5 text-[10px] font-semibold xl:h-11 xl:grid-cols-[42px_minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1.35fr)_105px_86px] xl:gap-2 xl:text-[11px] 2xl:h-11.5 2xl:grid-cols-[48px_minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1.35fr)_112px_94px] 2xl:gap-2.5 2xl:text-[12px]">
+                <div className="min-w-0">{t("table.id")}</div>
 
-                <div>{t("table.applicant")}</div>
+                <div className="min-w-0">{t("table.applicant")}</div>
 
-                <div>{t("table.phone")}</div>
+                <div className="min-w-0">{t("table.phone")}</div>
 
-                <div>{t("table.location")}</div>
+                <div className="min-w-0">{t("table.location")}</div>
 
-                <div>{t("table.jobInterest")}</div>
+                <div className="min-w-0">{t("table.jobInterest")}</div>
 
-                <div className="text-center">{t("table.details")}</div>
+                <div className="min-w-0 text-center">{t("table.details")}</div>
 
-                <div className="text-center">{t("table.actions")}</div>
+                <div className="min-w-0 text-center">{t("table.actions")}</div>
               </div>
             </div>
 
@@ -235,7 +203,7 @@ const HireResumesPage = () => {
                 className="min-h-0 min-w-0 flex-1"
                 scrollBarClassName="me-1.75"
               >
-                <div className="space-y-2.5 py-3.5 ps-3 pe-5">
+                <div className="3xl:py-3.5 space-y-2 py-2.5 ps-3 pe-5 xl:space-y-2.5 xl:py-3">
                   {filteredResumes.map((resume, index) => (
                     <HireResumeRow
                       key={resume.id}

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { ArrowDownUp, Search } from "lucide-react";
 
@@ -22,7 +22,7 @@ const Toolbar = ({
   return (
     <div className="flex items-center justify-between gap-5 px-7 pt-7 xl:px-4 xl:pt-4 2xl:px-5 2xl:pt-5 3xl:px-7 3xl:pt-7">
       {/* Search */}
-      <div className="group relative max-w-xl flex-1">
+      <div className="group relative min-w-0 max-w-xl flex-1">
         <Search
           className="text-muted-foreground group-focus-within:text-custom-primary absolute start-4 top-1/2 size-4.5 -translate-y-1/2 transition-colors duration-200"
           strokeWidth={1.7}
@@ -32,7 +32,7 @@ const Toolbar = ({
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           placeholder={t("newsTable.searchPlaceholder")}
-          className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-12 w-full rounded-xl border ps-11 pe-4 text-sm transition-colors duration-200 outline-none"
+          className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary h-10 w-full min-w-0 rounded-xl border ps-10 pe-3 text-[12px] xl:h-11 xl:ps-11 xl:pe-4 xl:text-sm 3xl:h-12 transition-colors duration-200 outline-none"
         />
       </div>
 
@@ -48,7 +48,7 @@ const Toolbar = ({
           onChange={(event) =>
             setSort(event.target.value as "newest" | "oldest")
           }
-          className="border-border bg-background text-foreground focus:border-custom-primary h-12 min-w-[180px] cursor-pointer appearance-none rounded-xl border ps-11 pe-9 text-sm transition-colors duration-200 outline-none"
+          className="border-border bg-background text-foreground focus:border-custom-primary h-10 min-w-[145px] cursor-pointer appearance-none rounded-xl border ps-10 pe-8 text-[12px] xl:h-11 xl:min-w-[180px] xl:ps-11 xl:pe-9 xl:text-sm 3xl:h-12 transition-colors duration-200 outline-none"
         >
           <option value="newest">
             {t("newsTable.newestFirst")}

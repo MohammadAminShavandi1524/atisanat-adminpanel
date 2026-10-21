@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 
@@ -103,7 +103,7 @@ const RootNewsRow = ({ news, parents }: Props) => {
         </div>
 
         {/* Actions */}
-        <div className="3xl:gap-2 flex min-w-0 items-center gap-2 xl:gap-1.5">
+        <div className="3xl:gap-2 flex min-w-0 flex-wrap items-center gap-1 xl:flex-nowrap xl:gap-1.5">
           <Link
             href={`/${locale}/news/root/edit/${news.id}`}
             className={cn(

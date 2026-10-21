@@ -145,7 +145,7 @@ const EditChartCoverUploadField = ({
         className="hidden"
       />
 
-      <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
+      <div className="grid min-w-0 grid-cols-1 gap-3 xl:grid-cols-[170px_minmax(0,1fr)] xl:gap-4 2xl:grid-cols-[190px_minmax(0,1fr)] 3xl:grid-cols-[220px_minmax(0,1fr)] 3xl:gap-5">
         <div
           role="button"
           tabIndex={disabled ? -1 : 0}
@@ -170,7 +170,7 @@ const EditChartCoverUploadField = ({
           }
           onDrop={handleDrop}
           className={cn(
-            "border-border bg-secondary-bg/25 relative aspect-[210/297] overflow-hidden rounded-xl border border-dashed transition-[border-color,background-color] duration-300",
+            "border-border bg-secondary-bg/25 relative aspect-[210/297] w-full max-w-[200px] overflow-hidden rounded-xl xl:max-w-none border border-dashed transition-[border-color,background-color] duration-300",
             disabled
               ? "cursor-not-allowed opacity-70"
               : "hover:border-custom-primary/60 hover:bg-custom-primary/[0.025] cursor-pointer",
@@ -227,7 +227,7 @@ const EditChartCoverUploadField = ({
           )}
         </div>
 
-        <div className="border-border bg-secondary-bg/25 flex min-h-0 flex-col justify-between rounded-xl border p-5">
+        <div className="border-border bg-secondary-bg/25 flex min-h-0 min-w-0 flex-col justify-between rounded-xl border p-3 xl:p-4 3xl:p-5">
           <div>
             <div className="border-border bg-background flex size-11 items-center justify-center rounded-lg border">
               <ImageIcon
@@ -236,11 +236,11 @@ const EditChartCoverUploadField = ({
               />
             </div>
 
-            <h3 className="text-foreground mt-4 text-sm font-semibold">
+            <h3 className="text-foreground mt-3 text-[12px] font-semibold xl:text-[13px] 3xl:mt-4 3xl:text-sm">
               {t("form.image.title")}
             </h3>
 
-            <p className="text-muted-foreground mt-2 max-w-lg text-[13px] leading-6">
+            <p className="text-muted-foreground mt-2 max-w-lg text-[11px] leading-5 xl:text-[12px] 3xl:text-[13px] 3xl:leading-6">
               {t(
                 "form.image.description",
               )}

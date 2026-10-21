@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 
@@ -27,7 +27,7 @@ const CategoryRow = ({ id, label, lang, onDelete }: CategoryRowProps) => {
   return (
     <div
       className={cn(
-        "border-border bg-background relative mb-2 grid min-h-16 w-full grid-cols-4 items-center rounded-xl border px-4",
+        "border-border bg-background relative mb-2 grid min-h-16 min-w-0 w-full grid-cols-4 items-center rounded-xl border px-4",
         "transition-colors duration-200",
         "hover:border-custom-primary/25 hover:bg-secondary-bg/50",
         "last:mb-0",
@@ -57,7 +57,7 @@ const CategoryRow = ({ id, label, lang, onDelete }: CategoryRowProps) => {
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-2.5">
+      <div className="flex min-w-0 flex-wrap items-center gap-1.5 xl:gap-2 3xl:gap-2.5">
         <Link
           href={`/${locale}/news/categories/edit/${lang}/${id}`}
           className={cn(
@@ -65,7 +65,7 @@ const CategoryRow = ({ id, label, lang, onDelete }: CategoryRowProps) => {
               intent: "info",
               variant: "soft",
             }),
-            "3xl:h-10 3xl:text-sm h-10 gap-1.5 px-3.5 text-sm xl:h-9 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px]",
+            "h-8 gap-1 px-2 text-[10px] xl:h-9 xl:gap-1.5 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px] 3xl:h-10 3xl:px-3.5 3xl:text-sm",
           )}
         >
           <Edit className="size-4" strokeWidth={1.7} />
@@ -78,7 +78,7 @@ const CategoryRow = ({ id, label, lang, onDelete }: CategoryRowProps) => {
           variant="soft"
           duration={1200}
           onComplete={onDelete}
-          className="3xl:h-10 3xl:text-sm h-10 px-3.5 text-sm xl:h-9 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px]"
+          className="h-8 px-2 text-[10px] xl:h-9 xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:text-[13px] 3xl:h-10 3xl:px-3.5 3xl:text-sm"
           leftSection={<Trash className="size-4" strokeWidth={1.7} />}
         >
           {t("delete")}

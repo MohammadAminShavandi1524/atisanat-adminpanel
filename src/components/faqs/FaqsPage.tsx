@@ -151,14 +151,14 @@ const FaqsPage = () => {
         descrption={t("header.description")}
       />
 
-      <div className="3xl:px-8 3xl:py-6 flex min-h-0 flex-1 flex-col px-8 py-6 xl:px-5 xl:py-5 2xl:px-6">
-        <section className="faqs-panel border-border bg-card flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border">
+      <div className="3xl:px-8 3xl:py-6 flex min-h-0 min-w-0 flex-1 flex-col px-3 py-3 xl:px-5 xl:py-5 2xl:px-6">
+        <section className="faqs-panel border-border bg-card flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-xl border">
           {/* Toolbar */}
-          <div className="border-border 3xl:p-5 flex shrink-0 items-center border-b p-5 xl:p-4 2xl:p-4.5">
-            <div className="faqs-search 3xl:max-w-[520px] relative w-full max-w-[520px] xl:max-w-[400px] 2xl:max-w-[460px]">
+          <div className="border-border 3xl:p-5 flex shrink-0 items-center border-b p-3 xl:p-4 2xl:p-4.5">
+            <div className="faqs-search 3xl:max-w-[520px] relative min-w-0 w-full max-w-[520px] xl:max-w-[400px] 2xl:max-w-[460px]">
               <Search
                 strokeWidth={1.8}
-                className="text-muted-foreground 3xl:start-4 3xl:size-[19px] pointer-events-none absolute start-4 top-1/2 size-[19px] -translate-y-1/2 xl:start-3.5 xl:size-[17px]"
+                className="text-muted-foreground 3xl:start-4 3xl:size-[19px] pointer-events-none absolute start-3 top-1/2 size-[16px] -translate-y-1/2 xl:start-3.5 xl:size-[17px]"
               />
 
               <input
@@ -167,7 +167,7 @@ const FaqsPage = () => {
                 onChange={(event) => setSearch(event.target.value)}
                 dir={locale === "fa" ? "rtl" : "ltr"}
                 placeholder={t("filters.searchPlaceholder")}
-                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 3xl:h-12 3xl:text-[15px] h-12 w-full rounded-lg border ps-11 pe-4 text-[15px] transition-[border-color,box-shadow] duration-300 outline-none focus:ring-2 xl:h-11 xl:ps-10 xl:pe-3.5 xl:text-[14px] 2xl:h-11.5"
+                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 3xl:h-12 3xl:text-[15px] 3xl:ps-11 3xl:pe-4 h-10 w-full rounded-lg border ps-10 pe-3 text-[12px] transition-[border-color,box-shadow] duration-300 outline-none focus:ring-2 xl:h-11 xl:ps-10 xl:pe-3.5 xl:text-[14px] 2xl:h-11.5"
               />
             </div>
           </div>
@@ -175,8 +175,8 @@ const FaqsPage = () => {
           {/* Table */}
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
             {/* Header */}
-            <div className="faqs-table-header border-border bg-card-secondary 3xl:ps-9 3xl:pe-11 shrink-0 border-b ps-9 pe-11 xl:ps-6 xl:pe-8 2xl:ps-7 2xl:pe-9">
-              <div className="text-muted-foreground 3xl:h-13 3xl:grid-cols-[70px_1.15fr_1.15fr_1.45fr_1.45fr_300px] 3xl:gap-5 3xl:text-sm grid h-13 grid-cols-[70px_1.15fr_1.15fr_1.45fr_1.45fr_300px] items-center gap-5 text-sm font-semibold xl:h-11 xl:grid-cols-[52px_1fr_1fr_1.25fr_1.25fr_250px] xl:gap-3 xl:text-[12px] 2xl:h-12 2xl:grid-cols-[60px_1.1fr_1.1fr_1.35fr_1.35fr_275px] 2xl:gap-4 2xl:text-[13px]">
+            <div className="faqs-table-header border-border bg-card-secondary 3xl:ps-9 3xl:pe-11 shrink-0 border-b ps-9 pe-11 xl:ps-6 xl:pe-8 2xl:ps-7.5 2xl:pe-9">
+              <div className="text-muted-foreground 3xl:h-13 3xl:grid-cols-[70px_1.15fr_1.15fr_1.45fr_1.45fr_300px] 3xl:gap-5 3xl:text-sm grid h-13 grid-cols-[44px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1.2fr)_210px] items-center gap-2 text-[11px] font-semibold xl:h-11 xl:grid-cols-[52px_1fr_1fr_1.25fr_1.25fr_250px] xl:gap-3 xl:text-[12px] 2xl:h-12 2xl:grid-cols-[60px_1.1fr_1.1fr_1.35fr_1.35fr_275px] 2xl:gap-4 2xl:text-[13px]">
                 <div>{t("table.index")}</div>
 
                 <div>{t("table.questionEn")}</div>
@@ -205,7 +205,7 @@ const FaqsPage = () => {
             ) : filteredFaqs.length > 0 ? (
               <ScrollArea
                 dir={locale === "fa" ? "rtl" : "ltr"}
-                className="min-h-0 flex-1"
+                className="min-h-0 min-w-0 flex-1"
                 scrollBarClassName="me-1.75"
               >
                 <div className="3xl:space-y-2.5 3xl:p-4 3xl:pe-6 space-y-2.5 p-4 pe-6 xl:space-y-2 xl:p-3 xl:pe-4.5 2xl:p-3.5 2xl:pe-5">

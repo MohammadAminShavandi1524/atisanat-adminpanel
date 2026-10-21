@@ -42,6 +42,9 @@ export type HireResumeDutyStatus =
 export interface HireResume {
   id: number;
 
+  // Creation timestamp
+  created: string;
+
   // Personal information
   image: string | null;
   first_name: string;

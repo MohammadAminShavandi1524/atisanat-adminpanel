@@ -21,7 +21,7 @@ import StandardTableParentRow from "./StandardTableParentRow";
 gsap.registerPlugin(useGSAP);
 
 const parentTableGridClass =
-  "grid grid-cols-[72px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.45fr)_minmax(0,1.45fr)_290px] items-start gap-5 xl:grid-cols-[60px_minmax(0,0.95fr)_minmax(0,0.95fr)_minmax(0,1.25fr)_minmax(0,1.25fr)_250px] xl:gap-3 2xl:grid-cols-[66px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.35fr)_minmax(0,1.35fr)_270px] 2xl:gap-4 3xl:grid-cols-[72px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.45fr)_minmax(0,1.45fr)_290px] 3xl:gap-5";
+  "grid grid-cols-[42px_minmax(0,0.95fr)_minmax(0,0.95fr)_minmax(0,1fr)_minmax(0,1fr)_180px] items-start gap-1.5 xl:grid-cols-[60px_minmax(0,0.95fr)_minmax(0,0.95fr)_minmax(0,1.25fr)_minmax(0,1.25fr)_250px] xl:gap-3 2xl:grid-cols-[66px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.35fr)_minmax(0,1.35fr)_270px] 2xl:gap-4 3xl:grid-cols-[72px_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.45fr)_minmax(0,1.45fr)_290px] 3xl:gap-5";
 
 const StandardTablesPage = () => {
   const t = useTranslations("StandardTables");
@@ -137,20 +137,20 @@ const StandardTablesPage = () => {
   );
 
   return (
-    <div ref={pageRef} className="flex min-h-0 flex-1 flex-col">
+    <div ref={pageRef} className="flex min-h-0 min-w-0 flex-1 flex-col">
       <HeaderLayout
         title={t("header.title")}
         descrption={t("header.description")}
       />
 
-      <div className="3xl:px-8 3xl:py-6 flex min-h-0 flex-1 flex-col px-8 py-6 xl:px-5 xl:py-5 2xl:px-6">
-        <section className="standard-tables-panel border-border bg-card flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border">
+      <div className="3xl:px-8 3xl:py-6 flex min-h-0 min-w-0 flex-1 flex-col px-3 py-3 xl:px-5 xl:py-5 2xl:px-6">
+        <section className="standard-tables-panel border-border bg-card flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-xl border">
           {/* Toolbar */}
-          <div className="border-border 3xl:p-5 flex shrink-0 items-center border-b p-5 xl:p-4 2xl:p-4.5">
-            <div className="standard-tables-search 3xl:max-w-[520px] relative w-full max-w-[520px] xl:max-w-[400px] 2xl:max-w-[460px]">
+          <div className="border-border 3xl:p-5 flex min-w-0 shrink-0 items-center border-b p-3 xl:p-4 2xl:p-4.5">
+            <div className="standard-tables-search 3xl:max-w-[520px] relative min-w-0 w-full max-w-[520px] xl:max-w-[400px] 2xl:max-w-[460px]">
               <Search
                 strokeWidth={1.8}
-                className="text-muted-foreground 3xl:start-4 3xl:size-[19px] pointer-events-none absolute start-4 top-1/2 size-[19px] -translate-y-1/2 xl:start-3.5 xl:size-[17px]"
+                className="text-muted-foreground 3xl:start-4 3xl:size-[19px] pointer-events-none absolute start-3 top-1/2 size-[16px] -translate-y-1/2 xl:start-3.5 xl:size-[17px]"
               />
 
               <input
@@ -159,7 +159,7 @@ const StandardTablesPage = () => {
                 onChange={(event) => setSearch(event.target.value)}
                 dir={locale === "fa" ? "rtl" : "ltr"}
                 placeholder={t("filters.searchPlaceholder")}
-                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 3xl:h-12 3xl:text-[15px] h-12 w-full rounded-lg border ps-11 pe-4 text-[15px] transition-[border-color,box-shadow] duration-300 outline-none focus:ring-2 xl:h-11 xl:ps-10 xl:pe-3.5 xl:text-[14px] 2xl:h-11.5"
+                className="border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 3xl:h-12 3xl:text-[15px] h-10 w-full min-w-0 rounded-lg border ps-10 pe-3 text-[12px] 3xl:ps-11 3xl:pe-4 transition-[border-color,box-shadow] duration-300 outline-none focus:ring-2 xl:h-11 xl:ps-10 xl:pe-3.5 xl:text-[14px] 2xl:h-11.5"
               />
             </div>
           </div>
@@ -168,10 +168,10 @@ const StandardTablesPage = () => {
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
             {/* Header */}
             <div className="standard-tables-header border-border bg-card-secondary shrink-0 border-b">
-              <div className="3xl:px-8 px-4 xl:px-3 2xl:px-3.5">
-                <div className="3xl:py-4 py-4 xl:py-3">
+              <div className="px-4 xl:px-6 2xl:px-7 3xl:px-8">
+                <div className="3xl:py-4 py-3 xl:py-3">
                   <div
-                    className={`${parentTableGridClass} text-muted-foreground 3xl:text-sm text-sm font-semibold xl:text-[12px] 2xl:text-[13px]`}
+                    className={`${parentTableGridClass} text-muted-foreground 3xl:text-sm text-[10px] font-semibold xl:text-[12px] 2xl:text-[13px]`}
                   >
                     <div>{t("table.cover")}</div>
 
@@ -202,10 +202,10 @@ const StandardTablesPage = () => {
             ) : filteredItems.length > 0 ? (
               <ScrollArea
                 dir={locale === "fa" ? "rtl" : "ltr"}
-                className="min-h-0 flex-1"
+                className="min-h-0 min-w-0 flex-1"
                 scrollBarClassName="me-1.75"
               >
-                <div className="3xl:space-y-3 3xl:p-4 space-y-3 p-4 xl:space-y-2.5 xl:p-3 2xl:p-3.5">
+                <div className="3xl:space-y-3 3xl:p-4 space-y-2 p-2 xl:space-y-2.5 xl:p-3 2xl:p-3.5">
                   {filteredItems.map((item, index) => (
                     <StandardTableParentRow
                       key={item.id}

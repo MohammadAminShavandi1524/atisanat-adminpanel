@@ -233,5 +233,22 @@ export const filterHireResumes = (
 
       return true;
     })
-    .sort((a, b) => (filters.sort === "newest" ? b.id - a.id : a.id - b.id));
+    .sort((a, b) => {
+      const dateA = Date.parse(a.created);
+      const dateB = Date.parse(b.created);
+
+      // Keep ordering deterministic if a timestamp is missing or invalid.
+      const timeA = Number.isNaN(dateA) ? 0 : dateA;
+      const timeB = Number.isNaN(dateB) ? 0 : dateB;
+
+      const comparison =
+        filters.sort === "newest" ? timeB - timeA : timeA - timeB;
+
+      if (comparison !== 0) {
+        return comparison;
+      }
+
+      // Use ID only when creation timestamps are equal.
+      return filters.sort === "newest" ? b.id - a.id : a.id - b.id;
+    });
 };

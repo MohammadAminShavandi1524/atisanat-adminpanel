@@ -104,8 +104,8 @@ const EditChartPdfUploadField = ({
       />
 
       {!value ? (
-        <div className="border-border bg-secondary-bg/25 rounded-xl border p-5">
-          <div className="flex items-center gap-4">
+        <div className="border-border bg-secondary-bg/25 rounded-xl border p-3 xl:p-4 3xl:p-5">
+          <div className="flex min-w-0 items-center gap-2 xl:gap-3 3xl:gap-4">
             <div className="border-border bg-background flex size-12 shrink-0 items-center justify-center rounded-xl border">
               <FileText
                 size={21}
@@ -181,8 +181,8 @@ const EditChartPdfUploadField = ({
           </div>
         </div>
       ) : (
-        <div className="border-border bg-secondary-bg/25 rounded-xl border p-5">
-          <div className="flex items-center gap-4">
+        <div className="border-border bg-secondary-bg/25 rounded-xl border p-3 xl:p-4 3xl:p-5">
+          <div className="flex min-w-0 items-center gap-2 xl:gap-3 3xl:gap-4">
             <div className="border-border bg-background flex size-12 shrink-0 items-center justify-center rounded-xl border">
               <FileText
                 size={21}
@@ -192,7 +192,7 @@ const EditChartPdfUploadField = ({
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="text-foreground truncate text-[14px] font-medium">
+              <p className="text-foreground truncate text-[12px] font-medium xl:text-[13px] 3xl:text-[14px]">
                 {value.name}
               </p>
 

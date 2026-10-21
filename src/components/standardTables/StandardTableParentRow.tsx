@@ -40,7 +40,7 @@ interface StandardTableParentRowProps {
 }
 
 const childTableGridClass =
-  "grid grid-cols-[minmax(0,1.15fr)_minmax(0,1.15fr)_110px_250px] items-start gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_88px_210px] xl:gap-3 2xl:grid-cols-[minmax(0,1.05fr)_minmax(0,1.05fr)_96px_225px] 2xl:gap-4 3xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1.15fr)_110px_250px] 3xl:gap-5";
+  "grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_48px_180px] items-start gap-1.5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_88px_210px] xl:gap-3 2xl:grid-cols-[minmax(0,1.05fr)_minmax(0,1.05fr)_96px_225px] 2xl:gap-4 3xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1.15fr)_110px_250px] 3xl:gap-5";
 
 const StandardTableParentRow = ({
   item,
@@ -155,11 +155,11 @@ const StandardTableParentRow = ({
       className="border-border bg-background overflow-hidden rounded-xl border"
     >
       {/* Parent Row */}
-      <div className="3xl:px-4 3xl:py-4 px-4 py-4 xl:px-3 xl:py-3 2xl:px-3.5">
+      <div className="3xl:px-4 3xl:py-4 px-2 py-2.5 xl:px-3 xl:py-3 2xl:px-3.5">
         <div className={cn(parentTableGridClass , "items-center")  }>
           {/* Cover */}
           <div className="flex items-start">
-            <div className="border-border bg-card 3xl:h-20 3xl:w-[60px] relative h-20 w-[60px] shrink-0 overflow-hidden rounded-lg border xl:h-[72px] xl:w-[54px] 2xl:h-[76px] 2xl:w-[57px]">
+            <div className="border-border bg-card 3xl:h-20 3xl:w-[60px] relative h-[56px] w-[42px] shrink-0 overflow-hidden rounded-lg border xl:h-[72px] xl:w-[54px] 2xl:h-[76px] 2xl:w-[57px]">
               <Image
                 src={item.image}
                 alt={item.name_en}
@@ -172,34 +172,34 @@ const StandardTableParentRow = ({
 
           {/* Name EN */}
           <div className="min-w-0">
-            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-sm leading-7 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
+            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-[10px] leading-4 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
               {item.name_en}
             </p>
           </div>
 
           {/* Name FA */}
           <div className="min-w-0">
-            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-sm leading-7 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
+            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-[10px] leading-4 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
               {item.name_fa}
             </p>
           </div>
 
           {/* Description EN */}
           <div className="min-w-0">
-            <p className="text-muted-foreground 3xl:text-sm 3xl:leading-7 text-sm leading-7 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
+            <p className="text-muted-foreground 3xl:text-sm 3xl:leading-7 text-[10px] leading-4 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
               {item.description_en}
             </p>
           </div>
 
           {/* Description FA */}
           <div className="min-w-0">
-            <p className="text-muted-foreground 3xl:text-sm 3xl:leading-7 text-sm leading-7 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
+            <p className="text-muted-foreground 3xl:text-sm 3xl:leading-7 text-[10px] leading-4 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
               {item.description_fa}
             </p>
           </div>
 
           {/* Actions */}
-          <div className="flex items-start justify-center gap-2">
+          <div className="flex min-w-0 items-center justify-center gap-1 xl:gap-2">
             <CustomButton
               type="button"
               variant="outline"
@@ -208,17 +208,17 @@ const StandardTableParentRow = ({
               rightSection={
                 open ? (
                   <ChevronUp
-                    className="3xl:size-[17px] size-4"
+                    className="3xl:size-[17px] size-3 xl:size-3.5"
                     strokeWidth={1.8}
                   />
                 ) : (
                   <ChevronDown
-                    className="3xl:size-[17px] size-4"
+                    className="3xl:size-[17px] size-3 xl:size-3.5"
                     strokeWidth={1.8}
                   />
                 )
               }
-              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-8 min-w-0 px-1 text-[9px] xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
             >
               {open ? t("actions.less") : t("actions.more")}
             </CustomButton>
@@ -233,9 +233,9 @@ const StandardTableParentRow = ({
                 );
               }}
               leftSection={
-                <Pencil className="3xl:size-[17px] size-4" strokeWidth={1.8} />
+                <Pencil className="3xl:size-[17px] size-3 xl:size-3.5" strokeWidth={1.8} />
               }
-              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-8 min-w-0 px-1 text-[9px] xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
             >
               {t("actions.edit")}
             </CustomButton>
@@ -247,9 +247,9 @@ const StandardTableParentRow = ({
               duration={800}
               onComplete={handleDeleteParent}
               leftSection={
-                <Trash2 className="3xl:size-[17px] size-4" strokeWidth={1.8} />
+                <Trash2 className="3xl:size-[17px] size-3 xl:size-3.5" strokeWidth={1.8} />
               }
-              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-8 min-w-0 px-1 text-[9px] xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
             >
               {t("actions.delete")}
             </CustomHoldButton>
@@ -260,7 +260,7 @@ const StandardTableParentRow = ({
       {/* Children */}
       {open && (
         <div className="border-border border-t">
-          <div className="3xl:px-4 3xl:py-4 px-4 py-4 xl:px-3 xl:py-3 2xl:px-3.5">
+          <div className="3xl:px-4 3xl:py-4 px-2 py-2.5 xl:px-3 xl:py-3 2xl:px-3.5">
             {childrenLoading ? (
               <div className="flex items-center justify-center py-8">
                 <div className="flex items-center gap-3">
@@ -288,9 +288,9 @@ const StandardTableParentRow = ({
             ) : (
               <>
                 <div className="border-border bg-card-secondary rounded-lg border">
-                  <div className="3xl:px-4 3xl:py-4 px-4 py-4 xl:px-3 xl:py-3 2xl:px-3.5">
+                  <div className="3xl:px-4 3xl:py-4 px-2 py-2.5 xl:px-3 xl:py-3 2xl:px-3.5">
                     <div
-                      className={`${childTableGridClass} text-muted-foreground 3xl:text-sm text-sm font-semibold xl:text-[12px] 2xl:text-[13px]`}
+                      className={`${childTableGridClass} text-muted-foreground 3xl:text-sm text-[10px] font-semibold xl:text-[12px] 2xl:text-[13px]`}
                     >
                       <div>{t("children.table.nameEn")}</div>
                       <div>{t("children.table.nameFa")}</div>
@@ -302,40 +302,40 @@ const StandardTableParentRow = ({
                   </div>
                 </div>
 
-                <div className="3xl:mt-3 mt-3 space-y-3 xl:mt-2.5 xl:space-y-2.5">
+                <div className="3xl:mt-3 mt-2 space-y-2 xl:mt-2.5 xl:space-y-2.5">
                   {children.map((child) => (
                     <div
                       key={child.id}
                       className="border-border bg-card rounded-lg border"
                     >
-                      <div className="3xl:px-4 3xl:py-4 px-4 py-4 xl:px-3 xl:py-3 2xl:px-3.5">
+                      <div className="3xl:px-4 3xl:py-4 px-2 py-2.5 xl:px-3 xl:py-3 2xl:px-3.5">
                         <div className={cn(childTableGridClass,"items-center")  }>
                           <div className="min-w-0">
-                            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-sm leading-7 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
+                            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-[10px] leading-4 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
                               {child.name_en}
                             </p>
                           </div>
 
                           <div className="min-w-0">
-                            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-sm leading-7 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
+                            <p className="text-foreground 3xl:text-sm 3xl:leading-7 text-[10px] leading-4 break-words xl:text-[12px] xl:leading-6 2xl:text-[13px]">
                               {child.name_fa}
                             </p>
                           </div>
 
                           <div>
-                            <p className="text-foreground 3xl:text-sm text-sm font-medium xl:text-[12px] 2xl:text-[13px]">
+                            <p className="text-foreground 3xl:text-sm text-[10px] font-medium xl:text-[12px] 2xl:text-[13px]">
                               {child.size}
                             </p>
                           </div>
 
-                          <div className="flex items-start justify-end gap-2">
+                          <div className="flex min-w-0 items-center justify-end gap-1 xl:gap-2">
                             <CustomButton
                               type="button"
                               variant="outline"
                               intent="secondary"
                               onClick={() => window.open(child.file, "_blank")}
                             
-                              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+                              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-8 min-w-0 px-1 text-[9px] xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
                             >
                               {t("actions.download")}
                             </CustomButton>
@@ -351,11 +351,11 @@ const StandardTableParentRow = ({
                               }}
                               leftSection={
                                 <Pencil
-                                  className="3xl:size-[17px] size-4"
+                                  className="3xl:size-[17px] size-3 xl:size-3.5"
                                   strokeWidth={1.8}
                                 />
                               }
-                              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+                              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-8 min-w-0 px-1 text-[9px] xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
                             >
                               {t("actions.edit")}
                             </CustomButton>
@@ -368,11 +368,11 @@ const StandardTableParentRow = ({
                               onComplete={() => handleDeleteChild(child.id)}
                               leftSection={
                                 <Trash2
-                                  className="3xl:size-[17px] size-4"
+                                  className="3xl:size-[17px] size-3 xl:size-3.5"
                                   strokeWidth={1.8}
                                 />
                               }
-                              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-10 min-w-[88px] px-3.5 text-sm xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
+                              className="3xl:h-10 3xl:min-w-[88px] 3xl:text-sm h-8 min-w-0 px-1 text-[9px] xl:h-9 xl:min-w-[78px] xl:px-3 xl:text-[12px] 2xl:h-9.5 2xl:min-w-[82px] 2xl:text-[13px]"
                             >
                               {t("actions.delete")}
                             </CustomHoldButton>

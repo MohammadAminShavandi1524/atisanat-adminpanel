@@ -1,8 +1,11 @@
 "use client";
 
 import { useMemo } from "react";
+
 import { ArrowDownUp, RotateCcw, Search } from "lucide-react";
+
 import { useLocale, useTranslations } from "next-intl";
+
 import { CustomButton } from "@/components/ui/custom-button";
 
 import {
@@ -124,38 +127,53 @@ const HireResumeFilters = ({
   };
 
   const selectClassName =
-    "border-border bg-background text-foreground focus:border-custom-primary focus:ring-custom-primary/10 h-11 w-full min-w-0 cursor-pointer rounded-lg border px-3 text-[13px] outline-none transition-[border-color,box-shadow] duration-300 focus:ring-2";
+    "border-border bg-background text-foreground focus:border-custom-primary focus:ring-custom-primary/10 h-9 w-full min-w-0 cursor-pointer rounded-lg border px-2 text-[11px] outline-none transition-[border-color,box-shadow] duration-300 focus:ring-2 xl:h-10 xl:px-2.5 xl:text-[12px] 3xl:h-11 3xl:px-3 3xl:text-[13px]";
 
   const inputClassName =
-    "border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 h-11 w-full min-w-0 rounded-lg border px-3 text-[13px] outline-none transition-[border-color,box-shadow] duration-300 focus:ring-2";
+    "border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 h-9 w-full min-w-0 rounded-lg border px-2 text-[11px] outline-none transition-[border-color,box-shadow] duration-300 focus:ring-2 xl:h-10 xl:px-2.5 xl:text-[12px] 3xl:h-11 3xl:px-3 3xl:text-[13px]";
+
+  // Search has independent start/end padding to avoid px-* conflicts.
+  const searchInputClassName =
+    "border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-custom-primary focus:ring-custom-primary/10 block h-9 w-full min-w-0 rounded-lg border ps-10 pe-3 text-[11px] outline-none transition-[border-color,box-shadow] duration-300 focus:ring-2 xl:h-10 xl:text-[12px] 3xl:h-11 3xl:text-[13px]";
 
   return (
-    <div className="border-border bg-card shrink-0 border-b p-4 2xl:p-5">
-      <div className="flex min-w-0 items-center gap-3">
+    <div className="border-border bg-card shrink-0 border-b p-3 xl:p-4 2xl:p-5">
+      {/* Search and Actions */}
+      <div className="flex min-w-0 items-center gap-2 xl:gap-3">
+        {/* Search */}
         <div className="relative min-w-0 flex-1">
-          <Search
-            strokeWidth={1.8}
-            className="text-muted-foreground pointer-events-none absolute start-3.5 top-1/2 size-[18px] -translate-y-1/2"
-          />
+          <span className="pointer-events-none absolute inset-y-0 start-0 z-10 flex w-10 items-center justify-center">
+            <Search
+              className="text-muted-foreground block size-[18px] shrink-0"
+              strokeWidth={1.8}
+              aria-hidden="true"
+            />
+          </span>
 
           <input
             type="search"
             value={filters.search}
             onChange={(event) => setFilter("search", event.target.value)}
             placeholder={t("searchPlaceholder")}
-            className={`${inputClassName} ps-10`}
+            className={searchInputClassName}
           />
         </div>
 
-        <div className="flex shrink-0 items-center gap-2.5">
+        {/* Sort and Reset */}
+        <div className="flex shrink-0 items-center gap-1.5 xl:gap-2.5">
           <CustomButton
             type="button"
             variant="outline"
             intent="secondary"
             size="lg"
             onClick={handleSort}
-            leftSection={<ArrowDownUp size={17} strokeWidth={1.8} />}
-            className="h-11 shrink-0 px-4 text-[13px]"
+            leftSection={
+              <ArrowDownUp
+                className="3xl:size-[17px] size-3.5 shrink-0"
+                strokeWidth={1.8}
+              />
+            }
+            className="3xl:h-11 3xl:px-4 3xl:text-[13px] h-9 shrink-0 gap-1 px-2 text-[11px] xl:h-10 xl:px-3 xl:text-[12px]"
           >
             {filters.sort === "newest" ? t("newestFirst") : t("oldestFirst")}
           </CustomButton>
@@ -163,19 +181,25 @@ const HireResumeFilters = ({
           <button
             type="button"
             onClick={handleReset}
-            className="bg-custom-primary text-primary-foreground inline-flex h-11 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-lg px-4 text-[13px] font-medium transition-opacity duration-300 hover:opacity-90"
+            className="bg-custom-primary text-primary-foreground 3xl:h-11 3xl:gap-2 3xl:px-4 3xl:text-[13px] inline-flex h-9 shrink-0 cursor-pointer items-center justify-center gap-1 rounded-lg px-2 text-[11px] font-medium transition-opacity duration-300 hover:opacity-90 xl:h-10 xl:gap-1.5 xl:px-3 xl:text-[12px]"
           >
-            <RotateCcw size={15} strokeWidth={1.8} />
+            <RotateCcw
+              className="3xl:size-[15px] size-3.5 shrink-0"
+              strokeWidth={1.8}
+            />
+
             {t("reset")}
           </button>
         </div>
       </div>
 
-      <div className="mt-3 grid min-w-0 grid-cols-5 gap-3">
+      {/* Filters */}
+      <div className="mt-2.5 grid min-w-0 grid-cols-3 gap-2.5 xl:mt-3 xl:grid-cols-5 xl:gap-3">
+        {/* Province */}
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-province"
-            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
+            className="text-muted-foreground 3xl:mb-1.5 3xl:text-xs mb-1 block ps-1.5 text-[11px]"
           >
             {t("province")}
           </label>
@@ -196,10 +220,11 @@ const HireResumeFilters = ({
           </select>
         </div>
 
+        {/* City */}
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-city"
-            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
+            className="text-muted-foreground 3xl:mb-1.5 3xl:text-xs mb-1 block ps-1.5 text-[11px]"
           >
             {t("city")}
           </label>
@@ -223,10 +248,11 @@ const HireResumeFilters = ({
           </select>
         </div>
 
+        {/* Duty Status */}
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-duty-status"
-            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
+            className="text-muted-foreground 3xl:mb-1.5 3xl:text-xs mb-1 block ps-1.5 text-[11px]"
           >
             {t("dutyStatus")}
           </label>
@@ -247,10 +273,11 @@ const HireResumeFilters = ({
           </select>
         </div>
 
+        {/* Work Experience */}
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-work-experience"
-            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
+            className="text-muted-foreground 3xl:mb-1.5 3xl:text-xs mb-1 block ps-1.5 text-[11px]"
           >
             {t("workExperience")}
           </label>
@@ -274,10 +301,11 @@ const HireResumeFilters = ({
           </select>
         </div>
 
+        {/* Job Interest */}
         <div className="min-w-0">
           <label
             htmlFor="hire-resume-job-interest"
-            className="text-muted-foreground mb-1.5 block text-xs ps-1.5"
+            className="text-muted-foreground 3xl:mb-1.5 3xl:text-xs mb-1 block ps-1.5 text-[11px]"
           >
             {t("jobInterest")}
           </label>

@@ -47,78 +47,24 @@ interface RepeatedSectionProps<T> {
 }
 
 const selectLabels: Record<string, { fa: string; en: string }> = {
-  islam: {
-    fa: "اسلام",
-    en: "Islam",
-  },
-  christianity: {
-    fa: "مسیحیت",
-    en: "Christianity",
-  },
-  judaism: {
-    fa: "یهودیت",
-    en: "Judaism",
-  },
-  zoroastrianism: {
-    fa: "زرتشتی",
-    en: "Zoroastrianism",
-  },
-  shia: {
-    fa: "شیعه",
-    en: "Shia",
-  },
-  sunni: {
-    fa: "سنی",
-    en: "Sunni",
-  },
-  child: {
-    fa: "فرزند",
-    en: "Child",
-  },
-  spouse: {
-    fa: "همسر",
-    en: "Spouse",
-  },
-  father: {
-    fa: "پدر",
-    en: "Father",
-  },
-  mother: {
-    fa: "مادر",
-    en: "Mother",
-  },
-  brother: {
-    fa: "برادر",
-    en: "Brother",
-  },
-  sister: {
-    fa: "خواهر",
-    en: "Sister",
-  },
-  beginner: {
-    fa: "مبتدی",
-    en: "Beginner",
-  },
-  basic: {
-    fa: "پایه",
-    en: "Basic",
-  },
-  intermediate: {
-    fa: "متوسط",
-    en: "Intermediate",
-  },
-  advanced: {
-    fa: "پیشرفته",
-    en: "Advanced",
-  },
-  fluent: {
-    fa: "روان",
-    en: "Fluent",
-  },
-  native: {
-    fa: "زبان مادری",
-    en: "Native",
-  },
+  islam: { fa: "اسلام", en: "Islam" },
+  christianity: { fa: "مسیحیت", en: "Christianity" },
+  judaism: { fa: "یهودیت", en: "Judaism" },
+  zoroastrianism: { fa: "زرتشتی", en: "Zoroastrianism" },
+  shia: { fa: "شیعه", en: "Shia" },
+  sunni: { fa: "سنی", en: "Sunni" },
+  child: { fa: "فرزند", en: "Child" },
+  spouse: { fa: "همسر", en: "Spouse" },
+  father: { fa: "پدر", en: "Father" },
+  mother: { fa: "مادر", en: "Mother" },
+  brother: { fa: "برادر", en: "Brother" },
+  sister: { fa: "خواهر", en: "Sister" },
+  beginner: { fa: "مبتدی", en: "Beginner" },
+  basic: { fa: "پایه", en: "Basic" },
+  intermediate: { fa: "متوسط", en: "Intermediate" },
+  advanced: { fa: "پیشرفته", en: "Advanced" },
+  fluent: { fa: "روان", en: "Fluent" },
+  native: { fa: "زبان مادری", en: "Native" },
 };
 
 const DetailField = ({
@@ -129,12 +75,12 @@ const DetailField = ({
 }: DetailFieldProps) => {
   return (
     <div className={`min-w-0 ${wide ? "col-span-2" : ""}`}>
-      <dt className="text-muted-foreground mb-1.5 text-[12px] leading-5">
+      <dt className="text-muted-foreground 3xl:mb-1.5 3xl:text-[12px] mb-1 text-[11px] leading-5">
         {label}
       </dt>
 
       <dd
-        className={`m-0 text-[13px] leading-7 wrap-break-word whitespace-pre-wrap ${
+        className={`3xl:text-[13px] 3xl:leading-7 m-0 text-[12px] leading-6 wrap-break-word whitespace-pre-wrap ${
           empty
             ? "text-muted-foreground font-normal"
             : "text-foreground font-medium"
@@ -154,14 +100,18 @@ const DetailSection = ({
   return (
     <section
       className={`border-border bg-background min-w-0 overflow-hidden rounded-xl border ${
-        fullWidth ? "col-span-2" : ""
+        fullWidth ? "xl:col-span-2" : ""
       }`}
     >
-      <div className="border-border bg-card-secondary border-b px-5 py-3.5">
-        <h3 className="text-foreground text-[14px] font-semibold">{title}</h3>
+      <div className="border-border bg-card-secondary 3xl:px-5 3xl:py-3.5 border-b px-3 py-2.5 xl:px-4 2xl:py-3">
+        <h3 className="text-foreground 3xl:text-[14px] text-[12px] font-semibold xl:text-[13px]">
+          {title}
+        </h3>
       </div>
 
-      <dl className="grid grid-cols-2 gap-x-6 gap-y-5 p-5">{children}</dl>
+      <dl className="3xl:gap-x-6 3xl:gap-y-5 3xl:p-5 grid grid-cols-2 gap-x-3 gap-y-3 p-3 xl:gap-x-4 xl:gap-y-4 xl:p-4">
+        {children}
+      </dl>
     </section>
   );
 };
@@ -181,11 +131,13 @@ const RepeatedSection = <T,>({
   return (
     <section
       className={`border-border bg-background min-w-0 overflow-hidden rounded-xl border ${
-        fullWidth ? "col-span-2" : ""
+        fullWidth ? "xl:col-span-2" : ""
       }`}
     >
-      <div className="border-border bg-card-secondary flex items-center justify-between gap-4 border-b px-5 py-3.5">
-        <h3 className="text-foreground text-[14px] font-semibold">{title}</h3>
+      <div className="border-border bg-card-secondary 3xl:gap-4 3xl:px-5 3xl:py-3.5 flex items-center justify-between gap-3 border-b px-3 py-2.5 xl:px-4 2xl:py-3">
+        <h3 className="text-foreground 3xl:text-[14px] text-[12px] font-semibold xl:text-[13px]">
+          {title}
+        </h3>
 
         <span className="border-border bg-background text-muted-foreground inline-flex min-w-7 items-center justify-center rounded-md border px-2 py-1 text-xs">
           {formatIndex(items.length)}
@@ -193,24 +145,24 @@ const RepeatedSection = <T,>({
       </div>
 
       {items.length === 0 ? (
-        <p className="text-muted-foreground px-5 py-6 text-[13px] leading-6">
+        <p className="text-muted-foreground 3xl:px-5 3xl:py-6 3xl:text-[13px] 3xl:leading-6 px-3 py-4 text-[12px] leading-5 xl:px-4">
           {emptyLabel}
         </p>
       ) : (
         <div className="divide-border divide-y">
           {items.map((item, index) => (
-            <div key={index} className="p-5">
-              <div className="mb-5 flex items-center gap-3">
+            <div key={index} className="3xl:p-5 p-3 xl:p-4">
+              <div className="3xl:mb-5 3xl:gap-3 mb-3 flex items-center gap-2 xl:mb-4">
                 <span className="bg-custom-primary/10 text-custom-primary inline-flex size-7 shrink-0 items-center justify-center rounded-lg text-xs font-semibold">
                   {formatIndex(index + 1)}
                 </span>
 
-                <h4 className="text-foreground text-[13px] font-semibold">
+                <h4 className="text-foreground 3xl:text-[13px] text-[12px] font-semibold">
                   {itemLabel}
                 </h4>
               </div>
 
-              <dl className="grid grid-cols-2 gap-x-6 gap-y-5">
+              <dl className="3xl:gap-x-6 3xl:gap-y-5 grid grid-cols-2 gap-x-3 gap-y-3 xl:gap-x-4 xl:gap-y-4">
                 {renderItem(item, index)}
               </dl>
             </div>
@@ -263,13 +215,13 @@ const HireResumeDetails = ({ resume }: HireResumeDetailsProps) => {
   const imageUrl = resume.image?.trim();
 
   return (
-    <div className="border-border bg-card-secondary/30 min-w-0 border-t p-5">
-      <div className="grid grid-cols-2 items-start gap-4">
+    <div className="border-border bg-card-secondary/30 3xl:p-5 min-w-0 border-t p-3 xl:p-4">
+      <div className="grid grid-cols-1 items-start gap-3 xl:grid-cols-2 xl:gap-4">
         {/* Personal information */}
         <DetailSection title={t("personal.title")}>
-          <div className="col-span-2 mb-1 flex items-start gap-5">
+          <div className="3xl:gap-5 col-span-2 mb-1 flex items-start gap-3">
             <div className="min-w-0 flex-1">
-              <p className="text-foreground text-[17px] leading-7 font-semibold wrap-break-word">
+              <p className="text-foreground 3xl:text-[17px] 3xl:leading-7 text-[14px] leading-6 font-semibold wrap-break-word">
                 {fullName || text(null)}
               </p>
 
@@ -277,7 +229,7 @@ const HireResumeDetails = ({ resume }: HireResumeDetailsProps) => {
                 {t("personal.nationalCode")}
               </p>
 
-              <p className="text-foreground mt-1 text-[14px] font-medium">
+              <p className="text-foreground 3xl:text-[14px] mt-1 text-[13px] font-medium">
                 {text(resume.national_code)}
               </p>
             </div>
@@ -289,7 +241,7 @@ const HireResumeDetails = ({ resume }: HireResumeDetailsProps) => {
                 rel="noopener noreferrer"
                 aria-label={fullName || t("personal.title")}
                 title={fullName || t("personal.title")}
-                className="border-border bg-card-secondary hover:border-custom-primary/60 block w-[105px] shrink-0 overflow-hidden rounded-xl border p-1.5 transition-colors"
+                className="border-border bg-card-secondary hover:border-custom-primary/60 3xl:w-[105px] block w-[80px] shrink-0 overflow-hidden rounded-xl border p-1.5 transition-colors xl:w-[90px]"
               >
                 <div className="flex aspect-[3/4] items-center justify-center overflow-hidden rounded-lg">
                   <img
@@ -301,7 +253,7 @@ const HireResumeDetails = ({ resume }: HireResumeDetailsProps) => {
                 </div>
               </a>
             ) : (
-              <div className="border-border bg-card-secondary text-muted-foreground flex aspect-[3/4] w-[105px] shrink-0 items-center justify-center rounded-xl border px-3 text-center text-xs leading-5">
+              <div className="border-border bg-card-secondary text-muted-foreground 3xl:w-[105px] flex aspect-[3/4] w-[80px] shrink-0 items-center justify-center rounded-xl border px-3 text-center text-xs leading-5 xl:w-[90px]">
                 {text(null)}
               </div>
             )}

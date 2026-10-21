@@ -117,7 +117,7 @@ const ChartPdfUploadField = ({
           onDragOver={(event) => event.preventDefault()}
           onDrop={handleDrop}
           className={cn(
-            "border-border bg-secondary-bg/25 flex min-h-[170px] flex-col items-center justify-center rounded-xl border border-dashed px-8 py-7 text-center transition-[border-color,background-color] duration-300",
+            "border-border bg-secondary-bg/25 flex min-h-[170px] flex-col items-center justify-center rounded-xl border border-dashed px-3 py-5 text-center xl:px-6 3xl:px-8 3xl:py-7 transition-[border-color,background-color] duration-300",
             disabled
               ? "cursor-not-allowed opacity-60"
               : "hover:border-custom-primary/60 hover:bg-custom-primary/[0.025] cursor-pointer",

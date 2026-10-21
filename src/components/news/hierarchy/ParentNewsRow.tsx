@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 
@@ -174,7 +174,7 @@ const ParentNewsRow = ({
     <motion.div className="min-w-0">
       {/* Parent */}
       <div className="border-border bg-background hover:border-custom-primary/25 hover:bg-secondary-bg/50 relative min-w-0 rounded-xl border px-5 py-4 transition-colors duration-200 xl:px-3 xl:py-3 2xl:px-4 2xl:py-3.5 3xl:px-5 3xl:py-4">
-        <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-5 xl:gap-3 2xl:gap-4 3xl:gap-5">
+        <div className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center gap-2 xl:grid-cols-[minmax(0,1fr)_auto] xl:gap-3 2xl:gap-4 3xl:gap-5">
           {/* Content */}
           <div className="flex min-w-0 items-center gap-4 xl:gap-2.5 2xl:gap-3 3xl:gap-4">
             <div className="border-border bg-secondary-bg flex size-10 shrink-0 items-center justify-center rounded-lg border xl:size-8 2xl:size-9 3xl:size-10">
@@ -262,7 +262,7 @@ const ParentNewsRow = ({
           </div>
 
           {/* Actions */}
-          <div className="flex shrink-0 items-center gap-2 xl:gap-1.5 3xl:gap-2">
+          <div className="flex min-w-0 flex-wrap items-center justify-end gap-1 xl:shrink-0 xl:flex-nowrap xl:gap-1.5 3xl:gap-2">
             <Link
               href={`/${locale}/news/parent/edit/${news.id}`}
               className={cn(
