@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 
-import { LogIn } from "lucide-react";
+import { Eye, EyeOff, LogIn } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -22,6 +22,7 @@ export default function LoginForm() {
   const t = useTranslations("Login");
 
   const isRTL = locale === "fa";
+  const [showPassword, setShowPassword] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const errorRef = useRef<HTMLDivElement>(null);
@@ -114,15 +115,29 @@ export default function LoginForm() {
             />
           </div>
 
-          <div className="login-field">
+          <div className="login-field relative">
             <FormField
               label={t("password")}
-              type="password"
+              type={showPassword ? "text" : "password"}
               autoComplete="current-password"
               placeholder={t("passwordPlaceholder")}
               register={register("password")}
               error={errors.password}
             />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              aria-pressed={showPassword}
+              className="text-muted-foreground hover:text-foreground absolute end-3 bottom-3 z-10 flex size-8 cursor-pointer items-center justify-center rounded-md transition-colors"
+            >
+              {showPassword ? (
+                <EyeOff className="size-4.5 mt-1.5" strokeWidth={1.8} />
+              ) : (
+                <Eye className="size-4.5 mt-1.5" strokeWidth={1.8} />
+              )}
+            </button>
           </div>
 
           {/* Server Error */}
